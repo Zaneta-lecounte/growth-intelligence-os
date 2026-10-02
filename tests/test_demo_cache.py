@@ -11,6 +11,8 @@ def test_offline_demo_cache_is_fresh(tmp_path, monkeypatch):
         builder(False)
     built = sorted(p.name for p in tmp_path.glob("*.json"))
     assert built, "no demo files built"
+    committed_files = sorted(p.name for p in (config.ROOT / "demo").glob("*.json"))
+    assert committed_files == built, "demo/ has stale or missing files; run scripts/build_demo_cache.py"
     for name in built:
         committed = config.ROOT / "demo" / name
         assert committed.exists(), f"demo/{name} missing; run scripts/build_demo_cache.py"

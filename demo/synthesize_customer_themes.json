@@ -78,17 +78,6 @@
       "testable_question": "Does leading with summary quality on the compare page improve win rate without slowing evaluation?"
     },
     {
-      "theme": "complexity",
-      "severity": 1,
-      "commercial_relevance": 1,
-      "journey_relevance": 1,
-      "summary": "Onboarding content is seen as helpful; little evidence of complexity problems.",
-      "expected_behavior": "Healthy activation after onboarding videos.",
-      "funnel_stage": "Onboarding",
-      "analytics_signal": "Activation rate for accounts that watch onboarding videos.",
-      "testable_question": "Does surfacing onboarding videos earlier improve activation without adding friction?"
-    },
-    {
       "theme": "implementation_risk",
       "severity": 3,
       "commercial_relevance": 2,
@@ -98,6 +87,17 @@
       "funnel_stage": "Onboarding",
       "analytics_signal": "Time to first transcribed meeting by SSO status.",
       "testable_question": "Does a guided SSO setup shorten time-to-value without increasing support tickets?"
+    },
+    {
+      "theme": "complexity",
+      "severity": 1,
+      "commercial_relevance": 1,
+      "journey_relevance": 1,
+      "summary": "Onboarding content is seen as helpful; little evidence of complexity problems.",
+      "expected_behavior": "Healthy activation after onboarding videos.",
+      "funnel_stage": "Onboarding",
+      "analytics_signal": "Activation rate for accounts that watch onboarding videos.",
+      "testable_question": "Does surfacing onboarding videos earlier improve activation without adding friction?"
     },
     {
       "theme": "switching_cost",

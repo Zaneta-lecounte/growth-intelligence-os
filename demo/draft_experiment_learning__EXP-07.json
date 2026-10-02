@@ -1,0 +1,19 @@
+{
+  "theme": "pricing_uncertainty",
+  "original_problem": "Paid search visitors leave the pricing page; we tried a discount offer as they exit.",
+  "what_happened": "The popup appeared to lift demo requests sharply, but the test was small, short, and ended weeks before any of those leads could reach a decision.",
+  "learned_about_customer": "A price incentive catches attention, but we do not know whether it attracts buyers or bargain hunters.",
+  "learned_about_journey": "The exit moment on pricing is reachable; what visitors need there is still unclear.",
+  "learned_about_business": "Discounts can buy top-funnel lifts that quality and margin later take back.",
+  "should_not_conclude": "That the popup works. A large lift on a tiny sample over two weeks is the classic outlier; downstream outcomes have not matured and the effect differs by source.",
+  "reusable_principle": "Treat a surprisingly large lift on a small, short test as a reason to retest, not to ship.",
+  "next_hypothesis": {
+    "title": "Retest the exit offer at full size",
+    "observed_problem": "A small test showed a large but immature lift from an exit discount.",
+    "affected_audience": "Paid search pricing-page visitors",
+    "causal_explanation": "A price incentive at the exit moment may convert hesitant evaluators.",
+    "intervention": "Rerun the popup on full paid search traffic for a full sales cycle with a no-discount clarity message as a third arm.",
+    "expected_behavior_change": "Demo requests rise without a fall in sales acceptance.",
+    "expected_business_outcome": "Lower paid search acquisition cost without discount-driven churn."
+  }
+}

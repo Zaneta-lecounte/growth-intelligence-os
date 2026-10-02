@@ -20,7 +20,7 @@ def result(tmp_path_factory):
 def test_runs_every_layer_in_order(result):
     _, run, steps = result
     assert [k for k, _ in steps] == ["signals", "diagnostics", "validations", "backlog", "roadmap"]
-    assert run.counts == {"signals": 28, "diagnostics": 7, "validations": 7, "backlog": 7, "roadmap": 5}
+    assert run.counts == {"signals": 26, "diagnostics": 7, "validations": 7, "backlog": 7, "roadmap": 5}
 
 
 @pytest.mark.parametrize("story", ["pricing", "webinar", "mobile"])
@@ -77,4 +77,4 @@ def test_page_runs_and_reports_story_checks():
     assert not at.exception
     assert any("All three embedded stories" in s.value for s in at.success)
     assert any("Executive Growth Priorities" in m.value for m in at.markdown)
-    assert len(Store().list(Signal)) == 28 and any(o.horizon == "now" for o in Store().list(Opportunity))
+    assert len(Store().list(Signal)) == 26 and any(o.horizon == "now" for o in Store().list(Opportunity))

@@ -1,668 +1,661 @@
 date,source,segment,journey_stage,verbatim
-2026-03-01,interview,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-03-01,survey,smb,purchase,Not sure if overage minutes are billed on Starter. That uncertainty slowed approval.
-2026-03-01,survey,mid_market,consideration,Our team already has a transcription contract through next year; the webinar was for research.
-2026-03-01,survey,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-03-01,survey,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-03-02,interview,smb,purchase,Transcription accuracy on accented speakers is impressive.
-2026-03-02,support,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-03-02,support,mid_market,retention,Would love a dark mode for the transcript view.
-2026-03-03,review,smb,retention,Dark mode please! My eyes at night.
-2026-03-03,support,smb,retention,Do you support Microsoft Teams recordings natively?
-2026-03-03,win_loss,smb,retention,Do you support Microsoft Teams recordings natively?
-2026-03-04,chat,mid_market,retention,Dark mode please! My eyes at night.
-2026-03-04,survey,smb,evaluation,Submit button on the demo form did nothing on iPhone. Tapped it several times.
-2026-03-05,interview,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
-2026-03-06,support,mid_market,onboarding,Minor thing: export file names are long and ugly.
-2026-03-06,survey,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-03-06,survey,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-03-06,survey,mid_market,onboarding,Would love a dark mode for the transcript view.
-2026-03-06,win_loss,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-03-06,win_loss,smb,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-03-06,win_loss,mid_market,evaluation,Search across past meetings is slow for large workspaces.
-2026-03-06,win_loss,mid_market,retention,We'd buy more seats if there was an admin usage dashboard.
-2026-03-07,chat,smb,retention,Small request: let me pick the font in transcripts.
-2026-03-07,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-03-08,chat,smb,retention,The app is great. A dark theme would make it perfect.
-2026-03-08,chat,smb,onboarding,Would love a dark mode for the transcript view.
-2026-03-09,chat,smb,retention,Small request: let me pick the font in transcripts.
-2026-03-09,survey,mid_market,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-03-10,chat,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-10,chat,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-10,chat,smb,purchase,Search across past meetings is slow for large workspaces.
-2026-03-10,support,smb,onboarding,Transcription accuracy on accented speakers is impressive.
-2026-03-10,survey,mid_market,retention,Dark mode please! My eyes at night.
-2026-03-10,survey,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-03-11,review,smb,retention,The app is great. A dark theme would make it perfect.
-2026-03-11,sales_call,smb,onboarding,Compared three tools; yours had the cleanest action-item extraction.
-2026-03-11,support,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-11,support,smb,retention,Small request: let me pick the font in transcripts.
-2026-03-12,chat,smb,evaluation,Search across past meetings is slow for large workspaces.
-2026-03-12,review,mid_market,retention,Dark mode please! My eyes at night.
-2026-03-12,sales_call,smb,retention,Do you support Microsoft Teams recordings natively?
-2026-03-12,survey,smb,evaluation,Is the AI summary feature part of Pro or an add-on? The pricing page doesn't say.
-2026-03-13,support,smb,retention,Would love a dark mode for the transcript view.
-2026-03-14,chat,mid_market,onboarding,Do you support Microsoft Teams recordings natively?
-2026-03-14,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
-2026-03-14,survey,mid_market,evaluation,Submit button on the demo form did nothing on Pixel. Tapped it several times.
-2026-03-14,win_loss,mid_market,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-03-15,support,mid_market,purchase,Do you support Microsoft Teams recordings natively?
-2026-03-15,support,smb,evaluation,The demo request form froze on my Galaxy after I hit submit.
-2026-03-17,chat,mid_market,onboarding,Speaker labels get confused when people talk over each other.
-2026-03-17,sales_call,mid_market,consideration,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
-2026-03-17,survey,mid_market,onboarding,Minor thing: export file names are long and ugly.
-2026-03-18,review,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-18,survey,smb,evaluation,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
-2026-03-20,win_loss,smb,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-03-21,review,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-03-21,sales_call,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
-2026-03-21,support,smb,retention,Minor thing: export file names are long and ugly.
-2026-03-21,support,smb,retention,Would love a dark mode for the transcript view.
-2026-03-22,chat,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-03-01,review,smb,retention,Minor thing: export file names are long and ugly.
+2026-03-01,support,smb,retention,Our legal team needs data residency in the EU.
+2026-03-01,survey,smb,consideration,I had to book a call just to find out whether Starter includes the CRM integration.
+2026-03-02,review,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-03-02,support,smb,retention,The app is great. A dark theme would make it perfect.
+2026-03-02,win_loss,mid_market,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
+2026-03-02,win_loss,smb,onboarding,Speaker labels get confused when people talk over each other.
+2026-03-03,survey,smb,evaluation,The demo request form froze on my iPhone after I hit submit.
+2026-03-03,survey,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-03-03,win_loss,mid_market,evaluation,The Zoom integration dropped a recording last week.
+2026-03-04,review,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-03-04,support,smb,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
+2026-03-05,chat,smb,retention,The app is great. A dark theme would make it perfect.
+2026-03-05,interview,smb,onboarding,Compared three tools; yours had the cleanest action-item extraction.
+2026-03-06,chat,smb,onboarding,Would love a dark mode for the transcript view.
+2026-03-06,interview,mid_market,onboarding,Our legal team needs data residency in the EU.
+2026-03-06,review,mid_market,retention,Dark mode please! My eyes at night.
+2026-03-07,interview,smb,onboarding,Compared three tools; yours had the cleanest action-item extraction.
+2026-03-07,interview,smb,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
+2026-03-07,review,smb,onboarding,Dark mode please! My eyes at night.
+2026-03-07,support,smb,retention,Would love a dark mode for the transcript view.
+2026-03-08,chat,smb,retention,Dark mode please! My eyes at night.
+2026-03-08,survey,smb,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-03-09,support,smb,retention,Minor thing: export file names are long and ugly.
+2026-03-09,support,smb,purchase,Search across past meetings is slow for large workspaces.
+2026-03-09,survey,mid_market,onboarding,The app is great. A dark theme would make it perfect.
+2026-03-10,chat,smb,retention,Dark mode please! My eyes at night.
+2026-03-11,chat,smb,retention,Small request: let me pick the font in transcripts.
+2026-03-11,review,smb,retention,Minor thing: export file names are long and ugly.
+2026-03-11,sales_call,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-03-11,sales_call,smb,onboarding,We chose EchoAI because the summaries are better than the tool we used before.
+2026-03-11,survey,mid_market,onboarding,Dark mode please! My eyes at night.
+2026-03-12,survey,smb,onboarding,Our legal team needs data residency in the EU.
+2026-03-12,win_loss,smb,retention,Compared three tools; yours had the cleanest action-item extraction.
+2026-03-13,chat,smb,evaluation,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
+2026-03-13,review,smb,retention,The Zoom integration dropped a recording last week.
+2026-03-13,survey,smb,onboarding,The app is great. A dark theme would make it perfect.
+2026-03-14,review,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-03-14,survey,smb,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-03-14,win_loss,smb,evaluation,Speaker labels get confused when people talk over each other.
+2026-03-15,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-03-15,interview,smb,onboarding,Speaker labels get confused when people talk over each other.
+2026-03-15,review,smb,retention,Minor thing: export file names are long and ugly.
+2026-03-15,support,smb,retention,The app is great. A dark theme would make it perfect.
+2026-03-15,survey,smb,onboarding,Compared three tools; yours had the cleanest action-item extraction.
+2026-03-16,sales_call,mid_market,evaluation,We'd buy more seats if there was an admin usage dashboard.
+2026-03-16,support,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-03-16,support,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-03-17,review,mid_market,retention,Dark mode please! My eyes at night.
+2026-03-17,support,mid_market,consideration,Submit button on the demo form did nothing on Galaxy. Tapped it several times.
+2026-03-17,support,mid_market,evaluation,Tried to book a demo on my phone and the form just kept spinning.
+2026-03-18,review,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-03-18,survey,mid_market,onboarding,Compared three tools; yours had the cleanest action-item extraction.
+2026-03-18,survey,smb,retention,Speaker labels get confused when people talk over each other.
+2026-03-19,review,mid_market,purchase,Our legal team needs data residency in the EU.
+2026-03-19,survey,mid_market,awareness,Our team already has a transcription contract through next year; the webinar was for research.
+2026-03-20,chat,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-03-20,chat,smb,evaluation,Transcription accuracy on accented speakers is impressive.
+2026-03-20,sales_call,smb,consideration,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-03-20,support,smb,retention,Minor thing: export file names are long and ugly.
+2026-03-20,survey,smb,retention,Small request: let me pick the font in transcripts.
+2026-03-21,review,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-03-21,support,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-03-21,support,smb,retention,Small request: let me pick the font in transcripts.
+2026-03-21,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
 2026-03-22,review,smb,retention,Small request: let me pick the font in transcripts.
-2026-03-22,review,smb,retention,Would love a dark mode for the transcript view.
-2026-03-22,support,mid_market,retention,Dark mode please! My eyes at night.
-2026-03-23,review,mid_market,retention,Would love a dark mode for the transcript view.
-2026-03-23,support,mid_market,retention,Speaker labels get confused when people talk over each other.
-2026-03-24,chat,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
-2026-03-24,interview,smb,evaluation,Speaker labels get confused when people talk over each other.
-2026-03-24,review,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-03-24,win_loss,mid_market,purchase,"Onboarding videos were helpful, the team was up and running in a day."
-2026-03-25,chat,mid_market,purchase,"Onboarding videos were helpful, the team was up and running in a day."
-2026-03-25,chat,smb,purchase,Search across past meetings is slow for large workspaces.
-2026-03-25,interview,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-03-25,support,mid_market,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-03-25,win_loss,smb,purchase,Our legal team needs data residency in the EU.
-2026-03-26,win_loss,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-03-27,chat,smb,purchase,Do you support Microsoft Teams recordings natively?
-2026-03-27,chat,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-03-27,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-27,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-27,survey,smb,retention,Dark mode please! My eyes at night.
-2026-03-27,survey,mid_market,evaluation,Submit button on the demo form did nothing on Galaxy. Tapped it several times.
-2026-03-28,sales_call,smb,awareness,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-03-28,support,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-28,support,smb,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-03-28,survey,mid_market,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-03-29,chat,smb,evaluation,Not sure if overage minutes are billed on Pro. That uncertainty slowed approval.
-2026-03-29,sales_call,smb,awareness,Our team already has a transcription contract through next year; the webinar was for research.
-2026-03-29,survey,mid_market,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-03-30,support,mid_market,retention,Setup took longer than expected because SSO configuration was unclear.
-2026-03-30,survey,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-03-30,win_loss,smb,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-03-31,review,mid_market,retention,Would love a dark mode for the transcript view.
-2026-03-31,review,mid_market,onboarding,Would love a dark mode for the transcript view.
-2026-03-31,survey,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-04-01,support,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-04-01,win_loss,mid_market,purchase,"Onboarding videos were helpful, the team was up and running in a day."
-2026-04-01,win_loss,smb,purchase,We stalled because nobody could explain the difference between Starter and Enterprise.
-2026-04-02,chat,smb,retention,Would love a dark mode for the transcript view.
-2026-04-02,support,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-04-02,survey,mid_market,onboarding,Search across past meetings is slow for large workspaces.
-2026-04-02,win_loss,smb,awareness,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-04-02,win_loss,smb,onboarding,The Zoom integration dropped a recording last week.
-2026-04-04,win_loss,smb,consideration,Not sure if overage minutes are billed on Pro. That uncertainty slowed approval.
-2026-04-05,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-04-06,chat,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-04-06,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-04-06,review,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-03-22,survey,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-03-22,survey,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-03-23,sales_call,smb,evaluation,We'd buy more seats if there was an admin usage dashboard.
+2026-03-23,support,smb,retention,Dark mode please! My eyes at night.
+2026-03-23,survey,mid_market,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-03-23,survey,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
+2026-03-24,win_loss,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
+2026-03-25,sales_call,smb,evaluation,Setup took longer than expected because SSO configuration was unclear.
+2026-03-25,support,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-03-26,chat,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-03-26,support,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-03-26,survey,mid_market,retention,The Zoom integration dropped a recording last week.
+2026-03-27,interview,smb,purchase,We chose EchoAI because the summaries are better than the tool we used before.
+2026-03-27,survey,smb,awareness,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-03-28,chat,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-03-28,survey,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-03-29,chat,smb,onboarding,Transcription accuracy on accented speakers is impressive.
+2026-03-29,support,smb,onboarding,Would love a dark mode for the transcript view.
+2026-03-29,survey,mid_market,evaluation,I couldn't tell what's included in Business versus the tier above it.
+2026-03-29,survey,mid_market,consideration,Not sure which plan fits a team our size; Starter and the tier above look almost the same.
+2026-03-29,survey,mid_market,consideration,Tried to book a demo on my phone and the form just kept spinning.
+2026-03-29,survey,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-03-30,sales_call,smb,purchase,Do you support Microsoft Teams recordings natively?
+2026-03-30,survey,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-03-31,chat,smb,retention,Would love a dark mode for the transcript view.
+2026-03-31,chat,mid_market,retention,Would love a dark mode for the transcript view.
+2026-03-31,survey,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
+2026-03-31,win_loss,smb,consideration,The pricing table has too many asterisks. What's actually in Starter?
+2026-04-02,review,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-04-02,survey,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-04-02,survey,smb,retention,Would love a dark mode for the transcript view.
+2026-04-02,win_loss,mid_market,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-04-03,review,smb,purchase,We chose EchoAI because the summaries are better than the tool we used before.
+2026-04-03,sales_call,mid_market,consideration,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-04-03,support,mid_market,consideration,Started the demo form on my phone twice and gave up; I'll try from a laptop.
+2026-04-03,support,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-04-03,survey,smb,evaluation,Do you support Microsoft Teams recordings natively?
+2026-04-03,survey,mid_market,retention,Search across past meetings is slow for large workspaces.
+2026-04-03,survey,smb,retention,The app is great. A dark theme would make it perfect.
+2026-04-03,win_loss,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-04-05,chat,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-04-05,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
 2026-04-06,support,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-04-06,support,mid_market,onboarding,Dark mode please! My eyes at night.
-2026-04-06,support,mid_market,evaluation,Our legal team needs data residency in the EU.
-2026-04-07,review,smb,purchase,Search across past meetings is slow for large workspaces.
-2026-04-07,support,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-04-08,sales_call,smb,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-04-08,sales_call,smb,awareness,"Webinar attendee: just exploring, no active project or timeline."
-2026-04-09,interview,smb,evaluation,Speaker labels get confused when people talk over each other.
-2026-04-09,interview,smb,consideration,The pricing table has too many asterisks. What's actually in Starter?
-2026-04-09,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-04-09,win_loss,mid_market,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-04-10,chat,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-04-10,review,smb,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
-2026-04-10,review,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-04-10,sales_call,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
-2026-04-10,support,smb,onboarding,Would love a dark mode for the transcript view.
-2026-04-11,chat,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-04-11,review,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-04-11,support,smb,retention,Dark mode please! My eyes at night.
+2026-04-06,survey,smb,retention,We'd buy more seats if there was an admin usage dashboard.
+2026-04-07,review,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-04-07,review,smb,retention,Would love a dark mode for the transcript view.
+2026-04-07,survey,mid_market,purchase,Our legal team needs data residency in the EU.
+2026-04-07,survey,smb,retention,Our legal team needs data residency in the EU.
+2026-04-07,win_loss,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-04-08,support,mid_market,retention,Do you support Microsoft Teams recordings natively?
+2026-04-08,support,smb,onboarding,Minor thing: export file names are long and ugly.
+2026-04-08,support,smb,purchase,"Onboarding videos were helpful, the team was up and running in a day."
+2026-04-08,support,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-04-08,survey,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-04-08,win_loss,mid_market,purchase,Search across past meetings is slow for large workspaces.
+2026-04-09,support,smb,retention,Dark mode please! My eyes at night.
+2026-04-09,win_loss,smb,consideration,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-04-10,support,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-04-10,survey,mid_market,evaluation,Submit button on the demo form did nothing on Android phone. Tapped it several times.
+2026-04-11,review,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-04-11,review,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-04-11,sales_call,smb,evaluation,We chose EchoAI because the summaries are better than the tool we used before.
 2026-04-11,support,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-04-11,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-04-12,chat,smb,onboarding,Dark mode please! My eyes at night.
-2026-04-12,support,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-04-12,survey,mid_market,retention,Would love a dark mode for the transcript view.
-2026-04-12,win_loss,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-04-13,sales_call,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-04-13,support,mid_market,onboarding,Dark mode please! My eyes at night.
-2026-04-14,chat,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-04-14,chat,smb,retention,Speaker labels get confused when people talk over each other.
-2026-04-14,chat,mid_market,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
-2026-04-14,sales_call,smb,evaluation,Setup took longer than expected because SSO configuration was unclear.
-2026-04-14,support,smb,retention,Dark mode please! My eyes at night.
-2026-04-14,survey,mid_market,retention,Would love a dark mode for the transcript view.
-2026-04-15,support,smb,purchase,We chose EchoAI because the summaries are better than the tool we used before.
-2026-04-15,survey,mid_market,purchase,Compared three tools; yours had the cleanest action-item extraction.
-2026-04-15,survey,smb,onboarding,Dark mode please! My eyes at night.
-2026-04-15,survey,mid_market,retention,The app is great. A dark theme would make it perfect.
-2026-04-16,chat,smb,onboarding,Dark mode please! My eyes at night.
-2026-04-16,chat,mid_market,retention,Would love a dark mode for the transcript view.
-2026-04-16,support,mid_market,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
-2026-04-16,survey,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
-2026-04-17,survey,smb,evaluation,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
-2026-04-17,survey,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-04-18,chat,smb,retention,Minor thing: export file names are long and ugly.
-2026-04-18,chat,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-04-18,sales_call,smb,awareness,"Webinar attendee: just exploring, no active project or timeline."
-2026-04-19,interview,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-04-19,survey,mid_market,evaluation,I had to book a call just to find out whether Pro includes the CRM integration.
-2026-04-19,survey,mid_market,purchase,We'd buy more seats if there was an admin usage dashboard.
-2026-04-19,win_loss,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
-2026-04-20,support,mid_market,purchase,Speaker labels get confused when people talk over each other.
-2026-04-20,survey,smb,retention,Dark mode please! My eyes at night.
-2026-04-20,win_loss,smb,purchase,We'd buy more seats if there was an admin usage dashboard.
-2026-04-21,interview,smb,onboarding,Our legal team needs data residency in the EU.
-2026-04-21,review,mid_market,retention,Search across past meetings is slow for large workspaces.
-2026-04-22,support,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-04-22,support,smb,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
-2026-04-23,review,smb,retention,Dark mode please! My eyes at night.
-2026-04-23,survey,mid_market,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-04-23,win_loss,mid_market,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-04-24,chat,mid_market,retention,"Onboarding videos were helpful, the team was up and running in a day."
-2026-04-24,review,mid_market,retention,Dark mode please! My eyes at night.
-2026-04-24,sales_call,smb,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
-2026-04-24,support,smb,onboarding,We chose EchoAI because the summaries are better than the tool we used before.
-2026-04-24,win_loss,mid_market,onboarding,Setup took longer than expected because SSO configuration was unclear.
-2026-04-25,chat,smb,evaluation,Submit button on the demo form did nothing on Galaxy. Tapped it several times.
-2026-04-25,interview,mid_market,retention,Compared three tools; yours had the cleanest action-item extraction.
-2026-04-25,support,mid_market,onboarding,Transcription accuracy on accented speakers is impressive.
-2026-04-26,chat,mid_market,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
-2026-04-26,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
-2026-04-26,support,smb,retention,Would love a dark mode for the transcript view.
-2026-04-26,win_loss,mid_market,retention,Transcription accuracy on accented speakers is impressive.
-2026-04-27,support,smb,onboarding,Would love a dark mode for the transcript view.
-2026-04-27,win_loss,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
-2026-04-28,chat,smb,purchase,Search across past meetings is slow for large workspaces.
-2026-04-28,sales_call,smb,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-04-28,support,smb,retention,Minor thing: export file names are long and ugly.
-2026-04-28,support,smb,purchase,We chose EchoAI because the summaries are better than the tool we used before.
-2026-04-29,chat,smb,retention,Minor thing: export file names are long and ugly.
-2026-04-29,review,smb,purchase,Our legal team needs data residency in the EU.
-2026-04-29,review,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-04-29,sales_call,smb,purchase,The pricing table has too many asterisks. What's actually in Business?
-2026-04-29,sales_call,smb,awareness,"Webinar attendee: just exploring, no active project or timeline."
-2026-04-29,survey,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
-2026-04-29,survey,smb,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
-2026-04-30,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-04-30,review,mid_market,retention,We'd buy more seats if there was an admin usage dashboard.
-2026-04-30,support,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-04-30,survey,smb,evaluation,Tried to book a demo on my phone and the form just kept spinning.
-2026-04-30,survey,smb,retention,Would love a dark mode for the transcript view.
-2026-05-01,chat,mid_market,onboarding,Dark mode please! My eyes at night.
-2026-05-01,chat,smb,purchase,Transcription accuracy on accented speakers is impressive.
-2026-05-01,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
-2026-05-01,support,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-05-01,support,smb,onboarding,Compared three tools; yours had the cleanest action-item extraction.
-2026-05-02,sales_call,mid_market,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-05-02,sales_call,smb,retention,We chose EchoAI because the summaries are better than the tool we used before.
-2026-05-02,support,smb,retention,Dark mode please! My eyes at night.
-2026-05-02,support,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-05-02,survey,smb,retention,Dark mode please! My eyes at night.
-2026-05-03,review,mid_market,onboarding,Minor thing: export file names are long and ugly.
-2026-05-03,review,smb,retention,We'd buy more seats if there was an admin usage dashboard.
-2026-05-03,support,smb,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-05-03,support,mid_market,purchase,Speaker labels get confused when people talk over each other.
-2026-05-04,review,smb,retention,Small request: let me pick the font in transcripts.
-2026-05-04,win_loss,smb,evaluation,We chose EchoAI because the summaries are better than the tool we used before.
-2026-05-05,review,smb,retention,Do you support Microsoft Teams recordings natively?
-2026-05-05,sales_call,smb,purchase,Transcription accuracy on accented speakers is impressive.
-2026-05-05,sales_call,smb,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-05-06,chat,smb,consideration,The demo request form froze on my Android phone after I hit submit.
-2026-05-06,chat,mid_market,purchase,We chose EchoAI because the summaries are better than the tool we used before.
-2026-05-06,review,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-05-06,support,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-05-06,survey,smb,evaluation,"On mobile the demo page took forever to load, then the date picker wouldn't open."
-2026-05-06,win_loss,smb,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-05-07,chat,smb,onboarding,Do you support Microsoft Teams recordings natively?
-2026-05-07,sales_call,smb,consideration,Is the AI summary feature part of Starter or an add-on? The pricing page doesn't say.
-2026-05-07,support,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-05-07,survey,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-05-08,chat,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-05-08,interview,mid_market,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
-2026-05-08,interview,mid_market,purchase,Our legal team needs data residency in the EU.
-2026-05-08,interview,mid_market,retention,The Zoom integration dropped a recording last week.
-2026-05-08,support,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-05-08,survey,mid_market,evaluation,Do you support Microsoft Teams recordings natively?
-2026-05-09,survey,smb,retention,Our legal team needs data residency in the EU.
-2026-05-10,support,mid_market,retention,Dark mode please! My eyes at night.
-2026-05-11,interview,smb,consideration,We stalled because nobody could explain the difference between Starter and Enterprise.
-2026-05-11,win_loss,mid_market,retention,Our legal team needs data residency in the EU.
-2026-05-12,review,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-05-12,support,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-05-12,survey,mid_market,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-05-13,chat,mid_market,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-05-13,chat,smb,retention,The app is great. A dark theme would make it perfect.
-2026-05-13,survey,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-05-13,win_loss,mid_market,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-05-14,chat,smb,evaluation,Lost the deal on price confusion: the buyer thought Business excluded speaker identification.
-2026-05-14,interview,smb,evaluation,Is the AI summary feature part of Pro or an add-on? The pricing page doesn't say.
-2026-05-14,interview,smb,purchase,Search across past meetings is slow for large workspaces.
-2026-05-14,survey,mid_market,retention,Dark mode please! My eyes at night.
-2026-05-14,survey,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-05-15,review,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-05-15,review,smb,retention,Small request: let me pick the font in transcripts.
-2026-05-15,survey,mid_market,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-05-15,survey,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-05-15,survey,mid_market,consideration,We stalled because nobody could explain the difference between Business and Enterprise.
-2026-05-15,win_loss,smb,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-05-16,support,mid_market,retention,Dark mode please! My eyes at night.
-2026-05-16,survey,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-05-17,chat,smb,consideration,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
-2026-05-17,chat,smb,retention,Small request: let me pick the font in transcripts.
-2026-05-17,support,smb,retention,Small request: let me pick the font in transcripts.
-2026-05-18,review,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-05-18,support,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-05-18,support,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-05-18,win_loss,mid_market,onboarding,Compared three tools; yours had the cleanest action-item extraction.
-2026-05-18,win_loss,smb,retention,Setup took longer than expected because SSO configuration was unclear.
-2026-05-19,chat,smb,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-05-19,support,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-05-19,survey,mid_market,retention,Dark mode please! My eyes at night.
-2026-05-20,chat,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
-2026-05-21,chat,mid_market,retention,Dark mode please! My eyes at night.
-2026-05-21,chat,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-05-21,chat,smb,retention,The app is great. A dark theme would make it perfect.
-2026-05-21,review,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-05-21,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-05-21,survey,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-05-21,win_loss,smb,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-05-22,sales_call,smb,consideration,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-05-22,win_loss,smb,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
-2026-05-23,chat,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-05-23,chat,mid_market,retention,Dark mode please! My eyes at night.
-2026-05-23,support,smb,onboarding,The Zoom integration dropped a recording last week.
-2026-05-23,support,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-05-23,survey,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
-2026-05-24,chat,smb,evaluation,Transcription accuracy on accented speakers is impressive.
-2026-05-24,sales_call,smb,purchase,The pricing table has too many asterisks. What's actually in Business?
-2026-05-25,review,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-05-26,survey,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-05-27,chat,mid_market,onboarding,Compared three tools; yours had the cleanest action-item extraction.
-2026-05-27,survey,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-05-27,survey,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-05-28,survey,mid_market,onboarding,Dark mode please! My eyes at night.
-2026-05-28,survey,mid_market,evaluation,Setup took longer than expected because SSO configuration was unclear.
-2026-05-29,chat,smb,evaluation,The demo request form froze on my Galaxy after I hit submit.
-2026-05-29,review,mid_market,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-05-30,review,smb,onboarding,Setup took longer than expected because SSO configuration was unclear.
-2026-05-30,support,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
-2026-05-30,survey,mid_market,consideration,"Webinar attendee: just exploring, no active project or timeline."
-2026-05-31,chat,smb,retention,Small request: let me pick the font in transcripts.
-2026-05-31,sales_call,smb,evaluation,I had to book a call just to find out whether Pro includes the CRM integration.
-2026-05-31,survey,mid_market,consideration,We stalled because nobody could explain the difference between Pro and Enterprise.
-2026-05-31,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-05-31,win_loss,smb,consideration,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
-2026-06-01,interview,smb,evaluation,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
-2026-06-01,support,mid_market,onboarding,Dark mode please! My eyes at night.
-2026-06-01,survey,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-06-02,support,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-06-02,survey,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-06-03,sales_call,mid_market,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-06-03,survey,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-06-04,chat,smb,retention,Small request: let me pick the font in transcripts.
-2026-06-04,interview,smb,evaluation,Lost the deal on price confusion: the buyer thought Business excluded speaker identification.
+2026-04-11,support,mid_market,evaluation,Submit button on the demo form did nothing on iPhone. Tapped it several times.
+2026-04-12,chat,smb,purchase,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
+2026-04-12,interview,mid_market,evaluation,Compared three tools; yours had the cleanest action-item extraction.
+2026-04-12,review,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-04-13,sales_call,smb,purchase,Search across past meetings is slow for large workspaces.
+2026-04-13,survey,mid_market,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-04-13,survey,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-04-14,chat,mid_market,onboarding,Dark mode please! My eyes at night.
+2026-04-14,support,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-04-14,support,smb,purchase,Compared three tools; yours had the cleanest action-item extraction.
+2026-04-14,support,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-04-15,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-04-15,review,mid_market,retention,Dark mode please! My eyes at night.
+2026-04-16,chat,mid_market,purchase,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
+2026-04-16,chat,mid_market,onboarding,Transcription accuracy on accented speakers is impressive.
+2026-04-16,sales_call,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-04-16,survey,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-04-17,chat,smb,evaluation,I didn't want to talk to sales just to get a ballpark price for Starter.
+2026-04-17,chat,mid_market,retention,Search across past meetings is slow for large workspaces.
+2026-04-17,review,smb,retention,The app is great. A dark theme would make it perfect.
+2026-04-18,chat,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-04-18,chat,mid_market,onboarding,Small request: let me pick the font in transcripts.
+2026-04-18,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-04-18,interview,smb,onboarding,Our legal team needs data residency in the EU.
+2026-04-18,review,mid_market,retention,Search across past meetings is slow for large workspaces.
+2026-04-18,sales_call,mid_market,purchase,We'd buy more seats if there was an admin usage dashboard.
+2026-04-19,win_loss,smb,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
+2026-04-20,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-04-20,sales_call,smb,evaluation,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
+2026-04-20,survey,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-04-20,survey,mid_market,awareness,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-04-20,survey,smb,evaluation,Tried to book a demo on my phone and the form just kept spinning.
+2026-04-21,chat,mid_market,consideration,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-04-21,chat,smb,onboarding,We chose EchoAI because the summaries are better than the tool we used before.
+2026-04-21,interview,smb,purchase,Setup took longer than expected because SSO configuration was unclear.
+2026-04-21,review,mid_market,retention,Setup took longer than expected because SSO configuration was unclear.
+2026-04-21,sales_call,smb,evaluation,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
+2026-04-21,support,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-04-22,interview,smb,evaluation,Lost the deal on price confusion: the buyer thought Starter excluded speaker identification.
+2026-04-22,win_loss,mid_market,evaluation,Setup took longer than expected because SSO configuration was unclear.
+2026-04-23,review,mid_market,purchase,Our legal team needs data residency in the EU.
+2026-04-23,survey,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
+2026-04-23,win_loss,mid_market,evaluation,Our legal team needs data residency in the EU.
+2026-04-24,chat,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-04-24,chat,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
+2026-04-24,review,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-04-24,review,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-04-24,survey,smb,retention,Minor thing: export file names are long and ugly.
+2026-04-25,chat,smb,consideration,Is the AI summary feature part of Business or an add-on? The pricing page doesn't say.
+2026-04-25,chat,smb,evaluation,The pricing table has too many asterisks. What's actually in Pro?
+2026-04-25,survey,smb,retention,The app is great. A dark theme would make it perfect.
+2026-04-25,win_loss,mid_market,awareness,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-04-26,chat,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-04-26,sales_call,smb,awareness,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-04-26,survey,smb,purchase,Our legal team needs data residency in the EU.
+2026-04-26,win_loss,smb,evaluation,Our legal team needs data residency in the EU.
+2026-04-27,review,smb,onboarding,Dark mode please! My eyes at night.
+2026-04-27,survey,smb,retention,Search across past meetings is slow for large workspaces.
+2026-04-28,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-04-28,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-04-28,review,mid_market,onboarding,Dark mode please! My eyes at night.
+2026-04-28,review,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-04-28,support,smb,evaluation,Tried to book a demo on my phone and the form just kept spinning.
+2026-04-28,support,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-04-28,win_loss,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
+2026-04-29,support,smb,retention,The app is great. A dark theme would make it perfect.
+2026-04-30,review,mid_market,onboarding,Our legal team needs data residency in the EU.
+2026-04-30,review,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-04-30,support,mid_market,retention,We'd buy more seats if there was an admin usage dashboard.
+2026-05-01,chat,smb,onboarding,Transcription accuracy on accented speakers is impressive.
+2026-05-01,support,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-05-02,chat,mid_market,evaluation,Do you support Microsoft Teams recordings natively?
+2026-05-02,chat,mid_market,retention,Transcription accuracy on accented speakers is impressive.
+2026-05-02,sales_call,smb,purchase,The Zoom integration dropped a recording last week.
+2026-05-02,survey,smb,retention,Would love a dark mode for the transcript view.
+2026-05-03,chat,smb,retention,Small request: let me pick the font in transcripts.
+2026-05-03,survey,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-05-04,interview,mid_market,consideration,Why do I need a demo before I can see what the real cost is?
+2026-05-04,sales_call,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-05-04,survey,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-05-04,win_loss,smb,evaluation,Search across past meetings is slow for large workspaces.
+2026-05-05,chat,smb,retention,Dark mode please! My eyes at night.
+2026-05-05,chat,mid_market,retention,Transcription accuracy on accented speakers is impressive.
+2026-05-05,support,smb,retention,Minor thing: export file names are long and ugly.
+2026-05-05,survey,smb,onboarding,Would love a dark mode for the transcript view.
+2026-05-06,interview,smb,evaluation,Is the AI summary feature part of Pro or an add-on? The pricing page doesn't say.
+2026-05-06,interview,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-05-06,survey,mid_market,onboarding,The app is great. A dark theme would make it perfect.
+2026-05-06,survey,smb,consideration,Tried to book a demo on my phone and the form just kept spinning.
+2026-05-07,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-05-07,sales_call,smb,consideration,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-05-07,support,smb,retention,Minor thing: export file names are long and ugly.
+2026-05-07,support,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-05-08,chat,mid_market,retention,Our legal team needs data residency in the EU.
+2026-05-08,chat,mid_market,onboarding,The app is great. A dark theme would make it perfect.
+2026-05-08,review,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-05-08,sales_call,smb,onboarding,We'd buy more seats if there was an admin usage dashboard.
+2026-05-08,survey,mid_market,consideration,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-05-09,chat,smb,onboarding,Dark mode please! My eyes at night.
+2026-05-09,chat,smb,evaluation,The demo request form froze on my Pixel after I hit submit.
+2026-05-09,sales_call,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-05-10,sales_call,smb,evaluation,Lost the deal on price confusion: the buyer thought Business excluded speaker identification.
+2026-05-10,survey,smb,onboarding,Dark mode please! My eyes at night.
+2026-05-11,chat,smb,onboarding,Transcription accuracy on accented speakers is impressive.
+2026-05-11,interview,smb,evaluation,The Zoom integration dropped a recording last week.
+2026-05-11,sales_call,mid_market,purchase,Setup took longer than expected because SSO configuration was unclear.
+2026-05-11,win_loss,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-05-12,review,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-05-12,survey,mid_market,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-05-12,survey,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-05-13,interview,mid_market,evaluation,Setup took longer than expected because SSO configuration was unclear.
+2026-05-13,survey,smb,retention,Dark mode please! My eyes at night.
+2026-05-13,survey,smb,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-05-14,chat,smb,evaluation,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
+2026-05-14,sales_call,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-05-14,support,smb,retention,Dark mode please! My eyes at night.
+2026-05-15,review,smb,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-05-15,support,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-05-15,support,smb,retention,Small request: let me pick the font in transcripts.
+2026-05-15,win_loss,smb,consideration,I couldn't tell what's included in Pro versus the tier above it.
+2026-05-15,win_loss,smb,purchase,Search across past meetings is slow for large workspaces.
+2026-05-16,sales_call,smb,onboarding,Do you support Microsoft Teams recordings natively?
+2026-05-16,support,smb,retention,Minor thing: export file names are long and ugly.
+2026-05-16,win_loss,smb,consideration,We stalled because nobody could explain the difference between Pro and Enterprise.
+2026-05-17,review,mid_market,retention,Compared three tools; yours had the cleanest action-item extraction.
+2026-05-18,survey,mid_market,purchase,Our legal team needs data residency in the EU.
+2026-05-18,survey,smb,onboarding,The app is great. A dark theme would make it perfect.
+2026-05-18,win_loss,mid_market,evaluation,We'd buy more seats if there was an admin usage dashboard.
+2026-05-19,chat,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-05-20,chat,smb,retention,The app is great. A dark theme would make it perfect.
+2026-05-20,support,smb,retention,The app is great. A dark theme would make it perfect.
+2026-05-20,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-05-21,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-05-21,sales_call,smb,consideration,Not sure which plan fits a team our size; Pro and the tier above look almost the same.
+2026-05-21,survey,mid_market,evaluation,The demo request form froze on my Android phone after I hit submit.
+2026-05-22,sales_call,mid_market,onboarding,The Zoom integration dropped a recording last week.
+2026-05-22,survey,smb,onboarding,Dark mode please! My eyes at night.
+2026-05-22,win_loss,smb,retention,Compared three tools; yours had the cleanest action-item extraction.
+2026-05-23,interview,smb,retention,Setup took longer than expected because SSO configuration was unclear.
+2026-05-23,review,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-05-23,support,smb,onboarding,Would love a dark mode for the transcript view.
+2026-05-23,survey,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-05-24,chat,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-05-24,support,smb,retention,The app is great. A dark theme would make it perfect.
+2026-05-25,interview,smb,purchase,Compared three tools; yours had the cleanest action-item extraction.
+2026-05-25,review,smb,onboarding,Minor thing: export file names are long and ugly.
+2026-05-25,review,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-05-25,survey,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-05-26,interview,smb,purchase,The pricing table has too many asterisks. What's actually in Pro?
+2026-05-26,sales_call,mid_market,purchase,Do you support Microsoft Teams recordings natively?
+2026-05-27,chat,smb,onboarding,Dark mode please! My eyes at night.
+2026-05-27,sales_call,mid_market,consideration,"Webinar attendee: just exploring, no active project or timeline."
+2026-05-27,survey,mid_market,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
+2026-05-27,survey,smb,retention,Would love a dark mode for the transcript view.
+2026-05-28,review,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-05-28,support,smb,purchase,"Onboarding videos were helpful, the team was up and running in a day."
+2026-05-28,survey,smb,awareness,Our team already has a transcription contract through next year; the webinar was for research.
+2026-05-29,chat,smb,retention,Search across past meetings is slow for large workspaces.
+2026-05-29,chat,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-05-29,support,smb,evaluation,"On mobile the demo page took forever to load, then the date picker wouldn't open."
+2026-05-29,support,mid_market,evaluation,Submit button on the demo form did nothing on Galaxy. Tapped it several times.
+2026-05-30,review,smb,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-05-30,support,mid_market,onboarding,Dark mode please! My eyes at night.
+2026-05-30,support,mid_market,onboarding,Small request: let me pick the font in transcripts.
+2026-05-31,interview,mid_market,purchase,Compared three tools; yours had the cleanest action-item extraction.
+2026-05-31,review,smb,retention,Small request: let me pick the font in transcripts.
+2026-05-31,support,smb,onboarding,Dark mode please! My eyes at night.
+2026-05-31,survey,smb,evaluation,Speaker labels get confused when people talk over each other.
+2026-06-01,chat,mid_market,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-06-01,chat,smb,retention,Would love a dark mode for the transcript view.
+2026-06-01,sales_call,smb,onboarding,Transcription accuracy on accented speakers is impressive.
+2026-06-01,survey,smb,evaluation,The Zoom integration dropped a recording last week.
+2026-06-01,win_loss,smb,evaluation,I had to book a call just to find out whether Starter includes the CRM integration.
+2026-06-01,win_loss,smb,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
+2026-06-02,review,mid_market,retention,Would love a dark mode for the transcript view.
+2026-06-02,survey,smb,retention,Small request: let me pick the font in transcripts.
+2026-06-02,survey,mid_market,retention,The Zoom integration dropped a recording last week.
+2026-06-02,win_loss,smb,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-06-03,chat,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-06-03,review,smb,retention,The Zoom integration dropped a recording last week.
+2026-06-03,sales_call,mid_market,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-06-03,sales_call,mid_market,purchase,Our legal team needs data residency in the EU.
+2026-06-03,sales_call,mid_market,evaluation,Search across past meetings is slow for large workspaces.
 2026-06-04,review,smb,retention,Would love a dark mode for the transcript view.
-2026-06-04,support,smb,onboarding,Do you support Microsoft Teams recordings natively?
-2026-06-04,survey,mid_market,evaluation,The pricing table has too many asterisks. What's actually in Starter?
-2026-06-04,win_loss,smb,evaluation,I couldn't tell what's included in Pro versus the tier above it.
-2026-06-04,win_loss,mid_market,evaluation,Lost the deal on price confusion: the buyer thought Business excluded speaker identification.
-2026-06-05,chat,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-06-05,chat,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-06-05,chat,smb,evaluation,Submit button on the demo form did nothing on Android phone. Tapped it several times.
-2026-06-05,interview,smb,evaluation,The pricing table has too many asterisks. What's actually in Pro?
-2026-06-05,survey,smb,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
-2026-06-05,survey,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
-2026-06-05,survey,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
-2026-06-06,chat,smb,consideration,"On mobile the demo page took forever to load, then the date picker wouldn't open."
-2026-06-06,survey,smb,retention,Dark mode please! My eyes at night.
-2026-06-07,review,smb,retention,Search across past meetings is slow for large workspaces.
-2026-06-07,support,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-06-07,survey,mid_market,evaluation,Our legal team needs data residency in the EU.
-2026-06-07,survey,smb,retention,The app is great. A dark theme would make it perfect.
-2026-06-07,survey,smb,onboarding,Would love a dark mode for the transcript view.
-2026-06-07,win_loss,smb,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
-2026-06-08,chat,mid_market,retention,Dark mode please! My eyes at night.
-2026-06-08,chat,smb,retention,Dark mode please! My eyes at night.
-2026-06-08,sales_call,mid_market,awareness,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
-2026-06-08,sales_call,mid_market,onboarding,Speaker labels get confused when people talk over each other.
-2026-06-08,support,smb,onboarding,Would love a dark mode for the transcript view.
-2026-06-09,interview,smb,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-06-09,review,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-06-09,sales_call,mid_market,evaluation,Is the AI summary feature part of Starter or an add-on? The pricing page doesn't say.
-2026-06-09,support,smb,onboarding,We chose EchoAI because the summaries are better than the tool we used before.
-2026-06-10,review,smb,retention,We'd buy more seats if there was an admin usage dashboard.
-2026-06-10,support,smb,onboarding,Would love a dark mode for the transcript view.
-2026-06-11,chat,smb,evaluation,I had to book a call just to find out whether Pro includes the CRM integration.
-2026-06-11,chat,mid_market,consideration,We stalled because nobody could explain the difference between Pro and Enterprise.
-2026-06-11,review,smb,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-06-12,chat,smb,retention,Dark mode please! My eyes at night.
-2026-06-12,chat,mid_market,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-06-12,sales_call,mid_market,retention,Search across past meetings is slow for large workspaces.
-2026-06-12,support,mid_market,retention,Do you support Microsoft Teams recordings natively?
-2026-06-12,support,smb,consideration,Tried to book a demo on my phone and the form just kept spinning.
-2026-06-13,chat,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-06-13,sales_call,mid_market,awareness,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-06-13,survey,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-06-13,win_loss,mid_market,consideration,"Webinar attendee: just exploring, no active project or timeline."
-2026-06-14,chat,smb,consideration,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-06-14,sales_call,smb,evaluation,Transcription accuracy on accented speakers is impressive.
-2026-06-14,support,mid_market,evaluation,Tried to book a demo on my phone and the form just kept spinning.
-2026-06-15,win_loss,smb,consideration,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
-2026-06-16,support,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-06-17,chat,mid_market,onboarding,Dark mode please! My eyes at night.
-2026-06-17,chat,smb,retention,The app is great. A dark theme would make it perfect.
-2026-06-17,sales_call,smb,evaluation,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
-2026-06-17,support,smb,onboarding,Would love a dark mode for the transcript view.
-2026-06-17,survey,mid_market,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
-2026-06-17,survey,smb,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-06-17,win_loss,smb,purchase,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-06-18,chat,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-06-18,chat,smb,retention,Minor thing: export file names are long and ugly.
-2026-06-18,interview,smb,evaluation,Is the AI summary feature part of Business or an add-on? The pricing page doesn't say.
-2026-06-18,review,smb,retention,Would love a dark mode for the transcript view.
-2026-06-18,survey,smb,evaluation,Transcription accuracy on accented speakers is impressive.
-2026-06-18,survey,mid_market,evaluation,We'd buy more seats if there was an admin usage dashboard.
-2026-06-18,win_loss,mid_market,awareness,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-06-19,sales_call,smb,consideration,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
-2026-06-19,survey,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-06-20,review,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-06-20,review,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-06-20,survey,smb,retention,The app is great. A dark theme would make it perfect.
-2026-06-21,chat,mid_market,evaluation,Lost the deal on price confusion: the buyer thought Starter excluded speaker identification.
-2026-06-21,interview,smb,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-06-21,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-06-21,review,smb,onboarding,Would love a dark mode for the transcript view.
-2026-06-21,support,smb,retention,Do you support Microsoft Teams recordings natively?
-2026-06-21,support,mid_market,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-06-22,interview,mid_market,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-06-22,interview,smb,consideration,We stalled because nobody could explain the difference between Starter and Enterprise.
-2026-06-22,review,mid_market,onboarding,Transcription accuracy on accented speakers is impressive.
-2026-06-22,support,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-06-23,chat,smb,retention,Minor thing: export file names are long and ugly.
-2026-06-23,survey,smb,onboarding,Would love a dark mode for the transcript view.
-2026-06-23,win_loss,mid_market,evaluation,Our legal team needs data residency in the EU.
-2026-06-24,review,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-06-24,review,smb,retention,Would love a dark mode for the transcript view.
-2026-06-24,support,mid_market,purchase,Transcription accuracy on accented speakers is impressive.
-2026-06-24,support,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-06-25,sales_call,mid_market,evaluation,The pricing table has too many asterisks. What's actually in Pro?
-2026-06-25,support,smb,retention,Would love a dark mode for the transcript view.
-2026-06-25,survey,mid_market,onboarding,The Zoom integration dropped a recording last week.
-2026-06-26,sales_call,mid_market,awareness,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
-2026-06-26,sales_call,smb,purchase,Search across past meetings is slow for large workspaces.
-2026-06-26,support,smb,evaluation,The demo request form froze on my Android phone after I hit submit.
-2026-06-26,survey,smb,onboarding,Dark mode please! My eyes at night.
-2026-06-26,survey,smb,retention,Would love a dark mode for the transcript view.
-2026-06-27,interview,mid_market,onboarding,Compared three tools; yours had the cleanest action-item extraction.
-2026-06-27,interview,mid_market,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
-2026-06-27,interview,mid_market,evaluation,Speaker labels get confused when people talk over each other.
-2026-06-27,support,smb,onboarding,Search across past meetings is slow for large workspaces.
-2026-06-27,support,smb,retention,Would love a dark mode for the transcript view.
-2026-06-28,review,smb,onboarding,The Zoom integration dropped a recording last week.
-2026-06-28,survey,mid_market,retention,Dark mode please! My eyes at night.
-2026-06-29,chat,smb,retention,Would love a dark mode for the transcript view.
-2026-06-29,review,smb,retention,Transcription accuracy on accented speakers is impressive.
-2026-06-29,support,smb,evaluation,"On mobile the demo page took forever to load, then the date picker wouldn't open."
-2026-06-29,support,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-06-29,win_loss,smb,awareness,Our team already has a transcription contract through next year; the webinar was for research.
-2026-06-29,win_loss,smb,evaluation,Speaker labels get confused when people talk over each other.
-2026-06-30,interview,smb,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-06-30,interview,smb,retention,Compared three tools; yours had the cleanest action-item extraction.
-2026-06-30,interview,mid_market,retention,Search across past meetings is slow for large workspaces.
-2026-06-30,review,smb,retention,The app is great. A dark theme would make it perfect.
-2026-07-01,review,mid_market,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-07-01,support,mid_market,purchase,Do you support Microsoft Teams recordings natively?
-2026-07-01,survey,smb,consideration,Tried to book a demo on my phone and the form just kept spinning.
-2026-07-02,review,smb,evaluation,We'd buy more seats if there was an admin usage dashboard.
-2026-07-03,chat,smb,retention,Would love a dark mode for the transcript view.
-2026-07-03,sales_call,smb,consideration,We stalled because nobody could explain the difference between Starter and Enterprise.
-2026-07-03,survey,smb,onboarding,Do you support Microsoft Teams recordings natively?
-2026-07-04,chat,mid_market,purchase,I had to book a call just to find out whether Business includes the CRM integration.
-2026-07-04,review,smb,retention,Small request: let me pick the font in transcripts.
-2026-07-04,win_loss,smb,purchase,Transcription accuracy on accented speakers is impressive.
-2026-07-05,chat,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
-2026-07-05,chat,smb,onboarding,Do you support Microsoft Teams recordings natively?
-2026-07-05,interview,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-07-05,sales_call,smb,consideration,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-07-06,support,mid_market,retention,"Onboarding videos were helpful, the team was up and running in a day."
-2026-07-06,support,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-06-05,review,smb,retention,Dark mode please! My eyes at night.
+2026-06-05,support,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-06-05,survey,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-06-06,survey,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-06-07,review,smb,onboarding,Dark mode please! My eyes at night.
+2026-06-07,survey,mid_market,evaluation,Submit button on the demo form did nothing on Pixel. Tapped it several times.
+2026-06-07,survey,smb,retention,Would love a dark mode for the transcript view.
+2026-06-08,chat,smb,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
+2026-06-08,chat,mid_market,purchase,We chose EchoAI because the summaries are better than the tool we used before.
+2026-06-08,chat,smb,purchase,We stalled because nobody could explain the difference between Pro and Enterprise.
+2026-06-08,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
+2026-06-08,sales_call,mid_market,onboarding,Our legal team needs data residency in the EU.
+2026-06-08,support,smb,onboarding,The app is great. A dark theme would make it perfect.
+2026-06-08,support,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-06-08,survey,mid_market,consideration,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-06-08,survey,smb,evaluation,We chose EchoAI because the summaries are better than the tool we used before.
+2026-06-08,win_loss,smb,purchase,The pricing table has too many asterisks. What's actually in Pro?
+2026-06-09,chat,smb,retention,Search across past meetings is slow for large workspaces.
+2026-06-09,interview,smb,retention,Setup took longer than expected because SSO configuration was unclear.
+2026-06-09,review,mid_market,retention,Dark mode please! My eyes at night.
+2026-06-09,review,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-06-09,survey,smb,awareness,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-06-09,win_loss,smb,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-06-10,survey,smb,purchase,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-06-10,win_loss,smb,evaluation,The pricing table has too many asterisks. What's actually in Business?
+2026-06-11,chat,smb,retention,Would love a dark mode for the transcript view.
+2026-06-11,sales_call,smb,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
+2026-06-11,win_loss,mid_market,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-06-12,sales_call,smb,awareness,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-06-13,chat,smb,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-06-13,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-06-13,chat,smb,retention,We chose EchoAI because the summaries are better than the tool we used before.
+2026-06-13,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-06-13,sales_call,smb,consideration,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-06-13,sales_call,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
+2026-06-14,chat,smb,evaluation,"On mobile the demo page took forever to load, then the date picker wouldn't open."
+2026-06-14,support,mid_market,retention,Setup took longer than expected because SSO configuration was unclear.
+2026-06-15,review,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-06-15,sales_call,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-06-15,support,smb,onboarding,Would love a dark mode for the transcript view.
+2026-06-16,interview,mid_market,consideration,I had to book a call just to find out whether Starter includes the CRM integration.
+2026-06-16,review,smb,retention,Small request: let me pick the font in transcripts.
+2026-06-16,review,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-06-16,sales_call,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
+2026-06-16,survey,mid_market,retention,Dark mode please! My eyes at night.
+2026-06-16,survey,mid_market,retention,Dark mode please! My eyes at night.
+2026-06-16,survey,mid_market,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-06-17,review,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-06-17,win_loss,smb,evaluation,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
+2026-06-18,chat,mid_market,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-06-18,chat,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-06-18,review,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-06-18,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-06-19,support,mid_market,retention,"Onboarding videos were helpful, the team was up and running in a day."
+2026-06-19,support,mid_market,consideration,Started the demo form on my phone twice and gave up; I'll try from a laptop.
+2026-06-19,survey,smb,consideration,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-06-19,win_loss,smb,awareness,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-06-20,chat,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-06-20,win_loss,smb,onboarding,Do you support Microsoft Teams recordings natively?
+2026-06-21,interview,smb,evaluation,Is the AI summary feature part of Starter or an add-on? The pricing page doesn't say.
+2026-06-21,interview,smb,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
+2026-06-21,sales_call,mid_market,consideration,Lost the deal on price confusion: the buyer thought Starter excluded speaker identification.
+2026-06-21,support,mid_market,retention,Setup took longer than expected because SSO configuration was unclear.
+2026-06-21,win_loss,mid_market,evaluation,We'd buy more seats if there was an admin usage dashboard.
+2026-06-22,chat,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-06-22,chat,smb,retention,Minor thing: export file names are long and ugly.
+2026-06-22,review,smb,retention,Small request: let me pick the font in transcripts.
+2026-06-22,review,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-06-22,support,smb,onboarding,Minor thing: export file names are long and ugly.
+2026-06-22,support,smb,retention,Small request: let me pick the font in transcripts.
+2026-06-22,win_loss,mid_market,evaluation,We chose EchoAI because the summaries are better than the tool we used before.
+2026-06-22,win_loss,mid_market,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
+2026-06-23,chat,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-06-23,review,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-06-23,review,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-06-23,review,smb,retention,Dark mode please! My eyes at night.
+2026-06-24,chat,smb,retention,Would love a dark mode for the transcript view.
+2026-06-24,interview,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
+2026-06-24,survey,smb,evaluation,"On mobile the demo page took forever to load, then the date picker wouldn't open."
+2026-06-25,sales_call,smb,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-06-25,support,mid_market,retention,Dark mode please! My eyes at night.
+2026-06-26,chat,smb,retention,Minor thing: export file names are long and ugly.
+2026-06-26,survey,smb,onboarding,The app is great. A dark theme would make it perfect.
+2026-06-26,survey,smb,retention,We'd buy more seats if there was an admin usage dashboard.
+2026-06-26,win_loss,mid_market,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-06-27,interview,mid_market,evaluation,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
+2026-06-27,review,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-06-28,sales_call,mid_market,onboarding,Do you support Microsoft Teams recordings natively?
+2026-06-28,sales_call,mid_market,onboarding,Search across past meetings is slow for large workspaces.
+2026-06-28,support,mid_market,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
+2026-06-28,support,smb,onboarding,Would love a dark mode for the transcript view.
+2026-06-28,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-06-28,win_loss,mid_market,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-06-29,support,mid_market,evaluation,Do you support Microsoft Teams recordings natively?
+2026-06-29,support,mid_market,purchase,Speaker labels get confused when people talk over each other.
+2026-06-29,survey,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-06-29,win_loss,smb,consideration,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
+2026-06-29,win_loss,smb,onboarding,Setup took longer than expected because SSO configuration was unclear.
+2026-06-30,chat,smb,onboarding,Do you support Microsoft Teams recordings natively?
+2026-06-30,survey,mid_market,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
+2026-06-30,win_loss,smb,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
+2026-07-01,interview,mid_market,purchase,Setup took longer than expected because SSO configuration was unclear.
+2026-07-01,support,smb,onboarding,The app is great. A dark theme would make it perfect.
+2026-07-01,support,mid_market,retention,Would love a dark mode for the transcript view.
+2026-07-01,survey,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
+2026-07-02,sales_call,mid_market,evaluation,Not sure which plan fits a team our size; Starter and the tier above look almost the same.
+2026-07-02,sales_call,mid_market,purchase,Transcription accuracy on accented speakers is impressive.
+2026-07-03,support,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-03,support,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-03,survey,mid_market,onboarding,Small request: let me pick the font in transcripts.
+2026-07-04,sales_call,smb,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
+2026-07-04,survey,smb,consideration,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-07-04,survey,mid_market,retention,Speaker labels get confused when people talk over each other.
+2026-07-04,survey,smb,retention,The app is great. A dark theme would make it perfect.
+2026-07-05,chat,smb,onboarding,Would love a dark mode for the transcript view.
+2026-07-05,sales_call,mid_market,retention,"Onboarding videos were helpful, the team was up and running in a day."
+2026-07-06,chat,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-06,chat,mid_market,evaluation,Is the AI summary feature part of Pro or an add-on? The pricing page doesn't say.
+2026-07-06,chat,smb,onboarding,The app is great. A dark theme would make it perfect.
+2026-07-06,interview,smb,consideration,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
 2026-07-06,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-06,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-06,survey,smb,evaluation,Search across past meetings is slow for large workspaces.
-2026-07-06,survey,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-07-07,chat,smb,retention,The Zoom integration dropped a recording last week.
-2026-07-07,interview,smb,onboarding,Setup took longer than expected because SSO configuration was unclear.
-2026-07-07,interview,smb,evaluation,The Zoom integration dropped a recording last week.
-2026-07-07,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-07,survey,mid_market,retention,Dark mode please! My eyes at night.
-2026-07-07,win_loss,smb,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-07-07,support,smb,evaluation,The demo request form froze on my Android phone after I hit submit.
+2026-07-07,support,smb,retention,Would love a dark mode for the transcript view.
+2026-07-07,survey,smb,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
 2026-07-08,chat,mid_market,retention,Small request: let me pick the font in transcripts.
-2026-07-08,interview,smb,consideration,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-07-08,support,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-07-08,support,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-07-08,survey,smb,evaluation,I had to book a call just to find out whether Business includes the CRM integration.
-2026-07-09,survey,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-07-09,survey,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-07-09,win_loss,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-07-09,win_loss,smb,onboarding,The Zoom integration dropped a recording last week.
-2026-07-10,chat,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-07-10,chat,smb,purchase,Transcription accuracy on accented speakers is impressive.
-2026-07-10,support,mid_market,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-07-10,support,mid_market,evaluation,Submit button on the demo form did nothing on Galaxy. Tapped it several times.
-2026-07-10,survey,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-07-10,survey,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-07-11,chat,mid_market,evaluation,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
-2026-07-11,survey,smb,onboarding,Dark mode please! My eyes at night.
-2026-07-11,win_loss,mid_market,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-07-12,chat,smb,consideration,I had to book a call just to find out whether Business includes the CRM integration.
-2026-07-12,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
-2026-07-12,sales_call,smb,evaluation,Lost the deal on price confusion: the buyer thought Business excluded speaker identification.
-2026-07-12,support,smb,purchase,Setup took longer than expected because SSO configuration was unclear.
-2026-07-12,survey,mid_market,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-07-13,review,smb,onboarding,Compared three tools; yours had the cleanest action-item extraction.
-2026-07-13,support,smb,onboarding,Dark mode please! My eyes at night.
-2026-07-13,support,smb,retention,Minor thing: export file names are long and ugly.
-2026-07-14,review,smb,onboarding,"Onboarding videos were helpful, the team was up and running in a day."
-2026-07-14,sales_call,mid_market,evaluation,I had to book a call just to find out whether Pro includes the CRM integration.
-2026-07-15,review,smb,evaluation,Our legal team needs data residency in the EU.
-2026-07-16,win_loss,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
-2026-07-17,chat,mid_market,evaluation,We'd buy more seats if there was an admin usage dashboard.
-2026-07-17,sales_call,smb,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-07-17,sales_call,smb,purchase,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
-2026-07-17,support,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-17,survey,smb,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-07-17,survey,smb,onboarding,Would love a dark mode for the transcript view.
-2026-07-17,win_loss,smb,consideration,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
-2026-07-18,review,smb,retention,Minor thing: export file names are long and ugly.
-2026-07-18,review,mid_market,retention,We chose EchoAI because the summaries are better than the tool we used before.
-2026-07-18,sales_call,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-07-18,support,smb,retention,Small request: let me pick the font in transcripts.
-2026-07-18,support,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-07-18,survey,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-07-18,survey,smb,retention,Small request: let me pick the font in transcripts.
-2026-07-18,survey,smb,evaluation,Submit button on the demo form did nothing on iPhone. Tapped it several times.
-2026-07-18,win_loss,mid_market,consideration,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
-2026-07-19,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-07-19,sales_call,smb,awareness,I joined the webinar to learn about AI note-taking trends. We have no budget this year.
-2026-07-19,support,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-19,win_loss,smb,onboarding,Speaker labels get confused when people talk over each other.
-2026-07-20,win_loss,smb,evaluation,Transcription accuracy on accented speakers is impressive.
-2026-07-21,chat,smb,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
-2026-07-21,interview,smb,consideration,Lost the deal on price confusion: the buyer thought Starter excluded speaker identification.
-2026-07-21,support,mid_market,evaluation,Speaker labels get confused when people talk over each other.
-2026-07-22,review,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-07-22,support,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-07-22,survey,mid_market,awareness,Our team already has a transcription contract through next year; the webinar was for research.
-2026-07-22,survey,mid_market,retention,Would love a dark mode for the transcript view.
-2026-07-23,chat,smb,evaluation,I couldn't tell what's included in Business versus the tier above it.
-2026-07-23,sales_call,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
-2026-07-24,chat,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-24,support,smb,retention,Small request: let me pick the font in transcripts.
-2026-07-24,survey,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-07-24,survey,smb,purchase,I had to book a call just to find out whether Business includes the CRM integration.
-2026-07-24,survey,mid_market,awareness,"Webinar attendee: just exploring, no active project or timeline."
-2026-07-24,survey,mid_market,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-07-25,chat,smb,purchase,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-07-25,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
-2026-07-25,interview,smb,retention,We chose EchoAI because the summaries are better than the tool we used before.
-2026-07-25,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-07-25,support,smb,retention,Minor thing: export file names are long and ugly.
-2026-07-26,sales_call,smb,consideration,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-07-26,sales_call,smb,purchase,We chose EchoAI because the summaries are better than the tool we used before.
-2026-07-26,win_loss,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-07-09,chat,smb,retention,Small request: let me pick the font in transcripts.
+2026-07-09,survey,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-10,chat,mid_market,evaluation,The pricing table has too many asterisks. What's actually in Pro?
+2026-07-10,chat,smb,evaluation,Tried to book a demo on my phone and the form just kept spinning.
+2026-07-10,survey,smb,retention,Minor thing: export file names are long and ugly.
+2026-07-10,survey,smb,retention,Speaker labels get confused when people talk over each other.
+2026-07-11,review,mid_market,evaluation,Setup took longer than expected because SSO configuration was unclear.
+2026-07-11,sales_call,smb,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-07-11,survey,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-12,interview,smb,purchase,Not sure which plan fits a team our size; Business and the tier above look almost the same.
+2026-07-12,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-07-13,interview,smb,purchase,We'd buy more seats if there was an admin usage dashboard.
+2026-07-13,sales_call,smb,evaluation,Is the AI summary feature part of Pro or an add-on? The pricing page doesn't say.
+2026-07-13,support,smb,retention,Dark mode please! My eyes at night.
+2026-07-14,sales_call,smb,purchase,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-07-14,survey,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-07-15,chat,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-07-15,support,smb,retention,Small request: let me pick the font in transcripts.
+2026-07-15,survey,mid_market,purchase,Compared three tools; yours had the cleanest action-item extraction.
+2026-07-15,survey,mid_market,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
+2026-07-15,win_loss,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-07-16,review,mid_market,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-07-16,review,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-07-16,sales_call,mid_market,evaluation,Setup took longer than expected because SSO configuration was unclear.
+2026-07-16,support,smb,retention,Minor thing: export file names are long and ugly.
+2026-07-17,chat,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-17,sales_call,smb,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
+2026-07-17,survey,mid_market,retention,Dark mode please! My eyes at night.
+2026-07-18,review,smb,onboarding,We chose EchoAI because the summaries are better than the tool we used before.
+2026-07-18,sales_call,smb,evaluation,I couldn't tell what's included in Starter versus the tier above it.
+2026-07-19,chat,smb,evaluation,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
+2026-07-19,interview,mid_market,evaluation,The Zoom integration dropped a recording last week.
+2026-07-19,interview,smb,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
+2026-07-19,support,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-07-19,survey,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-19,survey,smb,retention,Minor thing: export file names are long and ugly.
+2026-07-19,survey,smb,consideration,Not sure if overage minutes are billed on Pro. That uncertainty slowed approval.
+2026-07-19,win_loss,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-07-19,win_loss,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-07-20,chat,smb,purchase,Speaker labels get confused when people talk over each other.
+2026-07-20,chat,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-07-20,interview,smb,evaluation,We chose EchoAI because the summaries are better than the tool we used before.
+2026-07-21,chat,smb,retention,Dark mode please! My eyes at night.
+2026-07-21,chat,mid_market,onboarding,Transcription accuracy on accented speakers is impressive.
+2026-07-21,review,mid_market,onboarding,Dark mode please! My eyes at night.
+2026-07-22,interview,mid_market,onboarding,Our legal team needs data residency in the EU.
+2026-07-22,survey,smb,purchase,We chose EchoAI because the summaries are better than the tool we used before.
+2026-07-22,survey,smb,evaluation,We chose EchoAI because the summaries are better than the tool we used before.
+2026-07-22,win_loss,smb,consideration,We stalled because nobody could explain the difference between Business and Enterprise.
+2026-07-23,review,mid_market,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-07-23,sales_call,smb,awareness,"Webinar attendee: just exploring, no active project or timeline."
+2026-07-23,survey,smb,evaluation,Do you support Microsoft Teams recordings natively?
+2026-07-23,survey,smb,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-07-24,support,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-24,support,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-07-24,support,smb,retention,Search across past meetings is slow for large workspaces.
+2026-07-24,support,smb,evaluation,Started the demo form on my phone twice and gave up; I'll try from a laptop.
+2026-07-24,win_loss,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-07-25,chat,smb,evaluation,I didn't want to talk to sales just to get a ballpark price for Starter.
+2026-07-25,chat,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-07-25,survey,mid_market,evaluation,Search across past meetings is slow for large workspaces.
+2026-07-25,survey,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-07-25,win_loss,smb,consideration,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-07-25,win_loss,smb,evaluation,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
+2026-07-25,win_loss,smb,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
+2026-07-26,survey,smb,purchase,Not sure if overage minutes are billed on Starter. That uncertainty slowed approval.
+2026-07-26,win_loss,smb,consideration,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
 2026-07-27,chat,mid_market,retention,Dark mode please! My eyes at night.
-2026-07-27,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
-2026-07-27,review,smb,evaluation,Speaker labels get confused when people talk over each other.
-2026-07-27,support,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-27,win_loss,mid_market,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-07-27,win_loss,mid_market,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-07-28,chat,smb,evaluation,I couldn't tell what's included in Starter versus the tier above it.
-2026-07-28,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-07-28,interview,smb,purchase,Is the AI summary feature part of Business or an add-on? The pricing page doesn't say.
-2026-07-28,support,mid_market,evaluation,The demo request form froze on my iPhone after I hit submit.
-2026-07-28,support,smb,onboarding,Would love a dark mode for the transcript view.
-2026-07-29,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
-2026-07-29,win_loss,mid_market,evaluation,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
-2026-07-30,chat,smb,evaluation,We'd buy more seats if there was an admin usage dashboard.
-2026-07-30,interview,smb,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
-2026-07-30,sales_call,mid_market,evaluation,I had to book a call just to find out whether Business includes the CRM integration.
-2026-07-30,support,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-07-31,chat,smb,retention,The app is great. A dark theme would make it perfect.
-2026-07-31,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-07-31,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-08-01,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-08-01,survey,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-08-01,survey,mid_market,evaluation,We chose EchoAI because the summaries are better than the tool we used before.
-2026-08-01,win_loss,smb,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-08-02,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-08-02,interview,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-08-02,win_loss,mid_market,consideration,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
-2026-08-03,support,smb,retention,The app is great. A dark theme would make it perfect.
-2026-08-03,survey,mid_market,evaluation,Not sure if overage minutes are billed on Starter. That uncertainty slowed approval.
-2026-08-04,chat,smb,retention,Dark mode please! My eyes at night.
+2026-07-27,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-07-27,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-07-28,review,mid_market,evaluation,Do you support Microsoft Teams recordings natively?
+2026-07-28,review,mid_market,retention,"Onboarding videos were helpful, the team was up and running in a day."
+2026-07-28,sales_call,smb,awareness,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-07-28,sales_call,mid_market,evaluation,The pricing table has too many asterisks. What's actually in Business?
+2026-07-28,support,mid_market,onboarding,Dark mode please! My eyes at night.
+2026-07-28,support,smb,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-07-28,win_loss,mid_market,consideration,I had to book a call just to find out whether Business includes the CRM integration.
+2026-07-29,review,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-07-29,review,smb,onboarding,Search across past meetings is slow for large workspaces.
+2026-07-29,sales_call,mid_market,onboarding,The Zoom integration dropped a recording last week.
+2026-07-29,survey,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-07-29,survey,smb,awareness,Our team already has a transcription contract through next year; the webinar was for research.
+2026-07-30,chat,smb,evaluation,Is the AI summary feature part of Starter or an add-on? The pricing page doesn't say.
+2026-07-30,review,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-07-30,review,smb,onboarding,Would love a dark mode for the transcript view.
+2026-07-30,sales_call,smb,consideration,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
+2026-07-30,sales_call,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
+2026-07-30,support,mid_market,onboarding,Minor thing: export file names are long and ugly.
+2026-07-30,survey,smb,evaluation,Do you support Microsoft Teams recordings natively?
+2026-07-30,survey,smb,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
+2026-07-31,chat,smb,consideration,Submit button on the demo form did nothing on Android phone. Tapped it several times.
+2026-07-31,review,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-07-31,sales_call,smb,purchase,Is the AI summary feature part of Starter or an add-on? The pricing page doesn't say.
+2026-07-31,win_loss,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-07-31,win_loss,mid_market,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-08-01,chat,mid_market,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-08-01,support,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-08-01,survey,smb,evaluation,Is the AI summary feature part of Business or an add-on? The pricing page doesn't say.
+2026-08-02,chat,smb,retention,The app is great. A dark theme would make it perfect.
+2026-08-02,chat,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-08-02,interview,smb,evaluation,I couldn't tell what's included in Business versus the tier above it.
+2026-08-02,sales_call,smb,evaluation,I had to book a call just to find out whether Pro includes the CRM integration.
+2026-08-02,survey,smb,evaluation,"On mobile the demo page took forever to load, then the date picker wouldn't open."
+2026-08-03,support,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
+2026-08-03,win_loss,smb,evaluation,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
+2026-08-04,chat,mid_market,retention,Small request: let me pick the font in transcripts.
+2026-08-04,interview,mid_market,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
 2026-08-04,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-08-04,review,smb,retention,Small request: let me pick the font in transcripts.
-2026-08-04,support,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-08-04,survey,smb,evaluation,The Zoom integration dropped a recording last week.
-2026-08-04,win_loss,mid_market,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
-2026-08-05,chat,smb,consideration,We stalled because nobody could explain the difference between Pro and Enterprise.
-2026-08-05,interview,smb,consideration,I couldn't tell what's included in Business versus the tier above it.
-2026-08-05,review,mid_market,retention,Dark mode please! My eyes at night.
-2026-08-05,support,smb,retention,Would love a dark mode for the transcript view.
-2026-08-05,win_loss,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
-2026-08-05,win_loss,smb,consideration,"Webinar attendee: just exploring, no active project or timeline."
-2026-08-06,chat,mid_market,evaluation,Speaker labels get confused when people talk over each other.
-2026-08-06,sales_call,smb,consideration,Is the AI summary feature part of Pro or an add-on? The pricing page doesn't say.
-2026-08-06,support,smb,retention,Dark mode please! My eyes at night.
-2026-08-06,support,smb,evaluation,"On mobile the demo page took forever to load, then the date picker wouldn't open."
-2026-08-07,interview,mid_market,purchase,Compared three tools; yours had the cleanest action-item extraction.
+2026-08-04,review,smb,onboarding,Minor thing: export file names are long and ugly.
+2026-08-04,survey,smb,onboarding,Minor thing: export file names are long and ugly.
+2026-08-04,survey,smb,onboarding,Speaker labels get confused when people talk over each other.
+2026-08-04,survey,smb,onboarding,Would love a dark mode for the transcript view.
+2026-08-05,sales_call,smb,purchase,Search across past meetings is slow for large workspaces.
+2026-08-05,survey,smb,evaluation,I had to book a call just to find out whether Business includes the CRM integration.
+2026-08-05,survey,mid_market,onboarding,The app is great. A dark theme would make it perfect.
+2026-08-06,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
+2026-08-06,support,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-08-07,chat,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-08-07,chat,smb,retention,We'd buy more seats if there was an admin usage dashboard.
+2026-08-07,interview,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
 2026-08-07,review,mid_market,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-08-07,review,smb,onboarding,Compared three tools; yours had the cleanest action-item extraction.
-2026-08-07,review,smb,retention,Minor thing: export file names are long and ugly.
-2026-08-07,review,smb,retention,Minor thing: export file names are long and ugly.
-2026-08-07,win_loss,smb,evaluation,I had to book a call just to find out whether Starter includes the CRM integration.
-2026-08-08,chat,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-08-08,review,smb,evaluation,"Onboarding videos were helpful, the team was up and running in a day."
-2026-08-08,support,smb,onboarding,We'd buy more seats if there was an admin usage dashboard.
-2026-08-08,survey,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-08-08,survey,smb,evaluation,Lost the deal on price confusion: the buyer thought Business excluded speaker identification.
-2026-08-08,win_loss,smb,evaluation,We'd buy more seats if there was an admin usage dashboard.
-2026-08-09,chat,mid_market,retention,Dark mode please! My eyes at night.
-2026-08-09,survey,smb,evaluation,Tried to book a demo on my phone and the form just kept spinning.
-2026-08-10,chat,smb,consideration,I had to book a call just to find out whether Pro includes the CRM integration.
-2026-08-10,review,smb,retention,Do you support Microsoft Teams recordings natively?
-2026-08-10,support,mid_market,retention,"Onboarding videos were helpful, the team was up and running in a day."
-2026-08-10,survey,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-08-10,survey,smb,evaluation,We stalled because nobody could explain the difference between Pro and Enterprise.
-2026-08-10,win_loss,smb,evaluation,Lost the deal on price confusion: the buyer thought Pro excluded speaker identification.
-2026-08-11,interview,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-08-11,sales_call,smb,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-08-11,support,smb,evaluation,Tried to book a demo on my phone and the form just kept spinning.
-2026-08-11,survey,smb,retention,Minor thing: export file names are long and ugly.
-2026-08-11,win_loss,mid_market,evaluation,The Zoom integration dropped a recording last week.
-2026-08-12,chat,mid_market,onboarding,Minor thing: export file names are long and ugly.
-2026-08-12,chat,smb,retention,We chose EchoAI because the summaries are better than the tool we used before.
-2026-08-12,interview,smb,evaluation,Not sure if overage minutes are billed on Pro. That uncertainty slowed approval.
-2026-08-12,interview,smb,consideration,The pricing table has too many asterisks. What's actually in Pro?
-2026-08-12,survey,mid_market,evaluation,I couldn't tell what's included in Business versus the tier above it.
-2026-08-13,chat,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-08-13,sales_call,mid_market,consideration,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
-2026-08-14,chat,mid_market,evaluation,I had to book a call just to find out whether Starter includes the CRM integration.
-2026-08-14,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-08-14,review,smb,retention,The app is great. A dark theme would make it perfect.
-2026-08-14,survey,smb,evaluation,Is the AI summary feature part of Business or an add-on? The pricing page doesn't say.
-2026-08-14,survey,smb,evaluation,Not sure if overage minutes are billed on Business. That uncertainty slowed approval.
-2026-08-14,survey,mid_market,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-08-15,chat,smb,evaluation,Tried to book a demo on my phone and the form just kept spinning.
-2026-08-15,interview,smb,purchase,Not sure if overage minutes are billed on Pro. That uncertainty slowed approval.
-2026-08-15,interview,smb,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-08-16,chat,mid_market,evaluation,The pricing table has too many asterisks. What's actually in Pro?
-2026-08-16,chat,smb,retention,Would be nice to have emoji reactions on transcript highlights.
-2026-08-16,sales_call,smb,retention,Do you support Microsoft Teams recordings natively?
-2026-08-16,sales_call,mid_market,consideration,I couldn't tell what's included in Pro versus the tier above it.
-2026-08-17,chat,smb,evaluation,Our legal team needs data residency in the EU.
-2026-08-17,review,smb,onboarding,Minor thing: export file names are long and ugly.
-2026-08-17,review,mid_market,retention,Minor thing: export file names are long and ugly.
-2026-08-17,support,smb,retention,Minor thing: export file names are long and ugly.
-2026-08-18,interview,smb,consideration,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-08-18,review,smb,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
-2026-08-18,review,mid_market,onboarding,Our legal team needs data residency in the EU.
-2026-08-18,win_loss,mid_market,evaluation,Search across past meetings is slow for large workspaces.
-2026-08-19,review,smb,onboarding,Do you support Microsoft Teams recordings natively?
-2026-08-19,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-08-19,survey,smb,onboarding,Would be nice to have emoji reactions on transcript highlights.
-2026-08-19,win_loss,mid_market,purchase,Is the AI summary feature part of Pro or an add-on? The pricing page doesn't say.
-2026-08-20,interview,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-08-20,support,smb,retention,Would love a dark mode for the transcript view.
-2026-08-21,chat,mid_market,onboarding,Minor thing: export file names are long and ugly.
-2026-08-21,chat,smb,evaluation,The pricing table has too many asterisks. What's actually in Starter?
-2026-08-21,chat,smb,onboarding,Would love a dark mode for the transcript view.
-2026-08-21,review,mid_market,evaluation,Compared three tools; yours had the cleanest action-item extraction.
-2026-08-21,review,smb,retention,The app is great. A dark theme would make it perfect.
-2026-08-21,sales_call,mid_market,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
-2026-08-21,survey,mid_market,evaluation,Search across past meetings is slow for large workspaces.
-2026-08-22,chat,mid_market,retention,Setup took longer than expected because SSO configuration was unclear.
-2026-08-22,review,smb,retention,"Onboarding videos were helpful, the team was up and running in a day."
-2026-08-22,review,mid_market,onboarding,The app is great. A dark theme would make it perfect.
-2026-08-22,survey,smb,retention,Speaker labels get confused when people talk over each other.
-2026-08-23,chat,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-08-23,win_loss,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-08-24,chat,smb,consideration,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
-2026-08-24,review,mid_market,onboarding,Small request: let me pick the font in transcripts.
-2026-08-24,survey,smb,retention,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-08-24,survey,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-08-25,chat,mid_market,evaluation,Our legal team needs data residency in the EU.
-2026-08-25,sales_call,mid_market,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-08-25,survey,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
-2026-08-25,survey,smb,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-08-25,survey,mid_market,onboarding,Transcription accuracy on accented speakers is impressive.
-2026-08-26,chat,mid_market,evaluation,I couldn't tell what's included in Pro versus the tier above it.
-2026-08-26,support,mid_market,purchase,Transcription accuracy on accented speakers is impressive.
-2026-08-26,survey,smb,evaluation,Lost the deal on price confusion: the buyer thought Starter excluded speaker identification.
-2026-08-27,review,mid_market,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-08-27,review,mid_market,onboarding,Security asked whether you're SOC 2 Type II; we need the report before signing.
-2026-08-27,review,smb,retention,The app is great. A dark theme would make it perfect.
-2026-08-27,sales_call,smb,evaluation,We stalled because nobody could explain the difference between Starter and Enterprise.
-2026-08-28,chat,smb,retention,Minor thing: export file names are long and ugly.
-2026-08-28,sales_call,mid_market,onboarding,Setup took longer than expected because SSO configuration was unclear.
-2026-08-28,survey,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-08-29,survey,mid_market,consideration,Started the demo form on my phone twice and gave up; I'll try from a laptop.
-2026-08-29,win_loss,mid_market,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
-2026-08-30,chat,smb,consideration,I had to book a call just to find out whether Pro includes the CRM integration.
-2026-08-30,chat,mid_market,evaluation,The demo request form froze on my Galaxy after I hit submit.
-2026-08-31,interview,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
-2026-08-31,interview,smb,evaluation,I couldn't tell what's included in Business versus the tier above it.
-2026-08-31,review,smb,retention,Dark mode please! My eyes at night.
-2026-08-31,review,smb,retention,Small request: let me pick the font in transcripts.
-2026-08-31,survey,smb,onboarding,Small request: let me pick the font in transcripts.
-2026-08-31,survey,mid_market,retention,The app is great. A dark theme would make it perfect.
-2026-08-31,survey,smb,onboarding,The app is great. A dark theme would make it perfect.
-2026-08-31,win_loss,smb,consideration,We stalled because nobody could explain the difference between Starter and Enterprise.
+2026-08-07,support,smb,retention,Minor thing: export file names are long and ugly.
+2026-08-07,win_loss,mid_market,awareness,Our team already has a transcription contract through next year; the webinar was for research.
+2026-08-08,chat,smb,evaluation,Lost the deal on price confusion: the buyer thought Starter excluded speaker identification.
+2026-08-08,sales_call,smb,consideration,Our team already has a transcription contract through next year; the webinar was for research.
+2026-08-08,survey,mid_market,retention,The Zoom integration dropped a recording last week.
+2026-08-08,survey,smb,retention,The app is great. A dark theme would make it perfect.
+2026-08-09,interview,mid_market,purchase,Why do I need a demo before I can see what the real cost is?
+2026-08-09,support,mid_market,evaluation,Submit button on the demo form did nothing on Android phone. Tapped it several times.
+2026-08-10,chat,smb,retention,Minor thing: export file names are long and ugly.
+2026-08-10,support,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-08-10,survey,mid_market,onboarding,Compared three tools; yours had the cleanest action-item extraction.
+2026-08-10,survey,smb,retention,Would love a dark mode for the transcript view.
+2026-08-11,chat,smb,retention,Dark mode please! My eyes at night.
+2026-08-11,support,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-08-11,support,smb,consideration,Started the demo form on my phone twice and gave up; I'll try from a laptop.
+2026-08-11,win_loss,smb,purchase,Not sure if overage minutes are billed on Starter. That uncertainty slowed approval.
+2026-08-12,chat,smb,onboarding,Do you support Microsoft Teams recordings natively?
+2026-08-12,interview,smb,purchase,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
+2026-08-12,review,smb,onboarding,Search across past meetings is slow for large workspaces.
+2026-08-12,sales_call,mid_market,retention,Transcription accuracy on accented speakers is impressive.
+2026-08-12,survey,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-08-12,survey,smb,awareness,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-08-12,survey,mid_market,evaluation,Speaker labels get confused when people talk over each other.
+2026-08-13,interview,mid_market,purchase,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-08-13,interview,smb,evaluation,Why do I need a demo before I can see what the real cost is?
+2026-08-13,support,mid_market,retention,Would love a dark mode for the transcript view.
+2026-08-13,win_loss,smb,consideration,"I signed up for the webinar for the free template, not to evaluate tools."
+2026-08-14,chat,smb,purchase,Setup took longer than expected because SSO configuration was unclear.
+2026-08-14,support,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
+2026-08-14,survey,smb,retention,Minor thing: export file names are long and ugly.
+2026-08-14,win_loss,smb,evaluation,Is the AI summary feature part of Business or an add-on? The pricing page doesn't say.
+2026-08-15,support,smb,retention,The app is great. A dark theme would make it perfect.
+2026-08-15,survey,mid_market,evaluation,Do you support Microsoft Teams recordings natively?
+2026-08-15,survey,smb,consideration,The pricing table has too many asterisks. What's actually in Starter?
+2026-08-16,interview,smb,evaluation,Why do I need a demo before I can see what the real cost is?
+2026-08-16,review,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-08-16,sales_call,smb,consideration,We stalled because nobody could explain the difference between Business and Enterprise.
+2026-08-16,survey,mid_market,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-08-16,win_loss,smb,awareness,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-08-17,chat,smb,retention,Would love a dark mode for the transcript view.
+2026-08-17,interview,smb,evaluation,The pricing table has too many asterisks. What's actually in Pro?
+2026-08-17,support,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-08-18,interview,mid_market,retention,Do you support Microsoft Teams recordings natively?
+2026-08-18,review,mid_market,retention,Would love a dark mode for the transcript view.
+2026-08-18,support,mid_market,onboarding,The app is great. A dark theme would make it perfect.
+2026-08-18,survey,mid_market,awareness,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-08-18,survey,smb,onboarding,Minor thing: export file names are long and ugly.
+2026-08-18,win_loss,smb,purchase,I had to book a call just to find out whether Pro includes the CRM integration.
+2026-08-19,chat,smb,evaluation,Do you support Microsoft Teams recordings natively?
+2026-08-19,interview,smb,evaluation,"Clicked a search ad, landed on pricing, and still had no idea if transcription hours are capped."
+2026-08-19,survey,mid_market,retention,Do you support Microsoft Teams recordings natively?
+2026-08-19,survey,smb,consideration,Not sure which plan fits a team our size; Starter and the tier above look almost the same.
+2026-08-20,interview,mid_market,purchase,We'd buy more seats if there was an admin usage dashboard.
+2026-08-20,review,smb,retention,The app is great. A dark theme would make it perfect.
+2026-08-20,survey,smb,consideration,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-08-21,sales_call,smb,evaluation,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
+2026-08-21,support,smb,onboarding,Would love a dark mode for the transcript view.
+2026-08-21,survey,smb,evaluation,The Zoom integration dropped a recording last week.
+2026-08-21,win_loss,mid_market,purchase,Pricing felt hidden. I went to compare a cheaper tool because I couldn't estimate cost.
+2026-08-21,win_loss,smb,purchase,The pricing table has too many asterisks. What's actually in Business?
+2026-08-22,chat,smb,retention,Setup took longer than expected because SSO configuration was unclear.
+2026-08-22,sales_call,mid_market,evaluation,I couldn't tell what's included in Business versus the tier above it.
+2026-08-22,sales_call,smb,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-08-22,support,smb,retention,Small request: let me pick the font in transcripts.
+2026-08-22,survey,smb,awareness,"Attended the webinar for ideas, but purchasing decisions sit with IT, not me."
+2026-08-23,chat,mid_market,onboarding,Would love a dark mode for the transcript view.
+2026-08-23,survey,smb,onboarding,Small request: let me pick the font in transcripts.
+2026-08-25,interview,smb,consideration,Why do I need a demo before I can see what the real cost is?
+2026-08-25,review,smb,retention,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-08-25,review,mid_market,retention,Speaker labels get confused when people talk over each other.
+2026-08-25,review,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
+2026-08-25,support,mid_market,retention,The app is great. A dark theme would make it perfect.
+2026-08-25,survey,smb,evaluation,Compared three tools; yours had the cleanest action-item extraction.
+2026-08-25,survey,smb,consideration,"Rep called after the webinar, but we're a two-person team and don't need a sales demo."
+2026-08-25,survey,mid_market,evaluation,Transcription accuracy on accented speakers is impressive.
+2026-08-25,survey,smb,consideration,Tried to book a demo on my phone and the form just kept spinning.
+2026-08-25,survey,smb,retention,Would be nice to have emoji reactions on transcript highlights.
+2026-08-26,sales_call,mid_market,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-08-26,survey,mid_market,retention,Minor thing: export file names are long and ugly.
+2026-08-27,chat,smb,purchase,I didn't want to talk to sales just to get a ballpark price for Business.
+2026-08-27,chat,smb,onboarding,Setup took longer than expected because SSO configuration was unclear.
+2026-08-27,survey,mid_market,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-08-28,survey,mid_market,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-08-28,survey,smb,retention,The app is great. A dark theme would make it perfect.
+2026-08-29,review,mid_market,retention,Would love a dark mode for the transcript view.
+2026-08-29,support,mid_market,onboarding,"Can you add more color themes? Not a big deal, just a nice-to-have."
+2026-08-29,survey,smb,retention,Our legal team needs data residency in the EU.
+2026-08-29,win_loss,smb,retention,Transcription accuracy on accented speakers is impressive.
+2026-08-30,chat,smb,evaluation,"Came in from Google, read the pricing page twice, and still couldn't tell the plans apart."
+2026-08-30,chat,smb,evaluation,Demo form on mobile kept clearing my company name when I scrolled.
+2026-08-30,chat,smb,retention,Minor thing: export file names are long and ugly.
+2026-08-30,chat,smb,evaluation,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
+2026-08-30,interview,smb,consideration,Lost the deal on price confusion: the buyer thought Starter excluded speaker identification.
+2026-08-30,sales_call,mid_market,purchase,"Your pricing page lists seats and minutes, but I can't work out what we'd actually pay."
+2026-08-30,support,smb,retention,Dark mode please! My eyes at night.
+2026-08-30,win_loss,smb,consideration,I'm a grad student researching meeting productivity; the webinar was great for my thesis.
+2026-08-31,review,smb,evaluation,Speaker labels get confused when people talk over each other.
+2026-08-31,sales_call,mid_market,evaluation,Security asked whether you're SOC 2 Type II; we need the report before signing.
+2026-08-31,support,smb,retention,The app is great. A dark theme would make it perfect.
+2026-08-31,survey,mid_market,retention,Dark mode please! My eyes at night.
+2026-08-31,survey,mid_market,evaluation,"Onboarding videos were helpful, the team was up and running in a day."

@@ -18,7 +18,7 @@ def test_session_store_isolates_visitors(monkeypatch):
     assert len(alice.session_state.gios_db_path) > 0
     from gios.core.store import Store
 
-    assert len(Store(alice.session_state.gios_db_path).list(Signal)) == 28
+    assert len(Store(alice.session_state.gios_db_path).list(Signal)) == 26
     bob = AppTest.from_file(DIAG).run(timeout=60)
     assert bob.session_state.gios_db_path != alice.session_state.gios_db_path
     assert bob.button(key="gid_seed")  # Bob starts with an empty workspace

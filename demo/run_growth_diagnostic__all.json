@@ -5,7 +5,7 @@
       "title": "Webinar leads are learners, not buyers",
       "observed_problem": "Webinar leads become MQLs readily but sales rejects most of them.",
       "affected_audience": "Webinar attendees, mostly small businesses",
-      "causal_explanation": "The MQL rules reward webinar attendance, so contacts without budget, authority, or an active project reach sales.",
+      "causal_explanation": "The MQL rules treat webinar engagement as buying intent, so learners and researchers with no active project reach sales.",
       "intervention": "Add buying-intent questions to registration and require an intent signal before MQL.",
       "expected_behavior_change": "Fewer but better webinar MQLs; sales accepts a much larger share.",
       "expected_business_outcome": "More SQLs per sales hour and steady webinar-sourced pipeline.",
@@ -17,7 +17,7 @@
         },
         {
           "signal_id": "qdl-flag-qualification_mismatch-webinar",
-          "claim": "Most webinar rejections cite budget, authority, or student status.",
+          "claim": "Most webinar rejections cite low intent, educational interest only, or not being in market.",
           "status": "observed"
         },
         {

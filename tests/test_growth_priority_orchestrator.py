@@ -1,3 +1,4 @@
+import re
 import json
 
 import pytest
@@ -163,7 +164,7 @@ def test_markdown_matches_spec_format(roadmap):
         "### Executive Growth Priorities", "### Now", "### Next", "### Later",
         "### Research / Instrumentation Required", "### Key Dependencies", "### Expected Learning", "### Metrics"]
     assert "1. **Clarify pricing for paid search evaluators**" in md
-    assert "sample takes ~22 weeks" in md  # webinar sample-size risk surfaces
+    assert re.search(r"Webinar leads are learners, not buyers\*\*: the sample takes ~\d+ weeks", md)  # sample-size risk
 
 
 def test_user_edits_rebalance(roadmap):

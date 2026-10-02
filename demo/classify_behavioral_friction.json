@@ -3,7 +3,7 @@
     {
       "finding_id": "demo|device=mobile",
       "friction_type": "technical",
-      "what_happened": "Mobile visitors start the demo form at least as often as desktop visitors but complete it far less often, rage-click much more, and wait much longer for the page to load.",
+      "what_happened": "Mobile visitors start the demo form at least as often as desktop visitors but complete it far less often, leave the page more often, rage-click much more, and wait much longer for the page to load.",
       "competing_explanations": [
         "A technical defect on mobile, such as a slow or blocking script, breaks submission or the date picker.",
         "Mobile visitors are earlier-stage browsers who start the form casually and intend to finish on a laptop.",
@@ -40,22 +40,6 @@
       ],
       "recommended_action": "ux_experiment",
       "recommended_detail": "Test a clearer plan comparison with explicit inclusions and usage limits for paid search traffic, measured on demo requests and downstream SQL rate."
-    },
-    {
-      "finding_id": "compare|device=desktop",
-      "friction_type": "navigation",
-      "what_happened": "Desktop visitors on the compare page rage-click slightly more than mobile visitors; the absolute difference is small.",
-      "competing_explanations": [
-        "Chance variation: rage clicks are rare, and mobile is unusually low here rather than desktop being high.",
-        "A desktop-only interactive element on the compare page, such as a table toggle, that looks clickable but is not."
-      ],
-      "validation_needed": [
-        "Whether the gap persists in the next month of data.",
-        "Click maps of the compare page on desktop."
-      ],
-      "supporting_customer_signal_ids": [],
-      "recommended_action": "instrumentation_improvement",
-      "recommended_detail": "Monitor rather than act: add element-level click tracking on the compare table and re-check next month."
     }
   ]
 }

@@ -1,3 +1,4 @@
+import re
 import json
 
 import pytest
@@ -31,10 +32,10 @@ def brief(seeded):
 
 def test_gather_filters_by_period(seeded):
     full = gather(seeded, "2026-03", "2026-08")
-    assert full.counts == {"signals": 28, "hypotheses": 7, "roadmap": 5, "experiments": 6, "learnings": 6}
+    assert full.counts == {"signals": 26, "hypotheses": 7, "roadmap": 5, "experiments": 7, "learnings": 7}
     summer = gather(seeded, "2026-07", "2026-08")
-    assert {e.id for e in summer.experiments} == {"EXP-05", "EXP-06"}
-    assert {x.experiment_id for x in summer.learnings} == {"EXP-05", "EXP-06"}
+    assert {e.id for e in summer.experiments} == {"EXP-05", "EXP-06", "EXP-07"}
+    assert {x.experiment_id for x in summer.learnings} == {"EXP-05", "EXP-06", "EXP-07"}
     assert gather(seeded, "2027-01", "2027-02").counts["signals"] == 0
     assert [o.horizon for o in full.roadmap] == ["now", "now", "now", "next", "next"]
 
@@ -99,7 +100,8 @@ def test_markdown_has_the_ten_spec_sections(brief):
         "### 10. Decision needed from Growth Council"]
     for label in ["- Customer:", "- Behavioral:", "- Funnel:", "- Revenue:", "- Sales / operational:"]:
         assert label in md
-    assert "CAC $4,286" in md                     # numbers come from the cited signal, not the LLM
+    cac = brief.inputs.by_id()["qdl-flag-rising_cac-paid_search"].summary
+    assert re.search(r"CAC \$[\d,]+ in 2026-06", cac) and cac[:60] in md  # numbers come from the cited signal
     assert "Validator score 11/12" in md and "Roadmap: **Clarify pricing for paid search evaluators**, Now" in md
     assert "Size the test before running it" in md
 

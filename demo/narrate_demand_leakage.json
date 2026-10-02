@@ -1,10 +1,10 @@
 {
   "about_leak": "webinar|MQL→SQL",
-  "leakage_summary": "Webinars are EchoAI's largest lead source and pass leads to MQL more readily than any other channel, but sales accepts very few of those MQLs. The loss happens at the MQL to SQL handoff, and sales rejection reasons point to a qualification mismatch: attendees without budget, authority, or an active project. Follow-up speed for webinar leads is in line with other sources, so this is not an SLA problem. Separately, partner leads wait longer for first contact and a small share of MQLs is never routed.",
+  "leakage_summary": "Webinars are EchoAI's largest lead source and pass leads to MQL more readily than any other channel, but sales accepts very few of those MQLs. The loss happens at the MQL to SQL handoff; once webinar leads are accepted they progress like any other source. Sales rejection reasons point to a qualification mismatch: low intent, purely educational interest, or no active buying need. Follow-up speed for webinar leads is in line with other sources, so this is not an SLA problem. Separately, partner leads wait longer for first contact and a small share of MQLs is never routed.",
   "probable_causes": [
     {
       "owner": "qualification",
-      "explanation": "The MQL definition rewards webinar attendance and engagement, which inflates scores for learners and researchers who lack budget or authority; sales then rejects them."
+      "explanation": "The MQL logic counts webinar attendance and content engagement as buying intent, so learners and researchers become MQLs and sales then rejects them."
     },
     {
       "owner": "acquisition",

@@ -101,11 +101,11 @@ def learnings(analyzed):
 
 
 def test_library_search_and_facets(learnings):
-    assert len(learnings) == 6
+    assert len(learnings) == 7
     assert [x.experiment_id for x in library.search(learnings, "intent question")] == ["EXP-02"]
-    assert [x.experiment_id for x in library.search(learnings, pages=["pricing"])] == ["EXP-03"]
+    assert [x.experiment_id for x in library.search(learnings, pages=["pricing"])] == ["EXP-03", "EXP-07"]
     assert {x.experiment_id for x in library.search(learnings, themes=["unclear_value"])} == {"EXP-01", "EXP-05"}
-    assert [x.experiment_id for x in library.search(learnings, decisions=["observe_longer"])] == ["EXP-06"]
+    assert [x.experiment_id for x in library.search(learnings, decisions=["observe_longer"])] == ["EXP-06", "EXP-07"]
     assert {x.experiment_id for x in library.search(learnings, segments=["smb"])} >= {"EXP-02"}
     f = library.facets(learnings)
     assert "webinar registration" in f["page"] and "stop" in f["decision"]
@@ -146,7 +146,7 @@ def test_library_page_filters():
     draft_all(store)
     at = AppTest.from_file(str(config.ROOT / "views" / "10_Experiment_Library.py")).run(timeout=60)
     cards = lambda: [e for e in at.expander if not e.label.startswith("How ")]  # noqa: E731
-    assert not at.exception and len(cards()) == 6
+    assert not at.exception and len(cards()) == 7
     at.toggle(key="lib_losses").set_value(True).run(timeout=60)
     assert len(cards()) == 2
     at.text_input(key="lib_query").input("pricing").run(timeout=60)

@@ -125,7 +125,7 @@ def test_every_interpretation_class_appears_in_past_experiments():
     classes = {e: run(e).interpretation for e in experiment_ids()}
     assert classes == {"EXP-01": "clear_positive", "EXP-02": "volume_quality_tradeoff", "EXP-03": "inconclusive",
                        "EXP-04": "top_funnel_positive_downstream_neutral", "EXP-05": "negative",
-                       "EXP-06": "needs_longer_observation"}
+                       "EXP-06": "needs_longer_observation", "EXP-07": "needs_longer_observation"}
 
 
 def test_acceptance_webinar_short_form_is_volume_quality_tradeoff():

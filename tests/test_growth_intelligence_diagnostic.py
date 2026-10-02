@@ -241,4 +241,4 @@ def test_page_offers_seeding_when_store_empty():
     at = AppTest.from_file(str(config.ROOT / "views" / "4_Growth_Intelligence_Diagnostic.py")).run(timeout=60)
     assert at.button(key="gid_seed")
     at.button(key="gid_seed").click().run(timeout=120)
-    assert len(Store().list(Signal)) == 28
+    assert len(Store().list(Signal)) == 26

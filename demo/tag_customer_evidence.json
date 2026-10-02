@@ -109,12 +109,30 @@
       "business_relevance": "low"
     },
     {
+      "key": "v212291fb65",
+      "theme": "pricing_uncertainty",
+      "topic": "unsure which plan fits team size",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
       "key": "v2190837ec6",
       "theme": "trust_proof",
       "topic": "EU data residency",
       "sentiment": "neutral",
       "segment": "mid_market",
       "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v3af9b747f6",
+      "theme": "pricing_uncertainty",
+      "topic": "sales contact needed for a price",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "consideration",
       "business_relevance": "high"
     },
     {
@@ -125,15 +143,6 @@
       "segment": "mid_market",
       "journey_stage": "consideration",
       "business_relevance": "medium"
-    },
-    {
-      "key": "v47b9e9d670",
-      "theme": "pricing_uncertainty",
-      "topic": "tier differences unclear",
-      "sentiment": "negative",
-      "segment": "unknown",
-      "journey_stage": "purchase",
-      "business_relevance": "high"
     },
     {
       "key": "v47e853309b",
@@ -217,15 +226,6 @@
       "business_relevance": "high"
     },
     {
-      "key": "v6d9bc25987",
-      "theme": "technical_issue",
-      "topic": "mobile demo form freezes on submit",
-      "sentiment": "negative",
-      "segment": "unknown",
-      "journey_stage": "evaluation",
-      "business_relevance": "high"
-    },
-    {
       "key": "v6e33a2d496",
       "theme": "technical_issue",
       "topic": "mobile demo form freezes on submit",
@@ -298,6 +298,15 @@
       "business_relevance": "high"
     },
     {
+      "key": "v9ae981e820",
+      "theme": "pricing_uncertainty",
+      "topic": "unsure which plan fits team size",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
       "key": "v9b50431b0b",
       "theme": "technical_issue",
       "topic": "unresponsive submit button on mobile",
@@ -337,6 +346,15 @@
       "key": "vac21f5b0db",
       "theme": "technical_issue",
       "topic": "mobile demo form hangs",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vb08542a798",
+      "theme": "pricing_uncertainty",
+      "topic": "demo required before seeing cost",
       "sentiment": "negative",
       "segment": "unknown",
       "journey_stage": "evaluation",
@@ -388,6 +406,15 @@
       "business_relevance": "high"
     },
     {
+      "key": "vc2f7c55ec7",
+      "theme": "pricing_uncertainty",
+      "topic": "sales contact needed for a price",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "consideration",
+      "business_relevance": "high"
+    },
+    {
       "key": "vc5c57b9c9c",
       "theme": "usability_polish",
       "topic": "transcript font choice",
@@ -395,6 +422,15 @@
       "segment": "unknown",
       "journey_stage": "retention",
       "business_relevance": "low"
+    },
+    {
+      "key": "vc797436be7",
+      "theme": "pricing_uncertainty",
+      "topic": "unsure which plan fits team size",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
     },
     {
       "key": "vcd6e498fcf",
@@ -481,6 +517,15 @@
       "key": "ve2c60c3613",
       "theme": "pricing_uncertainty",
       "topic": "plan inclusions unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "ve7828027c1",
+      "theme": "technical_issue",
+      "topic": "mobile demo form freezes on submit",
       "sentiment": "negative",
       "segment": "unknown",
       "journey_stage": "evaluation",

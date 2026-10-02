@@ -175,8 +175,10 @@ def test_acceptance_paid_search_pricing_exits(demo_result):
 
 
 def test_no_spurious_findings_on_other_pages(demo_result):
-    pages = {(f.page, f.value) for f in demo_result.findings if f.max_abs_z > 10}
-    assert pages == {("demo", "mobile"), ("pricing", "paid_search")}
+    # Normal mobile/desktop differences on other pages stay below the thresholds.
+    assert {f.id for f in demo_result.findings} == {"demo|device=mobile", "pricing|source=paid_search"}
+    mobile = next(f for f in demo_result.findings if f.id == "demo|device=mobile")
+    assert {fl.metric for fl in mobile.flags} >= {"exit_rate", "form_completion", "rage_rate", "load_ms"}
 
 
 def test_without_customer_signals_causes_are_unconfirmed():
@@ -208,7 +210,7 @@ def test_markdown_and_signals(demo_result, store):
     assert {s.type for s in signals} == {"behavioral"}
     by_id = {s.id: s for s in signals}
     assert by_id["bfa-demo-device-mobile"].strength == 5
-    assert by_id["bfa-compare-device-desktop"].strength <= 2
+    assert set(by_id) == {"bfa-demo-device-mobile", "bfa-pricing-source-paid_search"}
     store.replace_module_output(signals, "behavioral_friction_analyzer")
 
 
@@ -219,4 +221,4 @@ def test_page_renders_and_saves():
     assert not at.exception
     assert any("Finding 1: Demo page, mobile visitors" in m.value for m in at.markdown)
     at.button(key="bfa_save").click().run(timeout=60)
-    assert len(Store().list(Signal, module="behavioral_friction_analyzer")) == 3
+    assert len(Store().list(Signal, module="behavioral_friction_analyzer")) == 2

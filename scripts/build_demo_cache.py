@@ -45,6 +45,9 @@ CUSTOMER_TAGS: dict[str, T] = {
     gen.PRICING_CLARITY[8]: ("pricing_uncertainty", "lost deal on plan confusion", "negative", "unknown", "purchase", "high"),
     gen.PRICING_CLARITY[9]: ("pricing_uncertainty", "overage billing unclear", "negative", "unknown", "purchase", "high"),
     gen.PRICING_CLARITY[10]: ("pricing_uncertainty", "plans indistinguishable after ad click", "negative", "unknown", "evaluation", "high"),
+    gen.PRICING_CLARITY[11]: ("pricing_uncertainty", "unsure which plan fits team size", "negative", "unknown", "evaluation", "high"),
+    gen.PRICING_CLARITY[12]: ("pricing_uncertainty", "sales contact needed for a price", "negative", "unknown", "consideration", "high"),
+    gen.PRICING_CLARITY[13]: ("pricing_uncertainty", "demo required before seeing cost", "negative", "unknown", "evaluation", "high"),
     # webinar pool
     gen.WEBINAR_MISMATCH[0]: ("urgency", "no budget, learning only", "neutral", "unknown", "awareness", "medium"),
     gen.WEBINAR_MISMATCH[1]: ("urgency", "student researcher, not a buyer", "positive", "unknown", "awareness", "low"),
@@ -223,7 +226,8 @@ FRICTION_REFERENCE = {
     "demo|device=mobile": dict(
         friction_type="technical",
         what_happened=("Mobile visitors start the demo form at least as often as desktop visitors but "
-                       "complete it far less often, rage-click much more, and wait much longer for the page to load."),
+                       "complete it far less often, leave the page more often, rage-click much more, and wait much "
+                       "longer for the page to load."),
         competing_explanations=[
             "A technical defect on mobile, such as a slow or blocking script, breaks submission or the date picker.",
             "Mobile visitors are earlier-stage browsers who start the form casually and intend to finish on a laptop.",
@@ -310,15 +314,15 @@ def build_behavioral_friction(live: bool) -> None:
 LEAKAGE_REFERENCE = dict(
     leakage_summary=(
         "Webinars are EchoAI's largest lead source and pass leads to MQL more readily than any other "
-        "channel, but sales accepts very few of those MQLs. The loss happens at the MQL to SQL handoff, and "
-        "sales rejection reasons point to a qualification mismatch: attendees without budget, authority, or "
-        "an active project. Follow-up speed for webinar leads is in line with other sources, so this is not an "
-        "SLA problem. Separately, partner leads wait longer for first contact and a small share of MQLs is "
+        "channel, but sales accepts very few of those MQLs. The loss happens at the MQL to SQL handoff; once "
+        "webinar leads are accepted they progress like any other source. Sales rejection reasons point to a "
+        "qualification mismatch: low intent, purely educational interest, or no active buying need. Follow-up "
+        "speed for webinar leads is in line with other sources, so this is not an SLA problem. Separately, partner leads wait longer for first contact and a small share of MQLs is "
         "never routed."),
     probable_causes=[
         dict(owner="qualification", explanation=(
-            "The MQL definition rewards webinar attendance and engagement, which inflates scores for learners and "
-            "researchers who lack budget or authority; sales then rejects them.")),
+            "The MQL logic counts webinar attendance and content engagement as buying intent, so learners and "
+            "researchers become MQLs and sales then rejects them.")),
         dict(owner="acquisition", explanation=(
             "Webinar topics and promotion attract a broad, educational audience rather than active evaluators, so "
             "volume rises without buying intent.")),
@@ -453,16 +457,16 @@ DIAGNOSTIC_REFERENCE = {
                 title="Webinar leads are learners, not buyers",
                 observed_problem="Webinar leads become MQLs readily but sales rejects most of them.",
                 affected_audience="Webinar attendees, mostly small businesses",
-                causal_explanation=("The MQL rules reward webinar attendance, so contacts without budget, authority, "
-                                    "or an active project reach sales."),
+                causal_explanation=("The MQL rules treat webinar engagement as buying intent, so learners and "
+                                    "researchers with no active project reach sales."),
                 intervention="Add buying-intent questions to registration and require an intent signal before MQL.",
                 expected_behavior_change="Fewer but better webinar MQLs; sales accepts a much larger share.",
                 expected_business_outcome="More SQLs per sales hour and steady webinar-sourced pipeline.",
                 supporting=[
                     _claim("qdl-leak-webinar-mql-to-sql", "Webinar MQL to SQL conversion is far below other sources "
                            "on large volume."),
-                    _claim("qdl-flag-qualification_mismatch-webinar", "Most webinar rejections cite budget, "
-                           "authority, or student status."),
+                    _claim("qdl-flag-qualification_mismatch-webinar", "Most webinar rejections cite low intent, "
+                           "educational interest only, or not being in market."),
                     _claim("qdl-flag-strong_top_weak_downstream-webinar", "Webinars convert leads to MQL better "
                            "than any source but fail downstream."),
                     _claim("qdl-flag-high_volume_low_quality-webinar", "Webinars are the largest lead source with "
@@ -515,22 +519,22 @@ DIAGNOSTIC_REFERENCE["webinar"] = dict(
     hypotheses=[
         DIAGNOSTIC_REFERENCE["all"]["hypotheses"][0],
         dict(
-            title="Accepted webinar SQLs stall at the sales handoff",
-            observed_problem="Even the webinar leads that sales accepts convert to opportunities less often than others.",
-            affected_audience="Sales-accepted webinar leads",
-            causal_explanation="Sales treats webinar SQLs as lower priority and follows up with generic outreach.",
-            intervention="Give accepted webinar SQLs the same discovery-call playbook as demo requests.",
-            expected_behavior_change="More accepted webinar SQLs reach a scheduled discovery call.",
-            expected_business_outcome="Higher webinar SQL to opportunity conversion.",
+            title="Webinar topics attract an educational audience",
+            observed_problem="Webinars draw the largest lead volume but the lowest lead-to-win rate of any source.",
+            affected_audience="Webinar registrants",
+            causal_explanation="Webinar topics and promotion target learners rather than teams with an active buying need.",
+            intervention="Shift webinar topics toward evaluation questions such as rollout, security and pricing.",
+            expected_behavior_change="A larger share of registrants describe an active project.",
+            expected_business_outcome="Higher webinar lead-to-win rate at similar cost.",
             supporting=[
-                _claim("qdl-leak-webinar-sql-to-opp", "Webinar SQL to opportunity conversion is below other sources."),
+                _claim("qdl-flag-high_volume_low_quality-webinar", "Webinars are the largest lead source with "
+                       "the lowest lead-to-win rate."),
+                _claim("css-urgency", "Attendees describe learning or research with no project or budget.",
+                       "inferred"),
             ],
-            contradicting=[
-                _claim("qdl-flag-qualification_mismatch-webinar", "Most of the webinar loss happens before the "
-                       "handoff, at qualification, so the handoff is a secondary leak at most.", "inferred"),
-            ],
-            missing=["Sales activity data for accepted webinar SQLs.",
-                     "Opportunity notes on why webinar SQLs stall."],
+            contradicting=[],
+            missing=["Registrant roles and company sizes by webinar topic.",
+                     "Whether evaluation-focused webinars draw fewer registrants."],
         ),
     ],
     next_best_action="process_change",
@@ -632,14 +636,14 @@ VALIDATOR_REFERENCE = {
 }
 
 
-VALIDATOR_REFERENCE["Accepted webinar SQLs stall at the sales handoff"] = ({
-    "evidence_diversity": (1, "A single funnel signal, contradicted by the qualification flag."),
-    "behavioral_support": (0, "No behavioral evidence."),
-    "customer_support": (0, "No customer evidence."),
-    "business_relevance": (1, "Affects a small number of accepted leads."),
-    "testability": (2, "A playbook change for accepted webinar SQLs can be compared with the current process."),
-    "measurement_readiness": (2, "SQL to opportunity conversion is recorded."),
-}, ["Sales activity data for accepted webinar SQLs."])
+VALIDATOR_REFERENCE["Webinar topics attract an educational audience"] = ({
+    "evidence_diversity": (2, "Acquisition and customer signals point the same way."),
+    "behavioral_support": (0, "No behavioral evidence is linked."),
+    "customer_support": (1, "Attendee comments fit, but their link to webinar topics is inferred."),
+    "business_relevance": (2, "Directly tied to webinar lead quality and pipeline."),
+    "testability": (1, "Topic changes are confounded with seasonality and promotion."),
+    "measurement_readiness": (1, "Registrant role and company size are not captured consistently."),
+}, ["Registrant roles and company sizes by webinar topic."])
 
 
 def build_hypothesis_validator(live: bool) -> None:
@@ -744,6 +748,26 @@ def _nh(title, problem, audience, cause, intervention, behavior, outcome):
 
 
 LEARNING_REFERENCE = {
+    "EXP-07": dict(
+        theme="pricing_uncertainty",
+        original_problem="Paid search visitors leave the pricing page; we tried a discount offer as they exit.",
+        what_happened=("The popup appeared to lift demo requests sharply, but the test was small, short, and ended "
+                       "weeks before any of those leads could reach a decision."),
+        learned_about_customer="A price incentive catches attention, but we do not know whether it attracts buyers or bargain hunters.",
+        learned_about_journey="The exit moment on pricing is reachable; what visitors need there is still unclear.",
+        learned_about_business="Discounts can buy top-funnel lifts that quality and margin later take back.",
+        should_not_conclude=("That the popup works. A large lift on a tiny sample over two weeks is the classic "
+                             "outlier; downstream outcomes have not matured and the effect differs by source."),
+        reusable_principle="Treat a surprisingly large lift on a small, short test as a reason to retest, not to ship.",
+        next_hypothesis=_nh("Retest the exit offer at full size",
+                            "A small test showed a large but immature lift from an exit discount.",
+                            "Paid search pricing-page visitors",
+                            "A price incentive at the exit moment may convert hesitant evaluators.",
+                            "Rerun the popup on full paid search traffic for a full sales cycle with a no-discount "
+                            "clarity message as a third arm.",
+                            "Demo requests rise without a fall in sales acceptance.",
+                            "Lower paid search acquisition cost without discount-driven churn."),
+    ),
     "EXP-01": dict(
         theme="unclear_value",
         original_problem="Homepage visitors were not requesting demos; feature-led copy did not explain the outcome.",
@@ -934,7 +958,11 @@ def build_growth_council_brief(live: bool) -> None:
 # ---------------------------------------------------------------------------------------------
 
 
+WRITTEN: set[str] = set()
+
+
 def _write(name: str, obj: BaseModel) -> None:
+    WRITTEN.add(f"{name}.json")
     path = config.DEMO_DIR / f"{name}.json"
     payload: Any = json.loads(obj.model_dump_json())
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
@@ -968,6 +996,10 @@ def main() -> None:
     for name, builder in BUILDERS.items():
         if args.only in (None, name):
             builder(args.live)
+    if args.only is None:  # a full build owns demo/: drop outputs it no longer produces
+        for stale in sorted(p for p in config.DEMO_DIR.glob("*.json") if p.name not in WRITTEN):
+            stale.unlink()
+            print(f"removed stale {stale.name}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,37 @@
+{
+  "scores": [
+    {
+      "dimension": "evidence_diversity",
+      "score": 2,
+      "justification": "Acquisition and customer signals point the same way."
+    },
+    {
+      "dimension": "behavioral_support",
+      "score": 0,
+      "justification": "No behavioral evidence is linked."
+    },
+    {
+      "dimension": "customer_support",
+      "score": 1,
+      "justification": "Attendee comments fit, but their link to webinar topics is inferred."
+    },
+    {
+      "dimension": "business_relevance",
+      "score": 2,
+      "justification": "Directly tied to webinar lead quality and pipeline."
+    },
+    {
+      "dimension": "testability",
+      "score": 1,
+      "justification": "Topic changes are confounded with seasonality and promotion."
+    },
+    {
+      "dimension": "measurement_readiness",
+      "score": 1,
+      "justification": "Registrant role and company size are not captured consistently."
+    }
+  ],
+  "missing_evidence": [
+    "Registrant roles and company sizes by webinar topic."
+  ]
+}

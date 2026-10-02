@@ -29,7 +29,9 @@ DOWNSTREAM = {"MQL→SQL", "SQL→Opp", "Opp→Win"}
 FLAG_STAGE = {"qualification_mismatch": "MQL→SQL", "strong_top_weak_downstream": "MQL→SQL",
               "sla_loss": "MQL→SQL", "high_volume_low_quality": "Lead→MQL", "rising_cac": "Visit→Lead",
               "routing_loss": "MQL→SQL"}
-QUALIFICATION_REASONS = {"no_budget", "student_or_researcher", "not_decision_maker", "wrong_use_case"}
+# Fit / intent rejection reasons (vs process outcomes such as no_response or duplicate).
+QUALIFICATION_REASONS = {"low_intent", "educational_only", "company_too_small", "not_in_market",
+                         "student_or_researcher", "no_budget", "not_decision_maker", "wrong_use_case"}
 STAGE_JOURNEY = {"Visit→Lead": "consideration", "Lead→MQL": "consideration", "MQL→SQL": "evaluation",
                  "SQL→Opp": "evaluation", "Opp→Win": "purchase", "Lead→Win": "evaluation"}
 

@@ -54,8 +54,10 @@ LEAD_TO_MQL = {"paid_search": 0.45, "paid_social": 0.35, "organic": 0.40,
                "webinar": 0.72, "partner": 0.55, "email": 0.42}
 MQL_TO_SQL = {"paid_search": 0.42, "paid_social": 0.30, "organic": 0.40,
               "webinar": 0.11, "partner": 0.50, "email": 0.36}
+# Webinar SQLs convert to opportunities about as well as other sources: the leak is at MQL→SQL.
 SQL_TO_OPP = {"paid_search": 0.55, "paid_social": 0.50, "organic": 0.55,
-              "webinar": 0.45, "partner": 0.60, "email": 0.52}
+              "webinar": 0.53, "partner": 0.60, "email": 0.52}
+MID_MARKET_MQL_TO_SQL_BONUS = 0.04  # mid-market MQLs qualify slightly more often
 OPP_TO_WIN = {"smb": 0.26, "mid_market": 0.20}
 ACV = {"smb": 6_000, "mid_market": 24_000}
 MONTHLY_SPEND = {"paid_search": 95_000, "paid_social": 45_000, "organic": 8_000,
@@ -63,14 +65,32 @@ MONTHLY_SPEND = {"paid_search": 95_000, "paid_social": 45_000, "organic": 8_000,
 PAID_SEARCH_SPEND_GROWTH = 0.09  # per month: bids rising to defend volume (story 1)
 ORGANIC_GROWTH = 0.03
 
-QUALIFICATION_REASONS = ["no_budget", "student_or_researcher", "not_decision_maker", "wrong_use_case"]
+# Realistic noise: source-mix drift, a shared month shock per source, and a few named events
+# (month index 0 = 2026-03) that do not follow the main trends.
+SOURCE_TREND = {"paid_social": 0.07, "email": -0.04}   # per month, on visits
+MONTH_SHOCK_SD = 0.06
+MONTH_EVENTS = {
+    ("organic", 1): 1.20,      # press mention in April
+    ("webinar", 2): 1.55,      # flagship webinar in May
+    ("paid_social", 3): 0.65,  # campaign paused for creative refresh in June
+    ("paid_search", 4): 1.10,  # strong July: seasonal demand, lead rate briefly recovers
+}
+PAID_SEARCH_STRONG_MONTH = (4, 0.0015)  # (month index, temporary lead-rate lift)
+
+# Sales rejection reasons. Fit / intent reasons count as qualification problems; no_response,
+# duplicate and competitor_contract are process or timing outcomes.
+QUALIFICATION_REASONS = ["low_intent", "educational_only", "company_too_small", "not_in_market",
+                         "student_or_researcher", "no_budget", "not_decision_maker"]
 REJECTION_MIX = {
-    "webinar": {"no_budget": 0.30, "student_or_researcher": 0.20, "not_decision_maker": 0.25,
-                "wrong_use_case": 0.10, "no_response": 0.10, "duplicate": 0.05},
-    "default": {"no_budget": 0.15, "not_decision_maker": 0.15, "wrong_use_case": 0.10,
-                "no_response": 0.30, "too_small": 0.15, "duplicate": 0.10,
+    # Webinar MQL logic treats content engagement as buying intent (story 2).
+    "webinar": {"low_intent": 0.22, "educational_only": 0.22, "student_or_researcher": 0.14,
+                "not_in_market": 0.14, "company_too_small": 0.10, "not_decision_maker": 0.03,
+                "no_response": 0.10, "duplicate": 0.05},
+    "default": {"no_response": 0.30, "not_decision_maker": 0.15, "company_too_small": 0.15,
+                "not_in_market": 0.12, "low_intent": 0.08, "no_budget": 0.05, "duplicate": 0.10,
                 "competitor_contract": 0.05},
 }
+FOLLOW_UP_HOURS = {"smb": 6.0, "mid_market": 4.2}  # median hours to first touch by owning team
 
 # --- Customer evidence pools (untagged in the CSV; theme kept only in memory for tests) ----
 
@@ -86,6 +106,9 @@ PRICING_CLARITY = [
     "Lost the deal on price confusion: the buyer thought {plan} excluded speaker identification.",
     "Not sure if overage minutes are billed on {plan}. That uncertainty slowed approval.",
     "Came in from Google, read the pricing page twice, and still couldn't tell the plans apart.",
+    "Not sure which plan fits a team our size; {plan} and the tier above look almost the same.",
+    "I didn't want to talk to sales just to get a ballpark price for {plan}.",
+    "Why do I need a demo before I can see what the real cost is?",
 ]
 WEBINAR_MISMATCH = [
     "I joined the webinar to learn about AI note-taking trends. We have no budget this year.",
@@ -132,7 +155,7 @@ PHONES = ["iPhone", "Android phone", "Pixel", "Galaxy"]
 
 # theme -> monthly counts (6 months), allowed sources, segment mix (smb share), journey stages
 EVIDENCE_PLAN = {
-    "pricing_clarity": dict(pool=PRICING_CLARITY, monthly=[6, 9, 14, 20, 27, 35],
+    "pricing_clarity": dict(pool=PRICING_CLARITY, monthly=[6, 10, 9, 19, 26, 34],
                             sources=["sales_call", "chat", "survey", "win_loss", "interview"],
                             smb_share=0.75, stages={"evaluation": 0.6, "consideration": 0.25, "purchase": 0.15}),
     "webinar_mismatch": dict(pool=WEBINAR_MISMATCH, monthly=[9, 10, 9, 11, 10, 10],
@@ -192,6 +215,14 @@ EXPERIMENTS = [
          sources={"email": 1.0},
          variants={"control": (12000, 0.040, 0.42, 0.36, 0.52, 0.24),
                    "product_tour": (12000, 0.052, 0.46, 0.40, 0.52, 0.24)}),
+    # Outlier: a short, small test with a huge apparent lift that has not had time to mature.
+    dict(id="EXP-07", name="Pricing exit-intent discount popup", page="pricing",
+         hypothesis="If we offer a first-month discount when visitors move to leave the pricing page, more of them "
+                    "will request a demo.",
+         metric="demo_request_rate", start="2026-08-17", end="2026-08-30",
+         sources={"paid_search": 0.7, "organic": 0.3},
+         variants={"control": (450, 0.030, 0.45, 0.40, 0.55, 0.25),
+                   "discount_popup": (450, 0.085, 0.40, 0.35, 0.55, 0.25)}),
 ]
 OBSERVED_THROUGH = "2026-08-31"
 COST_PER_VISIT = {"paid_search": 2.20, "paid_social": 1.40, "organic": 0.08, "webinar": 1.10, "partner": 1.60,
@@ -224,6 +255,9 @@ def generate_funnel(rng: np.random.Generator) -> pd.DataFrame:
             source_visits = DAILY_VISITS[source] * month.days_in_month
             if source == "organic":
                 source_visits *= (1 + ORGANIC_GROWTH) ** m
+            source_visits *= (1 + SOURCE_TREND.get(source, 0.0)) ** m
+            source_visits *= float(np.clip(rng.normal(1.0, MONTH_SHOCK_SD), 0.8, 1.2))
+            source_visits *= MONTH_EVENTS.get((source, m), 1.0)
             spend_total = MONTHLY_SPEND[source]
             if source == "paid_search":
                 spend_total *= (1 + PAID_SEARCH_SPEND_GROWTH) ** m
@@ -233,10 +267,13 @@ def generate_funnel(rng: np.random.Generator) -> pd.DataFrame:
                 lead_rate = VISIT_TO_LEAD[source]
                 if source == "paid_search":
                     lead_rate -= PAID_SEARCH_LEAD_DECAY * m
+                    if m == PAID_SEARCH_STRONG_MONTH[0]:
+                        lead_rate += PAID_SEARCH_STRONG_MONTH[1]
                 mql_rate = LEAD_TO_MQL[source] + (0.03 if segment == "mid_market" else 0)
+                sql_rate = MQL_TO_SQL[source] + (MID_MARKET_MQL_TO_SQL_BONUS if segment == "mid_market" else 0)
                 leads = rng.binomial(visits, lead_rate)
                 mqls = rng.binomial(leads, mql_rate)
-                sqls = _stage(rng, mqls, MQL_TO_SQL[source])
+                sqls = _stage(rng, mqls, sql_rate)
                 opps = _stage(rng, sqls, SQL_TO_OPP[source])
                 wins = _stage(rng, opps, OPP_TO_WIN[segment])
                 revenue = int(round(sum(ACV[segment] * _noise(rng, wins, sd=0.12))))
@@ -270,9 +307,16 @@ def generate_web_behavior(rng: np.random.Generator) -> pd.DataFrame:
     exit_base = grid["page"].map({"home": 0.40, "pricing": 0.40, "demo": 0.30,
                                   "features": 0.35, "compare": 0.45}).to_numpy()
     # Story 1: paid-search pricing exits climb ~4.5pp per month (0.46 -> ~0.69)
-    exit_rate = np.where(is_paid_search & is_pricing, 0.46 + 0.045 * month_idx, exit_base)
+    # Normal device difference everywhere: mobile exits a little more often.
+    exit_base = exit_base + np.where(is_mobile, 0.03, 0.0)
+    # Story 3: mobile demo sessions exit more (abandoned forms), beyond the normal device gap.
+    exit_base = np.where(is_demo & is_mobile, 0.38, exit_base)
+    # Story 1: paid-search pricing exits climb ~4.5pp per month, with a softer July.
+    ps_pricing_exit = 0.46 + 0.045 * month_idx - np.where(month_idx == 4, 0.035, 0.0)
+    exit_rate = np.where(is_paid_search & is_pricing, ps_pricing_exit, exit_base)
     exit_rate = np.clip(exit_rate + rng.normal(0, 0.02, n), 0.05, 0.95)
     cta_rate = np.where(is_paid_search & is_pricing, 0.10 - 0.008 * month_idx, 0.12)
+    cta_rate = cta_rate * np.where(is_mobile, 0.92, 1.0)  # normal device difference
     form_start_rate = np.where(is_demo, np.where(is_mobile, 0.36, 0.30), 0.0)  # story 3
     complete_rate = np.where(is_mobile, 0.22, 0.62)  # story 3
     rage_rate = np.where(is_demo & is_mobile, 0.030, 0.004)
@@ -329,7 +373,7 @@ def generate_sales_feedback(rng: np.random.Generator, funnel: pd.DataFrame) -> p
                 routed, hours = "unassigned", rng.lognormal(np.log(60), 0.4)
             else:
                 routed = "smb_sdr" if rec.segment == "smb" else "mid_market_ae"
-                hours = rng.lognormal(np.log(5), 0.6)
+                hours = rng.lognormal(np.log(FOLLOW_UP_HOURS[rec.segment]), 0.6)
             rows.append([rec.source, reason, round(float(hours), 1), routed])
     df = pd.DataFrame(rows, columns=SALES_COLUMNS[1:])
     df.insert(0, "lead_id", [f"L-{i:06d}" for i in range(1, len(df) + 1)])
