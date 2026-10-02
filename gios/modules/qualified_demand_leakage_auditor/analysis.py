@@ -25,6 +25,10 @@ STAGES = [
 ]
 SUMMARY_STAGE = ("leads", "wins", "Lead→Win")
 DOWNSTREAM = {"MQL→SQL", "SQL→Opp", "Opp→Win"}
+# The funnel stage each flag is about (used by downstream modules to place experiments).
+FLAG_STAGE = {"qualification_mismatch": "MQL→SQL", "strong_top_weak_downstream": "MQL→SQL",
+              "sla_loss": "MQL→SQL", "high_volume_low_quality": "Lead→MQL", "rising_cac": "Visit→Lead",
+              "routing_loss": "MQL→SQL"}
 QUALIFICATION_REASONS = {"no_budget", "student_or_researcher", "not_decision_maker", "wrong_use_case"}
 STAGE_JOURNEY = {"Visit→Lead": "consideration", "Lead→MQL": "consideration", "MQL→SQL": "evaluation",
                  "SQL→Opp": "evaluation", "Opp→Win": "purchase", "Lead→Win": "evaluation"}

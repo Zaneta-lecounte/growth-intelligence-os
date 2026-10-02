@@ -13,9 +13,13 @@ from gios.modules.experiment_opportunity_scorer import Settings, analysis, build
 from gios.modules.experiment_opportunity_scorer.report import to_markdown
 
 
-def sig(sid, type_, strength=3, summary="s"):
+def sig(sid, type_, strength=3, summary="s", **attributes):
     return Signal(id=sid, type=type_, evidence_status="observed", source="x", segment="all",
-                  journey_stage="evaluation", summary=summary, strength=strength)
+                  journey_stage="evaluation", summary=summary, strength=strength, attributes=attributes)
+
+
+FRICTION = dict(page="demo", device="mobile", friction_type="technical")
+LEAK = dict(kind="leak", source="webinar", stage="MQL→SQL", owner="qualification")
 
 
 def opp(**kw):
@@ -45,51 +49,53 @@ def test_h_from_validator_mapping_aligned_with_bands():
 
 
 def test_prefill_rules():
-    linked = [sig("css-a", "customer", 5), sig("css-b", "customer", 2), sig("bfa-demo-device-mobile", "behavioral", 4),
-              sig("qdl-leak-webinar-mql-to-sql", "funnel", 5)]
+    linked = [sig("css-a", "customer", 5), sig("css-b", "customer", 2), sig("f", "behavioral", 4, **FRICTION),
+              sig("l", "funnel", 5, **LEAK)]
     h = Hypothesis(evidence_diversity=2, behavioral_support=2, customer_support=2, business_relevance=1,
                    testability=1, measurement_readiness=1)  # total 9
     scores, notes = analysis.prefill(h, linked)
     assert scores == {"growth_impact": 3, "research_evidence": 5, "opportunity_size": 5, "web_evidence": 4,
                       "technical_effort": 3, "hypothesis_confidence": 4}
     assert "validator total 9/12" in notes["hypothesis_confidence"]
-    funnel_only, _ = analysis.prefill(Hypothesis(confidence="low"), [sig("qdl-flag-x-y", "operational")])
+    funnel_only, _ = analysis.prefill(Hypothesis(confidence="low"), [sig("flag", "operational", kind="sla_loss")])
     assert (funnel_only["research_evidence"], funnel_only["web_evidence"], funnel_only["opportunity_size"],
             funnel_only["hypothesis_confidence"]) == (1, 2, 3, 2)
     nothing, notes = analysis.prefill(None, [])
     assert nothing["web_evidence"] == 1 and "not validated" in notes["hypothesis_confidence"]
 
 
-# --- id parsing, population, category ---
-
-
-def test_parse_signal_ids():
-    assert analysis.parse_friction_id("bfa-pricing-source-paid_search") == {"page": "pricing", "channel": "paid_search"}
-    assert analysis.parse_friction_id("bfa-demo-device-mobile") == {"page": "demo", "device": "mobile"}
-    assert analysis.parse_leak_id("qdl-leak-paid_search-lead-to-mql") == {"channel": "paid_search",
-                                                                         "funnel_stage": "Lead→MQL"}
-    assert analysis.parse_flag_id("qdl-flag-qualification_mismatch-webinar") == {"channel": "webinar",
-                                                                                "funnel_stage": "MQL→SQL"}
-    assert analysis.parse_flag_id("qdl-flag-routing_loss-all") is None
-    assert analysis.parse_leak_id("css-x") is None
+# --- population and category from signal attributes ---
 
 
 def test_infer_population_prefers_web_slice():
-    assert analysis.infer_population(["qdl-leak-webinar-mql-to-sql", "bfa-demo-device-mobile"]) == \
+    assert analysis.infer_population([sig("l", "funnel", **LEAK), sig("f", "behavioral", **FRICTION)]) == \
         {"test_unit": "web", "page": "demo", "device": "mobile"}
-    assert analysis.infer_population(["css-x", "qdl-flag-sla_loss-partner"])["funnel_stage"] == "MQL→SQL"
-    assert analysis.infer_population(["css-x"]) == {}
+    pricing = sig("p", "behavioral", page="pricing", channel="paid_search", friction_type="comprehension")
+    assert analysis.infer_population([pricing]) == {"test_unit": "web", "page": "pricing", "channel": "paid_search"}
+    flag = sig("x", "operational", kind="sla_loss", source="partner", stage="MQL→SQL", owner="operations_routing")
+    assert analysis.infer_population([sig("c", "customer"), flag]) == \
+        {"test_unit": "funnel", "channel": "partner", "funnel_stage": "MQL→SQL"}
+    everywhere = sig("r", "operational", kind="routing_loss", source="", stage="MQL→SQL")
+    assert analysis.infer_population([everywhere]) == {}
+    assert analysis.infer_population([sig("c", "customer")]) == {}
+
+
+def test_inference_ignores_ids_and_summaries():
+    """Ids and summary wording carry no meaning; only attributes do."""
+    misleading = sig("bfa-pricing-source-paid_search", "behavioral", summary="Friction: technical")
+    assert analysis.infer_population([misleading]) == {} and not analysis.is_fix([misleading])
 
 
 def test_category_and_fix_prefill():
-    assert analysis.category_for([sig("qdl-leak-webinar-mql-to-sql", "funnel")]) == "qualification"
-    assert analysis.category_for([sig("qdl-flag-sla_loss-partner", "operational")]) == "operations_measurement"
-    assert analysis.category_for([sig("bfa-demo-device-mobile", "behavioral")]) == "conversion"
-    assert analysis.category_for([sig("qdl-flag-rising_cac-paid_search", "acquisition"),
-                                  sig("qdl-leak-paid_search-lead-to-mql", "funnel")]) == "acquisition"
+    assert analysis.category_for([sig("l", "funnel", **LEAK)]) == "qualification"
+    assert analysis.category_for([sig("x", "operational", kind="sla_loss", source="partner",
+                                      stage="MQL→SQL")]) == "operations_measurement"
+    assert analysis.category_for([sig("f", "behavioral", **FRICTION)]) == "conversion"
     assert analysis.category_for([sig("css-a", "customer")]) == "customer_problem"
-    assert analysis.is_fix([sig("b", "behavioral", summary="… Friction: technical (unconfirmed)")])
-    assert not analysis.is_fix([sig("b", "behavioral", summary="Friction: comprehension")])
+    assert analysis.category_for([sig("r", "acquisition", kind="rising_cac", source="paid_search", stage="Visit→Lead"),
+                                  sig("l", "funnel", kind="leak", source="paid_search", stage="Lead→MQL")]) == "acquisition"
+    assert analysis.is_fix([sig("f", "behavioral", **FRICTION)])
+    assert not analysis.is_fix([sig("f", "behavioral", page="pricing", friction_type="comprehension")])
 
 
 # --- sample size ---

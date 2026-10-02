@@ -10,5 +10,11 @@ def test_run_signal_layer_seeds_store(store):
     assert {"css-pricing_uncertainty", "bfa-pricing-source-paid_search", "qdl-flag-rising_cac-paid_search"} <= set(signals)
     assert signals["bfa-pricing-source-paid_search"].channel == "paid_search"
     assert "supported by customer evidence" in signals["bfa-pricing-source-paid_search"].summary
+    assert signals["bfa-demo-device-mobile"].attributes == {"page": "demo", "device": "mobile",
+                                                            "friction_type": "technical", "cause_status": "supported"}
+    assert signals["qdl-leak-webinar-mql-to-sql"].attributes == {"kind": "leak", "source": "webinar",
+                                                                 "stage": "MQL→SQL", "owner": "qualification"}
+    assert signals["qdl-flag-rising_cac-paid_search"].attributes["owner"] == "acquisition"
+    assert signals["css-pricing_uncertainty"].attributes == {"theme": "pricing_uncertainty"}
     run_signal_layer(store)  # idempotent
     assert len(store.list(Signal)) == 28

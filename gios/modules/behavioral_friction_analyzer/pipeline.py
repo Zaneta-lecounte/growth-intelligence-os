@@ -123,5 +123,9 @@ def to_signals(result: BehavioralResult) -> list[Signal]:
             strength=strength,
             channel=f.value if f.dimension == "source" else None,
             period=result.meta.get("period"),
+            attributes={"page": f.page, ("device" if f.dimension == "device" else "channel"): f.value,
+                        "friction_type": c.friction_type if c else "",
+                        "cause_status": ("supported" if ev and ev.linked_signal_ids else "unconfirmed") if ev
+                        else "not_classified"},
         ))
     return signals

@@ -66,7 +66,8 @@ def prefill(h: Optional[Hypothesis], linked: list[Signal]) -> tuple[dict[str, in
     scores["research_evidence"] = r or 1
     notes["research_evidence"] = f"strongest linked customer signal ({r})" if r else "no customer signal linked"
 
-    sized = [s.strength for s in linked if s.id.startswith(("qdl-leak-", "bfa-"))]
+    sized = [s.strength for s in linked
+             if s.attributes.get("kind") == "leak" or (s.type == "behavioral" and s.attributes.get("page"))]
     scores["opportunity_size"] = max(sized) if sized else JUDGMENT_DEFAULT
     notes["opportunity_size"] = (f"strongest sized leak / friction signal ({max(sized)})" if sized
                                  else "no sized signal linked (default 3)")
@@ -93,76 +94,58 @@ def prefill(h: Optional[Hypothesis], linked: list[Signal]) -> tuple[dict[str, in
     return scores, notes
 
 
-# --- Signal id parsing (ids are created deterministically by the Phase 1 modules) -------------
+# --- Evidence attributes (set by the Phase 1 modules on each Signal) --------------------------
 
-STAGE_SLUGS = {"visit-to-lead": "Visit→Lead", "lead-to-mql": "Lead→MQL", "mql-to-sql": "MQL→SQL",
-               "sql-to-opp": "SQL→Opp", "opp-to-win": "Opp→Win"}
-FLAG_STAGE = {"qualification_mismatch": "MQL→SQL", "strong_top_weak_downstream": "MQL→SQL",
-              "sla_loss": "MQL→SQL", "high_volume_low_quality": "Lead→MQL", "rising_cac": "Visit→Lead"}
-
-
-def parse_friction_id(sid: str) -> Optional[dict]:
-    """bfa-{page}-{device|source}-{value} -> {page, device|channel}."""
-    parts = sid.split("-", 3)
-    if len(parts) != 4 or parts[0] != "bfa" or parts[2] not in ("device", "source"):
-        return None
-    return {"page": parts[1], ("device" if parts[2] == "device" else "channel"): parts[3]}
+STAGE_CATEGORY = {"Visit→Lead": "conversion", "Lead→MQL": "acquisition", "MQL→SQL": "qualification",
+                  "SQL→Opp": "revenue", "Opp→Win": "revenue"}
+FLAG_CATEGORY = {"sla_loss": "operations_measurement", "routing_loss": "operations_measurement",
+                 "rising_cac": "acquisition", "high_volume_low_quality": "acquisition"}
 
 
-def parse_leak_id(sid: str) -> Optional[dict]:
-    if not sid.startswith("qdl-leak-"):
-        return None
-    rest = sid[len("qdl-leak-"):]
-    for slug, stage in STAGE_SLUGS.items():
-        if rest.endswith("-" + slug):
-            return {"channel": rest[: -len(slug) - 1], "funnel_stage": stage}
-    return None
+def _friction(linked: list[Signal]) -> list[Signal]:
+    return [s for s in linked if s.type == "behavioral" and s.attributes.get("page")]
 
 
-def parse_flag_id(sid: str) -> Optional[dict]:
-    if not sid.startswith("qdl-flag-"):
-        return None
-    rest = sid[len("qdl-flag-"):]
-    for kind, stage in FLAG_STAGE.items():
-        if rest.startswith(kind + "-"):
-            source = rest[len(kind) + 1:]
-            return None if source == "all" else {"channel": source, "funnel_stage": stage}
-    return None
+def _leaks(linked: list[Signal]) -> list[Signal]:
+    return [s for s in linked if s.attributes.get("kind") == "leak" and s.attributes.get("stage")]
 
 
-def infer_population(signal_ids: list[str]) -> dict:
+def _flags(linked: list[Signal]) -> list[Signal]:
+    return [s for s in linked if s.attributes.get("kind") not in (None, "leak")]
+
+
+def infer_population(linked: list[Signal]) -> dict:
     """Where an experiment on this opportunity would run: a web slice from linked friction
-    signals, else a funnel stage from linked leak or flag signals."""
-    for parse, unit in ((parse_friction_id, "web"), (parse_leak_id, "funnel"), (parse_flag_id, "funnel")):
-        for sid in signal_ids:
-            found = parse(sid)
-            if found:
-                return {"test_unit": unit, **found}
+    signals, else a funnel stage from linked leak or flag signals (by their attributes)."""
+    for s in _friction(linked):
+        a = s.attributes
+        out = {"test_unit": "web", "page": a["page"]}
+        out |= {k: a[k] for k in ("device", "channel") if a.get(k)}
+        return out
+    for s in _leaks(linked) + _flags(linked):
+        a = s.attributes
+        if a.get("source") and a.get("stage"):
+            return {"test_unit": "funnel", "channel": a["source"], "funnel_stage": a["stage"]}
     return {}
 
 
 def is_fix(linked: list[Signal]) -> bool:
-    return any(s.type == "behavioral" and "Friction: technical" in s.summary for s in linked)
+    return any(s.attributes.get("friction_type") == "technical" for s in _friction(linked))
 
 
 def category_for(linked: list[Signal]) -> str:
     """Spec classification prefill from the most specific linked evidence, in order: on-site
     friction → conversion; a leaking funnel stage; a leakage flag; then the signal types."""
-    stage_category = {"Visit→Lead": "conversion", "Lead→MQL": "acquisition", "MQL→SQL": "qualification",
-                      "SQL→Opp": "revenue", "Opp→Win": "revenue"}
-    ids = [s.id for s in linked]
-    if any(parse_friction_id(i) for i in ids):
+    if _friction(linked):
         return "conversion"
-    for sid in ids:
-        if leak := parse_leak_id(sid):
-            return stage_category[leak["funnel_stage"]]
-    for sid in ids:
-        if sid.startswith(("qdl-flag-sla_loss", "qdl-flag-routing")):
-            return "operations_measurement"
-        if sid.startswith(("qdl-flag-rising_cac", "qdl-flag-high_volume_low_quality")):
-            return "acquisition"
-        if flag := parse_flag_id(sid):
-            return stage_category[flag["funnel_stage"]]
+    for s in _leaks(linked):
+        return STAGE_CATEGORY[s.attributes["stage"]]
+    for s in _flags(linked):
+        kind = s.attributes["kind"]
+        if kind in FLAG_CATEGORY:
+            return FLAG_CATEGORY[kind]
+        if s.attributes.get("stage") in STAGE_CATEGORY:
+            return STAGE_CATEGORY[s.attributes["stage"]]
     types = {s.type for s in linked}
     if "behavioral" in types:
         return "conversion"

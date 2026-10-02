@@ -17,7 +17,6 @@ CATEGORY_OWNER = {"conversion": "web_conversion", "acquisition": "acquisition", 
                   "operations_measurement": "operations_routing", "revenue": "sales_handoff",
                   "activation": "product_offering", "retention": "product_offering",
                   "customer_problem": "product_offering"}
-_OWNER_BY_LABEL = {label: key for key, label in OWNERS.items()}
 
 
 @dataclass
@@ -68,10 +67,8 @@ def owner_suggestions(cited: Iterable[str], inputs: BriefInputs) -> list[str]:
     counts: Counter = Counter()
     for i in cited:
         item = by_id.get(i)
-        if isinstance(item, Signal):
-            m = re.search(r"Owner: ([^.]+)\.", item.summary)
-            if m and m.group(1) in _OWNER_BY_LABEL:
-                counts[_OWNER_BY_LABEL[m.group(1)]] += 2
+        if isinstance(item, Signal) and item.attributes.get("owner") in OWNERS:
+            counts[item.attributes["owner"]] += 2
         elif isinstance(item, Opportunity):
             counts[CATEGORY_OWNER.get(item.category, "product_offering")] += 3
     return [o for o, _ in counts.most_common()]

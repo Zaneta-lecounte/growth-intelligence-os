@@ -25,7 +25,7 @@ def from_hypothesis(h: Hypothesis, signals_by_id: dict[str, Signal]) -> Opportun
         id=opportunity_id(h.id), title=h.label, description=h.intervention, hypothesis_id=h.id,
         category=analysis.category_for(linked), signal_ids=list(h.signal_ids),
         validator_total=h.validation_total, is_fix=analysis.is_fix(linked),
-        **scores, **analysis.infer_population(h.signal_ids),
+        **scores, **analysis.infer_population(linked),
     )
 
 

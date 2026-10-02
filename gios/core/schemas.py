@@ -93,6 +93,9 @@ class Signal(GIOSModel):
     channel: Optional[str] = None
     # Period covered, "YYYY-MM..YYYY-MM"; None = unknown.
     period: Optional[str] = None
+    # Structured facts for downstream modules (e.g. page, device, source, stage, owner, kind).
+    # Consumers read these instead of parsing ids or summary text.
+    attributes: dict[str, str] = Field(default_factory=dict)
 
     def covers_month_range(self, start: str, end: str) -> bool:
         """True when the signal's period overlaps [start, end] (or the period is unknown)."""

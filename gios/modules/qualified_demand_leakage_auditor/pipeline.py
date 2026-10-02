@@ -92,6 +92,7 @@ def to_signals(result: LeakageResult) -> list[Signal]:
             strength=stats.score_to_strength(r.extra_revenue_per_month, edges),
             channel=r.source,
             period=a.period,
+            attributes={"kind": "leak", "source": r.source, "stage": r.stage, "owner": r.owner},
         ))
     for f in a.flags:
         signals.append(Signal(
@@ -107,5 +108,7 @@ def to_signals(result: LeakageResult) -> list[Signal]:
             or f.kind == "rising_cac" else 3,
             channel=None if f.source == "all" else f.source,
             period=a.period,
+            attributes={"kind": f.kind, "source": "" if f.source == "all" else f.source,
+                        "stage": analysis.FLAG_STAGE.get(f.kind, ""), "owner": f.owner},
         ))
     return signals
