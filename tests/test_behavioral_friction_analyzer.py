@@ -215,7 +215,7 @@ def test_markdown_and_signals(demo_result, store):
 def test_page_renders_and_saves():
     from streamlit.testing.v1 import AppTest
 
-    at = AppTest.from_file(str(config.ROOT / "pages" / "2_Behavioral_Friction_Analyzer.py")).run(timeout=60)
+    at = AppTest.from_file(str(config.ROOT / "views" / "2_Behavioral_Friction_Analyzer.py")).run(timeout=60)
     assert not at.exception
     assert any("Finding 1: Demo page, mobile visitors" in m.value for m in at.markdown)
     at.button(key="bfa_save").click().run(timeout=60)

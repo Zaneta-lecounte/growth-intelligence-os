@@ -20,7 +20,7 @@ priorities, and learnings.
 7. **Conventional commits:** `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:` (optional scope, e.g. `feat(core): ...`).
 
 ## Layout
-- `app.py` — home page; `pages/` — one Streamlit page per module
+- `app.py` — `st.navigation` router; `home.py` — home page; `views/` — one Streamlit page per module (registered in `app.py`)
 - `gios/config.py` — model name, paths, demo-mode detection
 - `gios/core/` — `schemas.py` (shared Pydantic models), `llm.py` (LLM wrapper), `store.py` (SQLite)
 - `gios/modules/` — one package per module (deterministic logic + LLM narrative)

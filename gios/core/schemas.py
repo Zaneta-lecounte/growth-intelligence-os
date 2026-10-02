@@ -8,7 +8,7 @@ cleanly through the store with extra="forbid".
 from __future__ import annotations
 
 from datetime import date, datetime, timezone
-from typing import Literal, Optional
+from typing import ClassVar, Literal, Optional
 from uuid import uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -174,6 +174,18 @@ class Hypothesis(GIOSModel):
     @property
     def label(self) -> str:
         return self.title or self.observed_problem or self.id
+
+    def fingerprint(self) -> str:
+        """Stable hash of the hypothesis content (six parts + linked signals)."""
+        import hashlib
+
+        content = "\n".join([getattr(self, p).strip() for p in HYPOTHESIS_PARTS] + sorted(self.signal_ids))
+        return "h" + hashlib.sha1(content.encode()).hexdigest()[:10]
+
+    SCORE_FIELDS: ClassVar[tuple[str, ...]] = (
+        "evidence_diversity", "behavioral_support", "customer_support",
+        "business_relevance", "testability", "measurement_readiness",
+    )
 
     def _dimension_scores(self) -> list[Optional[int]]:
         return [

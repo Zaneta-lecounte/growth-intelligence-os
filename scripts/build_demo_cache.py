@@ -353,6 +353,207 @@ def build_demand_leakage(live: bool) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# Growth Intelligence Diagnostic: reference diagnoses per channel scope
+# ---------------------------------------------------------------------------------------------
+
+
+def _claim(signal_id: str, claim: str, status: str = "observed") -> dict:
+    return {"signal_id": signal_id, "claim": claim, "status": status}
+
+
+PRICING_HYPOTHESIS = dict(
+    title="Unclear pricing is losing paid search evaluators",
+    observed_problem=("Paid search visitors exit the pricing page far more often than other traffic, fewer of "
+                      "them click through to a demo, and paid search acquisition cost has climbed."),
+    affected_audience="Paid search evaluators, mostly small businesses, at the pricing step",
+    causal_explanation=("Evaluators cannot tell what each plan includes or what they would pay, so high-intent "
+                        "search visitors leave instead of requesting a demo."),
+    intervention="A clearer plan comparison with explicit inclusions, usage limits, and an estimate of total cost.",
+    expected_behavior_change="Lower pricing-page exit rate and higher demo click-through for paid search traffic.",
+    expected_business_outcome="More qualified demo requests per paid search dollar, bringing acquisition cost back down.",
+    supporting=[
+        _claim("css-pricing_uncertainty", "Customers repeatedly say they cannot tell what plans include, and these "
+               "comments are rising; one names arriving from a search ad."),
+        _claim("bfa-pricing-source-paid_search", "Paid search exits on the pricing page are well above other "
+               "sources and rising each month, with fewer demo clicks."),
+        _claim("qdl-flag-rising_cac-paid_search", "Paid search acquisition cost rose sharply as spend grew while "
+               "wins fell."),
+        _claim("qdl-leak-paid_search-visit-to-lead", "Fewer paid search visits become leads than benchmark, "
+               "consistent with evaluators leaving before converting.", "inferred"),
+    ],
+    contradicting=[],
+    missing=["Pricing verbatims are not tagged by acquisition channel, so the paid search link rests on a few mentions.",
+             "No pricing-page survey or session recordings show which plan details confuse visitors."],
+)
+MOBILE_HYPOTHESIS = dict(
+    title="A broken mobile demo form loses ready-to-buy visitors",
+    observed_problem="Mobile visitors start the demo form often but rarely finish it, rage-click, and wait on a slow page.",
+    affected_audience="Mobile visitors on the demo page across channels",
+    causal_explanation="A technical defect or slow script on the mobile demo page blocks form submission.",
+    intervention="Profile and fix the mobile demo page and form, then verify completion tracking.",
+    expected_behavior_change="Mobile demo-form completion rises toward the desktop rate.",
+    expected_business_outcome="More demo requests and pipeline without additional spend.",
+    supporting=[
+        _claim("bfa-demo-device-mobile", "Mobile demo-form completion is far below desktop, with many more rage "
+               "clicks and much slower loads."),
+        _claim("css-technical_issue", "Prospects report the demo form spinning or freezing on their phones."),
+    ],
+    contradicting=[],
+    missing=["We cannot yet tell how many mobile starters later complete the form on desktop.",
+             "Server-side demo request counts by device would rule out a tracking gap."],
+)
+
+DIAGNOSTIC_REFERENCE = {
+    "paid_search": dict(
+        growth_problem=("Paid search is getting more expensive while converting fewer evaluators. The loss "
+                        "concentrates on the pricing page, where paid search visitors increasingly leave without "
+                        "requesting a demo."),
+        hypotheses=[
+            PRICING_HYPOTHESIS,
+            dict(
+                title="Rising bids are buying lower-intent paid search traffic",
+                observed_problem="Paid search spend rose while fewer of its leads qualify and fewer deals close.",
+                affected_audience="Paid search visitors across the site",
+                causal_explanation="Higher bids and broader keywords bring in price-shoppers with weaker intent.",
+                intervention="Tighten keyword targeting and negative keywords for low-intent queries.",
+                expected_behavior_change="Higher lead-to-MQL conversion for paid search at similar volume.",
+                expected_business_outcome="Lower acquisition cost through better traffic quality.",
+                supporting=[
+                    _claim("qdl-flag-rising_cac-paid_search", "Spend grew while wins fell, so each win costs more."),
+                    _claim("qdl-leak-paid_search-lead-to-mql", "Paid search leads qualify less often than "
+                           "benchmark, which fits weaker intent.", "inferred"),
+                ],
+                contradicting=[
+                    _claim("bfa-pricing-source-paid_search", "The drop concentrates on the pricing page and in "
+                           "demo clicks there, which a site-wide traffic-quality shift would not predict.",
+                           "inferred"),
+                ],
+                missing=["Search query and keyword mix reports over the period.",
+                         "Lead quality by keyword group."],
+            ),
+            MOBILE_HYPOTHESIS,
+        ],
+        next_best_action="experiment",
+        action_detail=("Run a pricing-page experiment for paid search traffic: a clear plan comparison with "
+                       "inclusions and usage limits against the current page, while a short intercept survey "
+                       "captures what visitors find unclear."),
+        primary_metric="Demo requests per paid search pricing-page session.",
+        guardrail_metric="Lead-to-SQL rate for paid search, so clearer pricing does not attract unqualified leads.",
+        downstream_metric="Paid search acquisition cost and wins over the following quarter.",
+        learning_objective="Learn whether pricing clarity, rather than traffic quality, drives the paid search decline.",
+        missing_evidence=["Channel-level tagging of customer evidence.",
+                          "Paid search keyword and query mix over time."],
+    ),
+    "all": dict(
+        growth_problem=("Qualified pipeline is leaking most at the webinar handoff: webinars bring the most leads "
+                        "but sales accepts very few of them. Paid search economics and the mobile demo form are "
+                        "smaller, separate leaks."),
+        hypotheses=[
+            dict(
+                title="Webinar leads are learners, not buyers",
+                observed_problem="Webinar leads become MQLs readily but sales rejects most of them.",
+                affected_audience="Webinar attendees, mostly small businesses",
+                causal_explanation=("The MQL rules reward webinar attendance, so contacts without budget, authority, "
+                                    "or an active project reach sales."),
+                intervention="Add buying-intent questions to registration and require an intent signal before MQL.",
+                expected_behavior_change="Fewer but better webinar MQLs; sales accepts a much larger share.",
+                expected_business_outcome="More SQLs per sales hour and steady webinar-sourced pipeline.",
+                supporting=[
+                    _claim("qdl-leak-webinar-mql-to-sql", "Webinar MQL to SQL conversion is far below other sources "
+                           "on large volume."),
+                    _claim("qdl-flag-qualification_mismatch-webinar", "Most webinar rejections cite budget, "
+                           "authority, or student status."),
+                    _claim("qdl-flag-strong_top_weak_downstream-webinar", "Webinars convert leads to MQL better "
+                           "than any source but fail downstream."),
+                    _claim("qdl-flag-high_volume_low_quality-webinar", "Webinars are the largest lead source with "
+                           "the lowest lead-to-win rate."),
+                    _claim("css-urgency", "Webinar attendees describe learning or research with no project or "
+                           "budget.", "inferred"),
+                ],
+                contradicting=[],
+                missing=["How the MQL score weights webinar attendance.",
+                         "Whether rejected webinar contacts convert later through nurture."],
+            ),
+            PRICING_HYPOTHESIS,
+            MOBILE_HYPOTHESIS,
+            dict(
+                title="Slow partner follow-up loses partner demand",
+                observed_problem="Many partner leads wait longer than a day for first contact.",
+                affected_audience="Partner-referred leads",
+                causal_explanation="Partner leads route to a separate team that responds slowly.",
+                intervention="Route partner leads through the same response-time rules as direct leads.",
+                expected_behavior_change="Faster first contact for partner leads.",
+                expected_business_outcome="Higher partner acceptance and win rates.",
+                supporting=[
+                    _claim("qdl-flag-sla_loss-partner", "A large share of partner MQLs is contacted after the SLA."),
+                ],
+                contradicting=[
+                    _claim("qdl-flag-sla_loss-partner", "Late partner leads are accepted about as often as "
+                           "on-time ones, so delay has no measurable cost yet.", "inferred"),
+                ],
+                missing=["Partner win rates by response time."],
+            ),
+        ],
+        next_best_action="process_change",
+        action_detail=("Change the webinar qualification process: add intent questions to registration, require an "
+                       "intent signal before a webinar contact becomes an MQL, and route the rest to nurture."),
+        primary_metric="Webinar MQL to SQL conversion.",
+        guardrail_metric="Webinar-sourced qualified pipeline must not fall.",
+        downstream_metric="Webinar SQL to opportunity, win rate, and revenue.",
+        learning_objective="Learn whether intent screening raises webinar lead quality without shrinking real demand.",
+        missing_evidence=["MQL scoring rules and their weights.",
+                          "Lead-level linkage between customer evidence and funnel records."],
+    ),
+}
+
+DIAGNOSTIC_SCOPES = {
+    # scope: (channel, metric for the Step 1 draft)
+    "all": (None, "MQL→SQL"),
+    "paid_search": ("paid_search", "CAC"),
+}
+
+
+def diagnostic_inputs(scope: str):
+    from gios.modules.growth_intelligence_diagnostic import BusinessSignal, Filters
+    from gios.modules.growth_intelligence_diagnostic import analysis as gid
+
+    channel, metric = DIAGNOSTIC_SCOPES[scope]
+    filters = Filters(channel=channel)
+    draft = gid.suggest_business_signal(data.load("funnel_by_source"), metric, channel, None,
+                                        filters.start, filters.end)
+    return BusinessSignal(goal="Grow qualified pipeline efficiently", **draft), filters
+
+
+def _phase1_signals():
+    from gios.core.store import Store
+    from gios.modules.signal_layer import run_signal_layer
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmp:
+        store = Store(Path(tmp) / "seed.db")
+        run_signal_layer(store)
+        from gios.core.schemas import Signal
+
+        return store.list(Signal)
+
+
+def build_growth_diagnostic(live: bool) -> None:
+    from gios.modules.growth_intelligence_diagnostic import analysis as gid
+    from gios.modules.growth_intelligence_diagnostic import pipeline
+    from gios.modules.growth_intelligence_diagnostic.models import checked_output_model
+
+    signals = _phase1_signals()
+    for scope in DIAGNOSTIC_SCOPES:
+        business, filters = diagnostic_inputs(scope)
+        if live:
+            output = pipeline.run(business, filters, signals).output
+        else:
+            in_scope = gid.filter_signals(signals, filters.channel, filters.segment, filters.start, filters.end)
+            output = checked_output_model(frozenset(s.id for s in in_scope))(**DIAGNOSTIC_REFERENCE[scope])
+        _write(f"{pipeline.PROMPT}__{scope}", output)
+
+
+# ---------------------------------------------------------------------------------------------
 
 
 def _write(name: str, obj: BaseModel) -> None:
@@ -367,6 +568,7 @@ BUILDERS: dict[str, Callable[[bool], None]] = {
     "customer_signal": build_customer_signal,
     "behavioral_friction": build_behavioral_friction,
     "demand_leakage": build_demand_leakage,
+    "growth_diagnostic": build_growth_diagnostic,
 }
 
 
@@ -377,6 +579,10 @@ def main() -> None:
     args = parser.parse_args()
     if args.live and config.is_demo_mode():
         parser.error("--live needs ANTHROPIC_API_KEY")
+    if not args.live:
+        import os
+
+        os.environ.pop("ANTHROPIC_API_KEY", None)  # offline builds must never call the API
     for name, builder in BUILDERS.items():
         if args.only in (None, name):
             builder(args.live)

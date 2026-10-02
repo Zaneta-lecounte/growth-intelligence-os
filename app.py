@@ -4,14 +4,16 @@ import streamlit as st
 PAGES = {
     "Overview": [st.Page("home.py", title="Home", icon=":material/home:", default=True)],
     "Signal": [
-        st.Page("pages/1_Customer_Signal_Synthesizer.py", title="Customer Signal Synthesizer",
+        st.Page("views/1_Customer_Signal_Synthesizer.py", title="Customer Signal Synthesizer",
                 icon=":material/forum:"),
-        st.Page("pages/2_Behavioral_Friction_Analyzer.py", title="Behavioral Friction Analyzer",
+        st.Page("views/2_Behavioral_Friction_Analyzer.py", title="Behavioral Friction Analyzer",
                 icon=":material/ads_click:"),
     ],
     "Diagnosis": [
-        st.Page("pages/3_Qualified_Demand_Leakage_Auditor.py", title="Qualified Demand Leakage Auditor",
+        st.Page("views/3_Qualified_Demand_Leakage_Auditor.py", title="Qualified Demand Leakage Auditor",
                 icon=":material/filter_alt:"),
+        st.Page("views/4_Growth_Intelligence_Diagnostic.py", title="Growth Intelligence Diagnostic",
+                icon=":material/troubleshoot:"),
     ],
 }
 

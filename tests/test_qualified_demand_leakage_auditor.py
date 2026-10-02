@@ -205,7 +205,7 @@ def test_signals(demo, store):
 def test_page_renders_and_saves():
     from streamlit.testing.v1 import AppTest
 
-    at = AppTest.from_file(str(config.ROOT / "pages" / "3_Qualified_Demand_Leakage_Auditor.py")).run(timeout=60)
+    at = AppTest.from_file(str(config.ROOT / "views" / "3_Qualified_Demand_Leakage_Auditor.py")).run(timeout=60)
     assert not at.exception
     assert any("webinar · MQL→SQL" in m.value for m in at.markdown)
     at.button(key="qdl_save").click().run(timeout=60)

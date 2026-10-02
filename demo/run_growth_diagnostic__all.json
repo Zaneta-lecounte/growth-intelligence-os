@@ -1,0 +1,144 @@
+{
+  "growth_problem": "Qualified pipeline is leaking most at the webinar handoff: webinars bring the most leads but sales accepts very few of them. Paid search economics and the mobile demo form are smaller, separate leaks.",
+  "hypotheses": [
+    {
+      "title": "Webinar leads are learners, not buyers",
+      "observed_problem": "Webinar leads become MQLs readily but sales rejects most of them.",
+      "affected_audience": "Webinar attendees, mostly small businesses",
+      "causal_explanation": "The MQL rules reward webinar attendance, so contacts without budget, authority, or an active project reach sales.",
+      "intervention": "Add buying-intent questions to registration and require an intent signal before MQL.",
+      "expected_behavior_change": "Fewer but better webinar MQLs; sales accepts a much larger share.",
+      "expected_business_outcome": "More SQLs per sales hour and steady webinar-sourced pipeline.",
+      "supporting": [
+        {
+          "signal_id": "qdl-leak-webinar-mql-to-sql",
+          "claim": "Webinar MQL to SQL conversion is far below other sources on large volume.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "qdl-flag-qualification_mismatch-webinar",
+          "claim": "Most webinar rejections cite budget, authority, or student status.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "qdl-flag-strong_top_weak_downstream-webinar",
+          "claim": "Webinars convert leads to MQL better than any source but fail downstream.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "qdl-flag-high_volume_low_quality-webinar",
+          "claim": "Webinars are the largest lead source with the lowest lead-to-win rate.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "css-urgency",
+          "claim": "Webinar attendees describe learning or research with no project or budget.",
+          "status": "inferred"
+        }
+      ],
+      "contradicting": [],
+      "missing": [
+        "How the MQL score weights webinar attendance.",
+        "Whether rejected webinar contacts convert later through nurture."
+      ]
+    },
+    {
+      "title": "Unclear pricing is losing paid search evaluators",
+      "observed_problem": "Paid search visitors exit the pricing page far more often than other traffic, fewer of them click through to a demo, and paid search acquisition cost has climbed.",
+      "affected_audience": "Paid search evaluators, mostly small businesses, at the pricing step",
+      "causal_explanation": "Evaluators cannot tell what each plan includes or what they would pay, so high-intent search visitors leave instead of requesting a demo.",
+      "intervention": "A clearer plan comparison with explicit inclusions, usage limits, and an estimate of total cost.",
+      "expected_behavior_change": "Lower pricing-page exit rate and higher demo click-through for paid search traffic.",
+      "expected_business_outcome": "More qualified demo requests per paid search dollar, bringing acquisition cost back down.",
+      "supporting": [
+        {
+          "signal_id": "css-pricing_uncertainty",
+          "claim": "Customers repeatedly say they cannot tell what plans include, and these comments are rising; one names arriving from a search ad.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "bfa-pricing-source-paid_search",
+          "claim": "Paid search exits on the pricing page are well above other sources and rising each month, with fewer demo clicks.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "qdl-flag-rising_cac-paid_search",
+          "claim": "Paid search acquisition cost rose sharply as spend grew while wins fell.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "qdl-leak-paid_search-visit-to-lead",
+          "claim": "Fewer paid search visits become leads than benchmark, consistent with evaluators leaving before converting.",
+          "status": "inferred"
+        }
+      ],
+      "contradicting": [],
+      "missing": [
+        "Pricing verbatims are not tagged by acquisition channel, so the paid search link rests on a few mentions.",
+        "No pricing-page survey or session recordings show which plan details confuse visitors."
+      ]
+    },
+    {
+      "title": "A broken mobile demo form loses ready-to-buy visitors",
+      "observed_problem": "Mobile visitors start the demo form often but rarely finish it, rage-click, and wait on a slow page.",
+      "affected_audience": "Mobile visitors on the demo page across channels",
+      "causal_explanation": "A technical defect or slow script on the mobile demo page blocks form submission.",
+      "intervention": "Profile and fix the mobile demo page and form, then verify completion tracking.",
+      "expected_behavior_change": "Mobile demo-form completion rises toward the desktop rate.",
+      "expected_business_outcome": "More demo requests and pipeline without additional spend.",
+      "supporting": [
+        {
+          "signal_id": "bfa-demo-device-mobile",
+          "claim": "Mobile demo-form completion is far below desktop, with many more rage clicks and much slower loads.",
+          "status": "observed"
+        },
+        {
+          "signal_id": "css-technical_issue",
+          "claim": "Prospects report the demo form spinning or freezing on their phones.",
+          "status": "observed"
+        }
+      ],
+      "contradicting": [],
+      "missing": [
+        "We cannot yet tell how many mobile starters later complete the form on desktop.",
+        "Server-side demo request counts by device would rule out a tracking gap."
+      ]
+    },
+    {
+      "title": "Slow partner follow-up loses partner demand",
+      "observed_problem": "Many partner leads wait longer than a day for first contact.",
+      "affected_audience": "Partner-referred leads",
+      "causal_explanation": "Partner leads route to a separate team that responds slowly.",
+      "intervention": "Route partner leads through the same response-time rules as direct leads.",
+      "expected_behavior_change": "Faster first contact for partner leads.",
+      "expected_business_outcome": "Higher partner acceptance and win rates.",
+      "supporting": [
+        {
+          "signal_id": "qdl-flag-sla_loss-partner",
+          "claim": "A large share of partner MQLs is contacted after the SLA.",
+          "status": "observed"
+        }
+      ],
+      "contradicting": [
+        {
+          "signal_id": "qdl-flag-sla_loss-partner",
+          "claim": "Late partner leads are accepted about as often as on-time ones, so delay has no measurable cost yet.",
+          "status": "inferred"
+        }
+      ],
+      "missing": [
+        "Partner win rates by response time."
+      ]
+    }
+  ],
+  "next_best_action": "process_change",
+  "action_detail": "Change the webinar qualification process: add intent questions to registration, require an intent signal before a webinar contact becomes an MQL, and route the rest to nurture.",
+  "primary_metric": "Webinar MQL to SQL conversion.",
+  "guardrail_metric": "Webinar-sourced qualified pipeline must not fall.",
+  "downstream_metric": "Webinar SQL to opportunity, win rate, and revenue.",
+  "learning_objective": "Learn whether intent screening raises webinar lead quality without shrinking real demand.",
+  "missing_evidence": [
+    "MQL scoring rules and their weights.",
+    "Lead-level linkage between customer evidence and funnel records."
+  ]
+}

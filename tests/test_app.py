@@ -23,8 +23,8 @@ def test_navigation_lists_every_page():
     import re
 
     app = (config.ROOT / "app.py").read_text()
-    pages = sorted(p.name for p in (config.ROOT / "pages").glob("*.py"))
-    assert pages and all(f"pages/{p}" in app for p in pages)
+    pages = sorted(p.name for p in (config.ROOT / "views").glob("*.py"))
+    assert pages and all(f"views/{p}" in app for p in pages)
     assert "home.py" in app
 
 

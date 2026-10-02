@@ -200,7 +200,7 @@ def test_markdown_matches_spec_format(demo_result):
 def test_page_renders_and_saves(monkeypatch):
     from streamlit.testing.v1 import AppTest
 
-    at = AppTest.from_file(str(config.ROOT / "pages" / "1_Customer_Signal_Synthesizer.py")).run(timeout=60)
+    at = AppTest.from_file(str(config.ROOT / "views" / "1_Customer_Signal_Synthesizer.py")).run(timeout=60)
     assert not at.exception
     assert any("Top Customer Themes" in m.value for m in at.markdown)
     at.button(key="css_save").click().run(timeout=60)
