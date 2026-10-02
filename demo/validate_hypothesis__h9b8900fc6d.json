@@ -1,0 +1,37 @@
+{
+  "scores": [
+    {
+      "dimension": "evidence_diversity",
+      "score": 1,
+      "justification": "A single funnel signal, contradicted by the qualification flag."
+    },
+    {
+      "dimension": "behavioral_support",
+      "score": 0,
+      "justification": "No behavioral evidence."
+    },
+    {
+      "dimension": "customer_support",
+      "score": 0,
+      "justification": "No customer evidence."
+    },
+    {
+      "dimension": "business_relevance",
+      "score": 1,
+      "justification": "Affects a small number of accepted leads."
+    },
+    {
+      "dimension": "testability",
+      "score": 2,
+      "justification": "A playbook change for accepted webinar SQLs can be compared with the current process."
+    },
+    {
+      "dimension": "measurement_readiness",
+      "score": 2,
+      "justification": "SQL to opportunity conversion is recorded."
+    }
+  ],
+  "missing_evidence": [
+    "Sales activity data for accepted webinar SQLs."
+  ]
+}

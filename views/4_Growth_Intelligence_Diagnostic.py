@@ -1,5 +1,7 @@
 import streamlit as st
 
+from gios import config
+from gios.modules.demo_flow import CACHED_DIAGNOSTIC_SCOPES
 from gios.core import data
 from gios.core.llm import LLMError
 from gios.core.schemas import Signal
@@ -103,7 +105,14 @@ if st.button("Run diagnosis", type="primary", disabled=bool(missing) or not in_s
         st.session_state.gid_error = str(exc)
 
 if err := st.session_state.get("gid_error"):
-    st.error(f"Diagnosis rejected: {err}", icon=":material/gpp_bad:")
+    if config.is_demo_mode() and "no cached output" in err:
+        scopes = ", ".join("all channels" if c is None else c.replace("_", " ")
+                           for c, _ in CACHED_DIAGNOSTIC_SCOPES.values())
+        st.info(f"Demo mode has cached diagnoses for these acquisition sources: {scopes} (all segments, full "
+                "period). Pick one of them, or set ANTHROPIC_API_KEY to diagnose any scope live.",
+                icon=":material/info:")
+    else:
+        st.error(f"Diagnosis rejected: {err}", icon=":material/gpp_bad:")
 
 result = st.session_state.get("gid_result")
 if result is not None:

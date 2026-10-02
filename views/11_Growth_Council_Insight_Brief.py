@@ -33,7 +33,12 @@ if key not in st.session_state:
         st.session_state[key] = (None, str(exc))
 brief, error = st.session_state[key]
 if brief is None:
-    st.error(f"No brief for this period: {error}", icon=":material/gpp_bad:")
+    if "no cached output" in error:
+        st.error("No brief for this period: demo mode has a cached brief for the full period "
+                 f"({months[0]} to {months[-1]}) only. Widen the period, or set ANTHROPIC_API_KEY to write one live.",
+                 icon=":material/info:")
+    else:
+        st.error(f"No brief for this period: {error}", icon=":material/gpp_bad:")
     st.stop()
 
 st.subheader("Owner")

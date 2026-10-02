@@ -17,13 +17,15 @@ DIAGNOSTIC_SCOPES = {
     "all": (None, "MQL→SQL"),
     "paid_search": ("paid_search", "CAC"),
 }
+# Scopes with a cached diagnosis in demo/ (a superset of the seeded scopes).
+CACHED_DIAGNOSTIC_SCOPES = {**DIAGNOSTIC_SCOPES, "webinar": ("webinar", "MQL→SQL")}
 
 
 def diagnostic_inputs(scope: str):
     from gios.modules.growth_intelligence_diagnostic import BusinessSignal, Filters
     from gios.modules.growth_intelligence_diagnostic import analysis as gid
 
-    channel, metric = DIAGNOSTIC_SCOPES[scope]
+    channel, metric = CACHED_DIAGNOSTIC_SCOPES[scope]
     filters = Filters(channel=channel)
     draft = gid.suggest_business_signal(data.load("funnel_by_source"), metric, channel, None,
                                         filters.start, filters.end)

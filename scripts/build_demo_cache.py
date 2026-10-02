@@ -506,7 +506,44 @@ DIAGNOSTIC_REFERENCE = {
     ),
 }
 
-from gios.modules.demo_flow import DIAGNOSTIC_SCOPES, diagnostic_inputs  # noqa: E402
+from gios.modules.demo_flow import CACHED_DIAGNOSTIC_SCOPES, diagnostic_inputs  # noqa: E402
+
+
+DIAGNOSTIC_REFERENCE["webinar"] = dict(
+    growth_problem=("Webinars produce the most leads and the strongest lead-to-MQL conversion, but most webinar "
+                    "MQLs never become sales-qualified, so webinar volume is not turning into pipeline."),
+    hypotheses=[
+        DIAGNOSTIC_REFERENCE["all"]["hypotheses"][0],
+        dict(
+            title="Accepted webinar SQLs stall at the sales handoff",
+            observed_problem="Even the webinar leads that sales accepts convert to opportunities less often than others.",
+            affected_audience="Sales-accepted webinar leads",
+            causal_explanation="Sales treats webinar SQLs as lower priority and follows up with generic outreach.",
+            intervention="Give accepted webinar SQLs the same discovery-call playbook as demo requests.",
+            expected_behavior_change="More accepted webinar SQLs reach a scheduled discovery call.",
+            expected_business_outcome="Higher webinar SQL to opportunity conversion.",
+            supporting=[
+                _claim("qdl-leak-webinar-sql-to-opp", "Webinar SQL to opportunity conversion is below other sources."),
+            ],
+            contradicting=[
+                _claim("qdl-flag-qualification_mismatch-webinar", "Most of the webinar loss happens before the "
+                       "handoff, at qualification, so the handoff is a secondary leak at most.", "inferred"),
+            ],
+            missing=["Sales activity data for accepted webinar SQLs.",
+                     "Opportunity notes on why webinar SQLs stall."],
+        ),
+    ],
+    next_best_action="process_change",
+    action_detail=("Add intent questions to webinar registration and require an intent signal before MQL; route "
+                   "the rest to nurture."),
+    primary_metric="Webinar MQL to SQL conversion.",
+    guardrail_metric="Webinar-sourced qualified pipeline must not fall.",
+    downstream_metric="Webinar SQL to opportunity and win rate.",
+    learning_objective="Learn whether intent screening fixes webinar lead quality without shrinking real demand.",
+    missing_evidence=["MQL scoring rules and their weights."],
+)
+
+
 
 
 def _phase1_signals():
@@ -528,7 +565,7 @@ def build_growth_diagnostic(live: bool) -> None:
     from gios.modules.growth_intelligence_diagnostic.models import checked_output_model
 
     signals = _phase1_signals()
-    for scope in DIAGNOSTIC_SCOPES:
+    for scope in CACHED_DIAGNOSTIC_SCOPES:
         business, filters = diagnostic_inputs(scope)
         if live:
             output = pipeline.run(business, filters, signals).output
@@ -595,6 +632,16 @@ VALIDATOR_REFERENCE = {
 }
 
 
+VALIDATOR_REFERENCE["Accepted webinar SQLs stall at the sales handoff"] = ({
+    "evidence_diversity": (1, "A single funnel signal, contradicted by the qualification flag."),
+    "behavioral_support": (0, "No behavioral evidence."),
+    "customer_support": (0, "No customer evidence."),
+    "business_relevance": (1, "Affects a small number of accepted leads."),
+    "testability": (2, "A playbook change for accepted webinar SQLs can be compared with the current process."),
+    "measurement_readiness": (2, "SQL to opportunity conversion is recorded."),
+}, ["Sales activity data for accepted webinar SQLs."])
+
+
 def build_hypothesis_validator(live: bool) -> None:
     from gios.modules.growth_intelligence_diagnostic import pipeline as gid
     from gios.modules.hypothesis_evidence_validator import analysis, pipeline
@@ -603,7 +650,7 @@ def build_hypothesis_validator(live: bool) -> None:
 
     signals = _phase1_signals()
     hypotheses = {ASSUMPTION_ONLY.fingerprint(): ASSUMPTION_ONLY}
-    for scope in DIAGNOSTIC_SCOPES:
+    for scope in CACHED_DIAGNOSTIC_SCOPES:
         business, filters = diagnostic_inputs(scope)
         for h in gid.to_hypotheses(gid.run(business, filters, signals)):
             hypotheses.setdefault(h.fingerprint(), h)
