@@ -103,6 +103,18 @@ class Store:
             cur = conn.execute(f"DELETE FROM {_table(model_cls)} WHERE id = ?", (obj_id,))
         return cur.rowcount > 0
 
+    def delete_by_module(self, model_cls: type[GIOSModel], module: str) -> int:
+        with self._connect() as conn:
+            cur = conn.execute(f"DELETE FROM {_table(model_cls)} WHERE module = ?", (module,))
+        return cur.rowcount
+
+    def replace_module_output(self, objs: Iterable[GIOSModel], module: str) -> list[str]:
+        """Replace everything `module` previously saved for these entity types."""
+        objs = list(objs)
+        for model_cls in {type(o) for o in objs}:
+            self.delete_by_module(model_cls, module)
+        return self.save_many(objs, module=module)
+
     def clear(self, model_cls: Optional[type[GIOSModel]] = None) -> None:
         tables = [_table(model_cls)] if model_cls else list(TABLES.values())
         with self._connect() as conn:
