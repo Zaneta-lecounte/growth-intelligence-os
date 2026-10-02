@@ -621,6 +621,72 @@ def build_hypothesis_validator(live: bool) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# Growth Priority Orchestrator: reference clusters and tags for the demo backlog
+# ---------------------------------------------------------------------------------------------
+
+ORCHESTRATOR_CLUSTERS = [
+    dict(member_ids=["eos-gid-paid_search-1", "eos-gid-all-2"],
+         canonical_title="Clarify pricing for paid search evaluators",
+         rationale="Both describe paid search evaluators leaving an unclear pricing page and propose the same plan comparison."),
+    dict(member_ids=["eos-gid-paid_search-2", "eos-gid-all-3"],
+         canonical_title="Fix the mobile demo form",
+         rationale="Both describe the same broken mobile demo form and propose the same technical fix."),
+]
+ORCHESTRATOR_TAGS = {
+    "Unclear pricing is losing paid search evaluators": (
+        ["design", "content", "engineering"],
+        "Whether pricing clarity, not traffic quality, drives the paid search decline.",
+        "Demo requests per paid search pricing-page session."),
+    "A broken mobile demo form loses ready-to-buy visitors": (
+        ["engineering", "data"],
+        "How much demand the mobile defect was costing, once completion tracking is verified.",
+        "Mobile demo-form completion rate."),
+    "Webinar leads are learners, not buyers": (
+        ["sales", "operations", "content"],
+        "Whether intent screening raises webinar lead quality without shrinking real demand.",
+        "Webinar MQL to SQL conversion."),
+    "Rising bids are buying lower-intent paid search traffic": (
+        ["data"],
+        "Whether keyword mix shifted toward low-intent queries as bids rose.",
+        "Paid search lead to MQL conversion by keyword group."),
+    "Slow partner follow-up loses partner demand": (
+        ["operations", "sales"],
+        "Whether faster partner follow-up changes acceptance or win rates.",
+        "Partner MQL to SQL conversion by response time."),
+}
+
+
+def build_orchestrator(live: bool) -> None:
+    import tempfile
+
+    from gios.core.store import Store
+    from gios.modules.demo_flow import seed_through
+    from gios.modules.growth_priority_orchestrator import pipeline
+    from gios.modules.growth_priority_orchestrator.models import ItemTags, OrchestratorProposal
+
+    with tempfile.TemporaryDirectory() as tmp:
+        store = Store(Path(tmp) / "seed.db")
+        seed_through("backlog", store)
+        inputs = pipeline.gather(store)
+    if live:
+        result = pipeline.propose(inputs.candidates, inputs.hypotheses)
+        if result.proposal is None:
+            raise SystemExit(result.error)
+        proposal = result.proposal
+    else:
+        ids = {o.id for o in inputs.candidates}
+        for c in ORCHESTRATOR_CLUSTERS:
+            if not set(c["member_ids"]) <= ids:
+                raise SystemExit(f"demo backlog changed; cluster ids missing: {c['member_ids']}")
+        proposal = OrchestratorProposal(
+            clusters=ORCHESTRATOR_CLUSTERS,
+            items=[ItemTags(item_id=o.id, dependencies=ORCHESTRATOR_TAGS[o.title][0],
+                            expected_learning=ORCHESTRATOR_TAGS[o.title][1], primary_metric=ORCHESTRATOR_TAGS[o.title][2])
+                   for o in sorted(inputs.candidates, key=lambda o: o.id)])
+    _write(pipeline.PROMPT, proposal)
+
+
+# ---------------------------------------------------------------------------------------------
 
 
 def _write(name: str, obj: BaseModel) -> None:
@@ -637,6 +703,7 @@ BUILDERS: dict[str, Callable[[bool], None]] = {
     "demand_leakage": build_demand_leakage,
     "growth_diagnostic": build_growth_diagnostic,
     "hypothesis_validator": build_hypothesis_validator,
+    "orchestrator": build_orchestrator,
 }
 
 

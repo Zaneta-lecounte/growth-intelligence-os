@@ -20,6 +20,8 @@ PAGES = {
     "Prioritization": [
         st.Page("views/6_Experiment_Opportunity_Scorer.py", title="Experiment Opportunity Scorer",
                 icon=":material/leaderboard:"),
+        st.Page("views/7_Growth_Priority_Orchestrator.py", title="Growth Priority Orchestrator",
+                icon=":material/view_kanban:"),
     ],
 }
 

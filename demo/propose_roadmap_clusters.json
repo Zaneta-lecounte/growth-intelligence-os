@@ -1,0 +1,87 @@
+{
+  "clusters": [
+    {
+      "member_ids": [
+        "eos-gid-paid_search-1",
+        "eos-gid-all-2"
+      ],
+      "canonical_title": "Clarify pricing for paid search evaluators",
+      "rationale": "Both describe paid search evaluators leaving an unclear pricing page and propose the same plan comparison."
+    },
+    {
+      "member_ids": [
+        "eos-gid-paid_search-2",
+        "eos-gid-all-3"
+      ],
+      "canonical_title": "Fix the mobile demo form",
+      "rationale": "Both describe the same broken mobile demo form and propose the same technical fix."
+    }
+  ],
+  "items": [
+    {
+      "item_id": "eos-gid-all-1",
+      "dependencies": [
+        "sales",
+        "operations",
+        "content"
+      ],
+      "expected_learning": "Whether intent screening raises webinar lead quality without shrinking real demand.",
+      "primary_metric": "Webinar MQL to SQL conversion."
+    },
+    {
+      "item_id": "eos-gid-all-2",
+      "dependencies": [
+        "design",
+        "content",
+        "engineering"
+      ],
+      "expected_learning": "Whether pricing clarity, not traffic quality, drives the paid search decline.",
+      "primary_metric": "Demo requests per paid search pricing-page session."
+    },
+    {
+      "item_id": "eos-gid-all-3",
+      "dependencies": [
+        "engineering",
+        "data"
+      ],
+      "expected_learning": "How much demand the mobile defect was costing, once completion tracking is verified.",
+      "primary_metric": "Mobile demo-form completion rate."
+    },
+    {
+      "item_id": "eos-gid-all-4",
+      "dependencies": [
+        "operations",
+        "sales"
+      ],
+      "expected_learning": "Whether faster partner follow-up changes acceptance or win rates.",
+      "primary_metric": "Partner MQL to SQL conversion by response time."
+    },
+    {
+      "item_id": "eos-gid-paid_search-1",
+      "dependencies": [
+        "design",
+        "content",
+        "engineering"
+      ],
+      "expected_learning": "Whether pricing clarity, not traffic quality, drives the paid search decline.",
+      "primary_metric": "Demo requests per paid search pricing-page session."
+    },
+    {
+      "item_id": "eos-gid-paid_search-2",
+      "dependencies": [
+        "engineering",
+        "data"
+      ],
+      "expected_learning": "How much demand the mobile defect was costing, once completion tracking is verified.",
+      "primary_metric": "Mobile demo-form completion rate."
+    },
+    {
+      "item_id": "eos-gid-paid_search-3",
+      "dependencies": [
+        "data"
+      ],
+      "expected_learning": "Whether keyword mix shifted toward low-intent queries as bids rose.",
+      "primary_metric": "Paid search lead to MQL conversion by keyword group."
+    }
+  ]
+}

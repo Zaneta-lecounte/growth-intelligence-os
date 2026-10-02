@@ -36,8 +36,8 @@ Each module has a spec in [`specs/`](specs/).
 | Behavioral Friction Analyzer | Signal | Ready |
 | Qualified Demand Leakage Auditor | Diagnosis | Ready |
 | Hypothesis Evidence Validator | Diagnosis | Ready |
-| Experiment Opportunity Scorer | Prioritization | Planned |
-| Growth Priority Orchestrator | Prioritization | Planned |
+| Experiment Opportunity Scorer | Prioritization | Ready |
+| Growth Priority Orchestrator | Prioritization | Ready |
 | Downstream Impact Analyzer | Learning | Planned |
 | Experiment Learning Capture | Learning | Planned |
 | Growth Council Insight Brief | Learning | Planned |

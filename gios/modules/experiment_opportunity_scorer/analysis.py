@@ -146,17 +146,23 @@ def is_fix(linked: list[Signal]) -> bool:
 
 
 def category_for(linked: list[Signal]) -> str:
-    """Spec classification prefill from the most specific linked evidence."""
+    """Spec classification prefill from the most specific linked evidence, in order: on-site
+    friction → conversion; a leaking funnel stage; a leakage flag; then the signal types."""
     stage_category = {"Visit→Lead": "conversion", "Lead→MQL": "acquisition", "MQL→SQL": "qualification",
                       "SQL→Opp": "revenue", "Opp→Win": "revenue"}
     ids = [s.id for s in linked]
+    if any(parse_friction_id(i) for i in ids):
+        return "conversion"
     for sid in ids:
-        if (leak := parse_leak_id(sid)) or (leak := parse_flag_id(sid)):
-            if sid.startswith(("qdl-flag-sla_loss", "qdl-flag-routing")):
-                return "operations_measurement"
-            if sid.startswith(("qdl-flag-rising_cac", "qdl-flag-high_volume_low_quality")):
-                return "acquisition"
+        if leak := parse_leak_id(sid):
             return stage_category[leak["funnel_stage"]]
+    for sid in ids:
+        if sid.startswith(("qdl-flag-sla_loss", "qdl-flag-routing")):
+            return "operations_measurement"
+        if sid.startswith(("qdl-flag-rising_cac", "qdl-flag-high_volume_low_quality")):
+            return "acquisition"
+        if flag := parse_flag_id(sid):
+            return stage_category[flag["funnel_stage"]]
     types = {s.type for s in linked}
     if "behavioral" in types:
         return "conversion"
