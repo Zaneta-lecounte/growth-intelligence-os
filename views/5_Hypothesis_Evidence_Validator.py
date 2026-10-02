@@ -8,7 +8,7 @@ from gios.modules.hypothesis_evidence_validator.analysis import BAND_LABELS, REC
 from gios.modules.hypothesis_evidence_validator.examples import ASSUMPTION_ONLY
 from gios.modules.hypothesis_evidence_validator.models import DIMENSION_LABELS, DIMENSIONS, RUBRIC
 from gios.modules.hypothesis_evidence_validator.report import to_markdown
-from gios.ui import page_header
+from gios.ui import page_header, recommendation_badge
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
 store = page_header(INFO)
@@ -91,6 +91,7 @@ c1, c2, c3 = st.columns(3)
 c1.metric("Total", f"{result.total} / 12")
 c2.metric("Band", BAND_LABELS[result.band])
 c3.metric("Recommendation", RECOMMENDATION_LABELS[result.recommendation])
+c3.markdown(recommendation_badge(result.recommendation, RECOMMENDATION_LABELS[result.recommendation]))
 
 st.divider()
 c1, c2 = st.columns([1, 3])

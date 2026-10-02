@@ -56,8 +56,7 @@ def get_store() -> Store:
 
 # --- Badges ---------------------------------------------------------------------------------------
 
-EVIDENCE_BADGES = {"observed": ":green-badge[Observed]", "inferred": ":orange-badge[Inferred]",
-                   "unknown": ":gray-badge[Unknown]"}
+from gios.core.report import EVIDENCE_BADGES_UI as EVIDENCE_BADGES  # noqa: E402
 RECOMMENDATION_COLORS = {
     # scorer
     "run_now": "green", "research_first": "orange", "instrument_first": "violet", "defer": "gray", "reject": "red",

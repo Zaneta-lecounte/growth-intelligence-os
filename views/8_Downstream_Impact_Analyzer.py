@@ -13,7 +13,7 @@ from gios.modules.downstream_impact_analyzer import MODULE, Settings, load, pipe
 from gios.modules.downstream_impact_analyzer.analysis import INTERPRETATION_LABELS, RECOMMENDATION_LABELS
 from gios.modules.downstream_impact_analyzer.examples import VOLUME_QUALITY_EXAMPLE
 from gios.modules.downstream_impact_analyzer.report import to_markdown
-from gios.ui import NEUTRAL, SERIES_1, SERIES_2, page_header
+from gios.ui import NEUTRAL, SERIES_1, SERIES_2, page_header, recommendation_badge
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
 store = page_header(INFO)
@@ -59,6 +59,7 @@ c1, c2, c3 = st.columns([2, 1, 1])
 c1.metric("Business interpretation", INTERPRETATION_LABELS[result.interpretation])
 c2.metric("Recommendation", RECOMMENDATION_LABELS[result.recommendation])
 p = result.stage("conversions").test
+c1.markdown(recommendation_badge(result.recommendation, RECOMMENDATION_LABELS[result.recommendation]))
 c3.metric("Primary lift", f"{p['lift']:+.1%}", "significant" if p["significant"] else "not significant",
           delta_color="off")
 

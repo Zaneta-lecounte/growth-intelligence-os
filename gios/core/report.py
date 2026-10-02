@@ -24,6 +24,12 @@ def _no_digits(value: str) -> str:
 Narrative = Annotated[str, AfterValidator(_no_digits)]
 
 
+# Observed / Inferred / Unknown badges (Streamlit markdown) and their plain-Markdown export form.
+EVIDENCE_BADGES_UI = {"observed": ":green-badge[Observed]", "inferred": ":orange-badge[Inferred]",
+                      "unknown": ":gray-badge[Unknown]"}
+EVIDENCE_BADGES_MD = {"observed": "`[Observed]`", "inferred": "`[Inferred]`", "unknown": "`[Unknown]`"}
+
+
 def md_escape(value: Any) -> str:
     return str(value).replace("|", "\\|").replace("\n", " ")
 

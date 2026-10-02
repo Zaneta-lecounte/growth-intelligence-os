@@ -7,6 +7,7 @@ import streamlit.components.v1 as components
 
 from gios import config
 from gios.modules import LAYERS, MODULES
+from gios.ui import page_link
 
 st.set_page_config(page_title="GIOS · Growth Intelligence OS", layout="wide")
 
@@ -64,6 +65,8 @@ transcription, over six months.
 The LLM only tags qualitative evidence and writes narrative. It never computes a number.
 """
 )
+
+page_link(st, "views/0_Run_Full_Diagnostic.py", "Run the full diagnostic in one click", ":material/play_circle:")
 
 st.subheader("Four layers, one loop")
 render_mermaid(MERMAID)

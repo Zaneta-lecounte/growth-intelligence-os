@@ -10,7 +10,7 @@ from gios.modules.experiment_opportunity_scorer.analysis import RECOMMENDATION_L
 from gios.modules.growth_priority_orchestrator import MODULE, build, gather, propose, rebalance, save
 from gios.modules.growth_priority_orchestrator.analysis import BUCKETS, HORIZONS, cluster_overlap
 from gios.modules.growth_priority_orchestrator.report import to_markdown
-from gios.ui import page_header, seed_button
+from gios.ui import page_header, recommendation_badge, seed_button
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
 store = page_header(INFO)
@@ -124,8 +124,10 @@ for col, (h, label) in zip(st.columns(3), HORIZONS.items()):
     col.markdown(f"**{label}**")
     for o in roadmap.lane(h):
         with col.container(border=True):
-            st.markdown(f"**{o.horizon_order}. {o.title}**  \n{BUCKETS[o.portfolio_bucket]} · score "
-                        f"{o.priority_score:,.0f}  \n:gray[{', '.join(o.dependencies) or 'no dependencies'}]")
+            rec = o.final_recommendation
+            st.markdown(f"**{o.horizon_order}. {o.title}**  \n"
+                        f"{recommendation_badge(rec, RECOMMENDATION_LABELS[rec])} :blue-badge[{BUCKETS[o.portfolio_bucket]}]"
+                        f"  \nscore {o.priority_score:,.0f} · :gray[{', '.join(o.dependencies) or 'no dependencies'}]")
 
 st.divider()
 c1, c2 = st.columns([1, 3])

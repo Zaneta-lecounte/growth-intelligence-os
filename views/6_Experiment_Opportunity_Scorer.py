@@ -10,7 +10,7 @@ from gios.core.schemas import Hypothesis, Opportunity, OpportunityCategory
 from gios.modules import MODULES
 from gios.modules.experiment_opportunity_scorer import MODULE, Settings, analysis, build_backlog, save, score
 from gios.modules.experiment_opportunity_scorer.report import JUDGMENT_NOTE, to_markdown
-from gios.ui import NEUTRAL, SERIES_1, page_header, seed_button
+from gios.ui import NEUTRAL, SERIES_1, page_header, recommendation_badge, seed_button
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
 store = page_header(INFO)
@@ -109,6 +109,9 @@ fig.update_yaxes(title=None)
 fig.update_layout(showlegend=False, height=120 + 36 * len(chart), margin=dict(l=0, r=30, t=10, b=0))
 st.plotly_chart(fig, width="stretch")
 st.caption("Blue = Run now. Grey = any other recommendation.")
+st.markdown("  \n".join(f"{i}. {recommendation_badge(o.final_recommendation, analysis.RECOMMENDATION_LABELS[o.final_recommendation])}"
+                         f"{' :gray-badge[override]' if o.recommendation_override else ''} {o.title}"
+                         for i, o in enumerate(ranked, 1)))
 
 with st.expander("How the defaults and flags were computed"):
     for o in ranked:

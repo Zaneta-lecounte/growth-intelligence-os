@@ -8,9 +8,8 @@ from gios.modules.growth_intelligence_diagnostic.models import ACTION_LABELS, Ev
 from gios.modules.growth_intelligence_diagnostic.pipeline import DiagnosisResult
 from gios.modules.qualified_demand_leakage_auditor.analysis import OWNERS
 
-BADGE_UI = {"observed": ":green-badge[Observed]", "inferred": ":orange-badge[Inferred]",
-            "unknown": ":gray-badge[Unknown]"}
-BADGE_MD = {"observed": "`[Observed]`", "inferred": "`[Inferred]`", "unknown": "`[Unknown]`"}
+from gios.core.report import EVIDENCE_BADGES_MD as BADGE_MD
+from gios.core.report import EVIDENCE_BADGES_UI as BADGE_UI
 
 
 def _claim(c: EvidenceClaim, badges: dict) -> str:
