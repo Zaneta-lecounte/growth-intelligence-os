@@ -38,9 +38,9 @@ Each module has a spec in [`specs/`](specs/).
 | Hypothesis Evidence Validator | Diagnosis | Ready |
 | Experiment Opportunity Scorer | Prioritization | Ready |
 | Growth Priority Orchestrator | Prioritization | Ready |
-| Downstream Impact Analyzer | Learning | Planned |
-| Experiment Learning Capture | Learning | Planned |
-| Growth Council Insight Brief | Learning | Planned |
+| Downstream Impact Analyzer | Learning | Ready |
+| Experiment Learning Capture | Learning | Ready |
+| Growth Council Insight Brief | Learning | Ready |
 
 ## Quickstart
 

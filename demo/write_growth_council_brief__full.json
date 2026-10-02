@@ -1,0 +1,48 @@
+{
+  "what_changed": "Paid search is getting sharply more expensive per customer. At the same time, paid search visitors are leaving the pricing page more often every month, and evaluators increasingly tell us they cannot work out what the plans include.",
+  "why_it_matters": "Paid search is our largest paid channel. If unclear pricing is turning high-intent searchers away, every extra dollar of bid spend buys less pipeline, and the fix is on our own page rather than in the auction.",
+  "signals": {
+    "customer": {
+      "text": "Pricing-clarity comments are the top-ranked customer theme and are rising; one names arriving from a search ad.",
+      "ids": [
+        "css-pricing_uncertainty"
+      ]
+    },
+    "behavioral": {
+      "text": "Paid search exits on the pricing page are far above other sources and climbing, with fewer demo clicks.",
+      "ids": [
+        "bfa-pricing-source-paid_search"
+      ]
+    },
+    "funnel": {
+      "text": "Fewer paid search visits become leads than for other sources.",
+      "ids": [
+        "qdl-leak-paid_search-visit-to-lead"
+      ]
+    },
+    "revenue": {
+      "text": "Paid search acquisition cost rose steeply as spend grew while wins fell.",
+      "ids": [
+        "qdl-flag-rising_cac-paid_search"
+      ]
+    },
+    "sales_operational": {
+      "text": "No sales or operational signal points at paid search; follow-up speed is normal for these leads.",
+      "ids": []
+    }
+  },
+  "working_hypothesis": "Unclear plan inclusions and limits on the pricing page are losing paid search evaluators before they request a demo.",
+  "hypothesis_id": "gid-paid_search-1",
+  "recommended_action": "Run the pricing-page experiment for paid search traffic: a clear plan comparison with inclusions and usage limits, plus a short intercept survey on what is unclear.",
+  "opportunity_id": "eos-gid-all-2",
+  "cross_functional_dependency": "Web and design build the comparison; product marketing owns plan wording; paid search holds bids steady during the test so traffic quality does not shift.",
+  "owner": "web_conversion",
+  "owner_rationale": "The loss happens on our pricing page, between the visit and the lead.",
+  "measurement": "Primary: demo requests per paid search pricing-page session. Guardrail: lead to SQL rate for paid search. Downstream: paid search acquisition cost over the following quarter.",
+  "organization_learning": "Our earlier FAQ test on this page was too small to read, and the webinar form test showed that volume gains can hide quality losses. Size this test properly and judge it on qualified pipeline, not clicks.",
+  "learning_ids": [
+    "elc-EXP-03",
+    "elc-EXP-02"
+  ],
+  "decision_needed": "Approve the pricing-page experiment as a Now priority, and agree to hold paid search bids flat until it reads out."
+}

@@ -1,7 +1,8 @@
 """Seed the GIOS store end to end with default settings, so any page can be explored
 without first clicking through every upstream module. Each step is the real module code.
 
-signal layer -> diagnostic (all channels, paid search) -> validator -> opportunity backlog
+signal layer -> diagnostic (all channels, paid search) -> validator -> opportunity backlog ->
+roadmap (proposed duplicate merges confirmed) -> downstream impact of past experiments -> learnings
 """
 from __future__ import annotations
 
@@ -69,18 +70,42 @@ def seed_backlog(store: Store) -> int:
     return len(backlog)
 
 
+def seed_roadmap(store: Store, client: Any = None) -> int:
+    from gios.modules.growth_priority_orchestrator import pipeline as gpo
+
+    inputs = gpo.gather(store)
+    proposal = gpo.propose(inputs.candidates, inputs.hypotheses, client)
+    merges = [(c.member_ids, c.canonical_title) for c in proposal.proposal.clusters] if proposal.proposal else []
+    roadmap = gpo.build(inputs, proposal, merges)
+    gpo.save(roadmap, store)
+    return len(roadmap.active)
+
+
+def seed_experiments(store: Store) -> int:
+    from gios.modules.downstream_impact_analyzer import analyze_all
+
+    return len(analyze_all(store))
+
+
+def seed_learnings(store: Store, client: Any = None) -> int:
+    from gios.modules.experiment_learning_capture import draft_all
+
+    return len(draft_all(store, client))
+
+
+STEPS = ["signals", "diagnostics", "validations", "backlog", "roadmap", "experiments", "learnings"]
+
+
 def seed_through(step: str, store: Optional[Store] = None, client: Any = None) -> dict[str, int]:
-    """Run every step up to and including `step` (signals | diagnostics | validations | backlog)."""
-    steps = ["signals", "diagnostics", "validations", "backlog"]
+    """Run every step up to and including `step` (see STEPS)."""
     store = store or Store()
-    out: dict[str, int] = {}
-    for name in steps[: steps.index(step) + 1]:
-        if name == "signals":
-            out[name] = seed_signals(store, client)
-        elif name == "diagnostics":
-            out[name] = seed_diagnostics(store, client)
-        elif name == "validations":
-            out[name] = seed_validations(store, client)
-        else:
-            out[name] = seed_backlog(store)
-    return out
+    runners = {
+        "signals": lambda: seed_signals(store, client),
+        "diagnostics": lambda: seed_diagnostics(store, client),
+        "validations": lambda: seed_validations(store, client),
+        "backlog": lambda: seed_backlog(store),
+        "roadmap": lambda: seed_roadmap(store, client),
+        "experiments": lambda: seed_experiments(store),
+        "learnings": lambda: seed_learnings(store, client),
+    }
+    return {name: runners[name]() for name in STEPS[: STEPS.index(step) + 1]}

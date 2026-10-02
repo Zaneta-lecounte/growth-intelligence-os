@@ -29,6 +29,8 @@ PAGES = {
         st.Page("views/9_Experiment_Learning_Capture.py", title="Experiment Learning Capture",
                 icon=":material/school:"),
         st.Page("views/10_Experiment_Library.py", title="Experiment Library", icon=":material/library_books:"),
+        st.Page("views/11_Growth_Council_Insight_Brief.py", title="Growth Council Insight Brief",
+                icon=":material/groups:"),
     ],
 }
 

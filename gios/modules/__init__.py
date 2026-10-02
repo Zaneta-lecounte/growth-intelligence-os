@@ -70,5 +70,6 @@ MODULES: list[ModuleInfo] = [
                status="ready"),
     ModuleInfo("growth_council_insight_brief", "Growth Council Insight Brief", "learning",
                "growth-council-insight-brief.md",
-               "Turn fragmented signals into a cross-functional decision brief."),
+               "Turn fragmented signals into a cross-functional decision brief.",
+               status="ready"),
 ]

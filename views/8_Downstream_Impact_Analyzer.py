@@ -57,7 +57,7 @@ else:
         st.stop()
     result = pipeline.run_manual(name, variants, start, observed, velocity, settings)
 
-c1, c2, c3 = st.columns(3)
+c1, c2, c3 = st.columns([2, 1, 1])
 c1.metric("Business interpretation", INTERPRETATION_LABELS[result.interpretation])
 c2.metric("Recommendation", RECOMMENDATION_LABELS[result.recommendation])
 p = result.stage("conversions").test
