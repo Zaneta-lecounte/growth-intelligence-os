@@ -197,6 +197,7 @@ def to_signals(themes: pd.DataFrame, period: Optional[str] = None) -> list[Signa
             ),
             strength=stats.score_to_strength(r.overall, STRENGTH_EDGES),
             period=period,
-            attributes={"theme": r.theme},
+            attributes={"theme": r.theme, "frequency_rank": str(r.frequency_rank),
+                        "overall_rank": str(r.overall_rank), "verbatims": str(r.count)},
         ))
     return signals

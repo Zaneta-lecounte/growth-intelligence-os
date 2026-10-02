@@ -138,3 +138,13 @@ def seed_button(step: str, label: str, key: str, store: Store) -> None:
         with st.spinner("Running the upstream modules with default settings…"):
             seed_through(step, store)
         st.rerun()
+
+
+def page_link(container, page: str, label: str, icon: str) -> None:
+    """st.page_link that degrades to plain text when the page runs outside st.navigation (tests)."""
+    from streamlit.errors import StreamlitAPIException
+
+    try:
+        container.page_link(page, label=label, icon=icon)
+    except StreamlitAPIException:
+        container.markdown(f"{label} (`{page}`)")

@@ -2,7 +2,10 @@
 import streamlit as st
 
 PAGES = {
-    "Overview": [st.Page("home.py", title="Home", icon=":material/home:", default=True)],
+    "Overview": [
+        st.Page("home.py", title="Home", icon=":material/home:", default=True),
+        st.Page("views/0_Run_Full_Diagnostic.py", title="Run Full Diagnostic", icon=":material/play_circle:"),
+    ],
     "Signal": [
         st.Page("views/1_Customer_Signal_Synthesizer.py", title="Customer Signal Synthesizer",
                 icon=":material/forum:"),

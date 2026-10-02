@@ -15,6 +15,7 @@ def test_run_signal_layer_seeds_store(store):
     assert signals["qdl-leak-webinar-mql-to-sql"].attributes == {"kind": "leak", "source": "webinar",
                                                                  "stage": "MQL→SQL", "owner": "qualification"}
     assert signals["qdl-flag-rising_cac-paid_search"].attributes["owner"] == "acquisition"
-    assert signals["css-pricing_uncertainty"].attributes == {"theme": "pricing_uncertainty"}
+    assert signals["css-pricing_uncertainty"].attributes["theme"] == "pricing_uncertainty"
+    assert signals["css-usability_polish"].attributes["frequency_rank"] == "1"
     run_signal_layer(store)  # idempotent
     assert len(store.list(Signal)) == 28
