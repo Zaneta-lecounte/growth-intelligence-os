@@ -360,7 +360,7 @@ def _write(name: str, obj: BaseModel) -> None:
     payload: Any = json.loads(obj.model_dump_json())
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     type(obj).model_validate_json(path.read_text())
-    print(f"wrote {path.relative_to(ROOT)}")
+    print(f"wrote {path}")
 
 
 BUILDERS: dict[str, Callable[[bool], None]] = {
