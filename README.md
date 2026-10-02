@@ -1,1 +1,53 @@
-# growth-intelligence-os
+# GIOS — Growth Intelligence Operating System
+
+A portfolio project that shows how a growth team can turn scattered signals (customer voice,
+web behavior, funnel and revenue data, sales feedback, past experiments) into a diagnosis,
+a prioritized roadmap, and reusable learning.
+
+The data is synthetic. It describes **EchoAI**, a fictional B2B SaaS company that sells AI
+meeting transcription.
+
+## How it works
+
+GIOS has four layers. The learning layer feeds back into the signal layer:
+
+1. **Signal**: collect and classify evidence (observed / inferred / unknown)
+2. **Diagnosis**: find where value leaks and why
+3. **Prioritization**: score opportunities with GROWTH and validate hypotheses
+4. **Learning**: measure downstream impact and capture what was learned
+
+Design rule: all math, scoring and statistics are deterministic, tested Python. The LLM only
+tags qualitative evidence and writes narrative.
+
+## Modules
+
+Each module has a spec in [`specs/`](specs/).
+
+| Module | Layer | Status |
+|---|---|---|
+| Growth Intelligence Diagnostic | Diagnosis | Planned |
+| Customer Signal Synthesizer | Signal | Planned |
+| Behavioral Friction Analyzer | Signal | Planned |
+| Qualified Demand Leakage Auditor | Diagnosis | Planned |
+| Hypothesis Evidence Validator | Prioritization | Planned |
+| Experiment Opportunity Scorer | Prioritization | Planned |
+| Growth Priority Orchestrator | Prioritization | Planned |
+| Downstream Impact Analyzer | Learning | Planned |
+| Experiment Learning Capture | Learning | Planned |
+| Growth Council Insight Brief | Learning | Planned |
+
+## Quickstart
+
+```bash
+pip install -r requirements.txt
+python scripts/generate_data.py   # writes data/synthetic/*.csv (seeded)
+streamlit run app.py
+python -m pytest -q
+```
+
+If `ANTHROPIC_API_KEY` is not set (see `.env.example`), GIOS runs in **demo mode** and uses
+the cached LLM outputs in `demo/`.
+
+## Stack
+
+Python 3.11, Streamlit, Pydantic v2, pandas, SciPy, Plotly, Anthropic SDK, SQLite, pytest.
