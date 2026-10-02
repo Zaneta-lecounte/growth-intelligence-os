@@ -1,0 +1,37 @@
+{
+  "scores": [
+    {
+      "dimension": "evidence_diversity",
+      "score": 2,
+      "justification": "Behavioral data and customer reports agree."
+    },
+    {
+      "dimension": "behavioral_support",
+      "score": 2,
+      "justification": "Mobile completion, rage clicks and load time directly show the friction."
+    },
+    {
+      "dimension": "customer_support",
+      "score": 2,
+      "justification": "Prospects repeatedly describe the form failing on their phones."
+    },
+    {
+      "dimension": "business_relevance",
+      "score": 1,
+      "justification": "It affects demo requests broadly rather than the target metric itself."
+    },
+    {
+      "dimension": "testability",
+      "score": 2,
+      "justification": "A before and after comparison of a fix isolates the effect."
+    },
+    {
+      "dimension": "measurement_readiness",
+      "score": 1,
+      "justification": "Mobile completion events may not fire reliably; tracking needs verifying."
+    }
+  ],
+  "missing_evidence": [
+    "Server-side demo request counts by device."
+  ]
+}

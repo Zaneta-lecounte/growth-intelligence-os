@@ -14,6 +14,8 @@ PAGES = {
                 icon=":material/filter_alt:"),
         st.Page("views/4_Growth_Intelligence_Diagnostic.py", title="Growth Intelligence Diagnostic",
                 icon=":material/troubleshoot:"),
+        st.Page("views/5_Hypothesis_Evidence_Validator.py", title="Hypothesis Evidence Validator",
+                icon=":material/fact_check:"),
     ],
 }
 

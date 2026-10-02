@@ -1,0 +1,37 @@
+{
+  "scores": [
+    {
+      "dimension": "evidence_diversity",
+      "score": 1,
+      "justification": "A single operational signal."
+    },
+    {
+      "dimension": "behavioral_support",
+      "score": 0,
+      "justification": "No behavioral evidence."
+    },
+    {
+      "dimension": "customer_support",
+      "score": 0,
+      "justification": "No customer evidence."
+    },
+    {
+      "dimension": "business_relevance",
+      "score": 1,
+      "justification": "Partner volume is small and late leads are accepted at a similar rate."
+    },
+    {
+      "dimension": "testability",
+      "score": 2,
+      "justification": "Routing partner leads under the standard SLA is a clean test."
+    },
+    {
+      "dimension": "measurement_readiness",
+      "score": 2,
+      "justification": "Follow-up times and acceptance are recorded."
+    }
+  ],
+  "missing_evidence": [
+    "Partner win rates by response time."
+  ]
+}

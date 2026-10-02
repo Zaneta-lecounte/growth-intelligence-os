@@ -1,0 +1,38 @@
+{
+  "scores": [
+    {
+      "dimension": "evidence_diversity",
+      "score": 1,
+      "justification": "Both signals come from the same funnel data, so they are not independent."
+    },
+    {
+      "dimension": "behavioral_support",
+      "score": 0,
+      "justification": "No behavioral signal supports it, and pricing-page behavior points elsewhere."
+    },
+    {
+      "dimension": "customer_support",
+      "score": 0,
+      "justification": "No customer evidence speaks to traffic quality."
+    },
+    {
+      "dimension": "business_relevance",
+      "score": 2,
+      "justification": "Directly tied to paid search acquisition cost."
+    },
+    {
+      "dimension": "testability",
+      "score": 1,
+      "justification": "Keyword changes are confounded with seasonality and bid shifts."
+    },
+    {
+      "dimension": "measurement_readiness",
+      "score": 1,
+      "justification": "No keyword-level lead quality reporting exists yet."
+    }
+  ],
+  "missing_evidence": [
+    "Search query and keyword mix over the period.",
+    "Lead quality by keyword group."
+  ]
+}

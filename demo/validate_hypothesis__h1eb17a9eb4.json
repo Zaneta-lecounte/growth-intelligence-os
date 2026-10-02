@@ -1,0 +1,37 @@
+{
+  "scores": [
+    {
+      "dimension": "evidence_diversity",
+      "score": 0,
+      "justification": "No evidence is linked; the hypothesis rests on assumption."
+    },
+    {
+      "dimension": "behavioral_support",
+      "score": 0,
+      "justification": "No behavioral signal shows visitors stalling on unanswered questions."
+    },
+    {
+      "dimension": "customer_support",
+      "score": 0,
+      "justification": "No customer evidence asks for live help on the homepage."
+    },
+    {
+      "dimension": "business_relevance",
+      "score": 2,
+      "justification": "Demo requests are the target outcome."
+    },
+    {
+      "dimension": "testability",
+      "score": 2,
+      "justification": "A chatbot on and off test is a clean causal design."
+    },
+    {
+      "dimension": "measurement_readiness",
+      "score": 2,
+      "justification": "Demo requests are already tracked."
+    }
+  ],
+  "missing_evidence": [
+    "Any customer or behavioral evidence that visitors leave because questions go unanswered."
+  ]
+}

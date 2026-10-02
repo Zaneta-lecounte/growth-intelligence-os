@@ -1,0 +1,37 @@
+{
+  "scores": [
+    {
+      "dimension": "evidence_diversity",
+      "score": 2,
+      "justification": "Funnel, acquisition and customer signals agree."
+    },
+    {
+      "dimension": "behavioral_support",
+      "score": 0,
+      "justification": "No web behavior is linked to this hypothesis."
+    },
+    {
+      "dimension": "customer_support",
+      "score": 1,
+      "justification": "Attendee comments fit, but their link to webinars is inferred."
+    },
+    {
+      "dimension": "business_relevance",
+      "score": 2,
+      "justification": "Directly tied to MQL to SQL conversion, the target metric."
+    },
+    {
+      "dimension": "testability",
+      "score": 2,
+      "justification": "Intent questions at registration can be tested against current rules."
+    },
+    {
+      "dimension": "measurement_readiness",
+      "score": 2,
+      "justification": "Sales acceptance and rejection reasons are recorded for every MQL."
+    }
+  ],
+  "missing_evidence": [
+    "How the MQL score weights webinar attendance."
+  ]
+}

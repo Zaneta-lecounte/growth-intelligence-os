@@ -31,11 +31,11 @@ Each module has a spec in [`specs/`](specs/).
 
 | Module | Layer | Status |
 |---|---|---|
-| Growth Intelligence Diagnostic | Diagnosis | Planned |
+| Growth Intelligence Diagnostic | Diagnosis | Ready |
 | Customer Signal Synthesizer | Signal | Ready |
 | Behavioral Friction Analyzer | Signal | Ready |
 | Qualified Demand Leakage Auditor | Diagnosis | Ready |
-| Hypothesis Evidence Validator | Prioritization | Planned |
+| Hypothesis Evidence Validator | Diagnosis | Ready |
 | Experiment Opportunity Scorer | Prioritization | Planned |
 | Growth Priority Orchestrator | Prioritization | Planned |
 | Downstream Impact Analyzer | Learning | Planned |

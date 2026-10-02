@@ -554,6 +554,88 @@ def build_growth_diagnostic(live: bool) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# Hypothesis Evidence Validator: reference score proposals per hypothesis
+# ---------------------------------------------------------------------------------------------
+
+VALIDATOR_REFERENCE = {
+    # title: ({dimension: (score, justification)}, missing_evidence)
+    "Unclear pricing is losing paid search evaluators": ({
+        "evidence_diversity": (2, "Customer, behavioral, funnel and acquisition signals point the same way."),
+        "behavioral_support": (2, "Pricing-page exits and demo clicks for paid search directly show the behavior."),
+        "customer_support": (2, "Pricing-clarity comments recur and are rising."),
+        "business_relevance": (2, "Directly tied to paid search acquisition cost and demo requests."),
+        "testability": (2, "A pricing-page variant for paid search traffic is a clean causal test."),
+        "measurement_readiness": (1, "Exit and click rates are tracked, but customer comments are not tied to channel."),
+    }, ["Which plan details confuse visitors, from an intercept survey or recordings."]),
+    "A broken mobile demo form loses ready-to-buy visitors": ({
+        "evidence_diversity": (2, "Behavioral data and customer reports agree."),
+        "behavioral_support": (2, "Mobile completion, rage clicks and load time directly show the friction."),
+        "customer_support": (2, "Prospects repeatedly describe the form failing on their phones."),
+        "business_relevance": (1, "It affects demo requests broadly rather than the target metric itself."),
+        "testability": (2, "A before and after comparison of a fix isolates the effect."),
+        "measurement_readiness": (1, "Mobile completion events may not fire reliably; tracking needs verifying."),
+    }, ["Server-side demo request counts by device."]),
+    "Rising bids are buying lower-intent paid search traffic": ({
+        "evidence_diversity": (1, "Both signals come from the same funnel data, so they are not independent."),
+        "behavioral_support": (0, "No behavioral signal supports it, and pricing-page behavior points elsewhere."),
+        "customer_support": (0, "No customer evidence speaks to traffic quality."),
+        "business_relevance": (2, "Directly tied to paid search acquisition cost."),
+        "testability": (1, "Keyword changes are confounded with seasonality and bid shifts."),
+        "measurement_readiness": (1, "No keyword-level lead quality reporting exists yet."),
+    }, ["Search query and keyword mix over the period.", "Lead quality by keyword group."]),
+    "Webinar leads are learners, not buyers": ({
+        "evidence_diversity": (2, "Funnel, acquisition and customer signals agree."),
+        "behavioral_support": (0, "No web behavior is linked to this hypothesis."),
+        "customer_support": (1, "Attendee comments fit, but their link to webinars is inferred."),
+        "business_relevance": (2, "Directly tied to MQL to SQL conversion, the target metric."),
+        "testability": (2, "Intent questions at registration can be tested against current rules."),
+        "measurement_readiness": (2, "Sales acceptance and rejection reasons are recorded for every MQL."),
+    }, ["How the MQL score weights webinar attendance."]),
+    "Slow partner follow-up loses partner demand": ({
+        "evidence_diversity": (1, "A single operational signal."),
+        "behavioral_support": (0, "No behavioral evidence."),
+        "customer_support": (0, "No customer evidence."),
+        "business_relevance": (1, "Partner volume is small and late leads are accepted at a similar rate."),
+        "testability": (2, "Routing partner leads under the standard SLA is a clean test."),
+        "measurement_readiness": (2, "Follow-up times and acceptance are recorded."),
+    }, ["Partner win rates by response time."]),
+    "Homepage chatbot will lift demo requests": ({
+        "evidence_diversity": (0, "No evidence is linked; the hypothesis rests on assumption."),
+        "behavioral_support": (0, "No behavioral signal shows visitors stalling on unanswered questions."),
+        "customer_support": (0, "No customer evidence asks for live help on the homepage."),
+        "business_relevance": (2, "Demo requests are the target outcome."),
+        "testability": (2, "A chatbot on and off test is a clean causal design."),
+        "measurement_readiness": (2, "Demo requests are already tracked."),
+    }, ["Any customer or behavioral evidence that visitors leave because questions go unanswered."]),
+}
+
+
+def build_hypothesis_validator(live: bool) -> None:
+    from gios.modules.growth_intelligence_diagnostic import pipeline as gid
+    from gios.modules.hypothesis_evidence_validator import analysis, pipeline
+    from gios.modules.hypothesis_evidence_validator.examples import ASSUMPTION_ONLY
+    from gios.modules.hypothesis_evidence_validator.models import DimensionScore, ValidatorProposal
+
+    signals = _phase1_signals()
+    hypotheses = {ASSUMPTION_ONLY.fingerprint(): ASSUMPTION_ONLY}
+    for scope in DIAGNOSTIC_SCOPES:
+        business, filters = diagnostic_inputs(scope)
+        for h in gid.to_hypotheses(gid.run(business, filters, signals)):
+            hypotheses.setdefault(h.fingerprint(), h)
+    for fp, h in hypotheses.items():
+        if live:
+            proposal, error = pipeline.propose(h, analysis.evidence_map(h, signals), analysis.check_standard(h))
+            if proposal is None:
+                raise SystemExit(error)
+        else:
+            scores, missing = VALIDATOR_REFERENCE[h.title]
+            proposal = ValidatorProposal(
+                scores=[DimensionScore(dimension=d, score=sc, justification=j) for d, (sc, j) in scores.items()],
+                missing_evidence=missing)
+        _write(f"{pipeline.PROMPT}__{fp}", proposal)
+
+
+# ---------------------------------------------------------------------------------------------
 
 
 def _write(name: str, obj: BaseModel) -> None:
@@ -569,6 +651,7 @@ BUILDERS: dict[str, Callable[[bool], None]] = {
     "behavioral_friction": build_behavioral_friction,
     "demand_leakage": build_demand_leakage,
     "growth_diagnostic": build_growth_diagnostic,
+    "hypothesis_validator": build_hypothesis_validator,
 }
 
 
