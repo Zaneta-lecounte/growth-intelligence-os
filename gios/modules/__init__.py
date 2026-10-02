@@ -34,7 +34,8 @@ class ModuleInfo:
 MODULES: list[ModuleInfo] = [
     ModuleInfo("customer_signal_synthesizer", "Customer Signal Synthesizer", "signal",
                "customer-signal-synthesizer.md",
-               "Turn qualitative customer evidence into structured themes without overstating frequency."),
+               "Turn qualitative customer evidence into structured themes without overstating frequency.",
+               status="ready"),
     ModuleInfo("behavioral_friction_analyzer", "Behavioral Friction Analyzer", "signal",
                "behavioral-friction-analyzer.md",
                "Find where digital behavior signals confusion, hesitation, or abandonment."),

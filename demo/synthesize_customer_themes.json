@@ -1,0 +1,126 @@
+{
+  "assessments": [
+    {
+      "theme": "usability_polish",
+      "severity": 1,
+      "commercial_relevance": 1,
+      "journey_relevance": 1,
+      "summary": "Frequent but low-stakes cosmetic requests such as dark mode and file naming, raised by existing customers.",
+      "expected_behavior": "None expected in acquisition metrics.",
+      "funnel_stage": "Retention, cosmetic",
+      "analytics_signal": "Satisfaction scores among customers requesting cosmetic changes.",
+      "testable_question": "Does shipping dark mode change retention or satisfaction without diverting roadmap capacity?"
+    },
+    {
+      "theme": "pricing_uncertainty",
+      "severity": 5,
+      "commercial_relevance": 5,
+      "journey_relevance": 5,
+      "summary": "Evaluators cannot tell what each plan includes or what they would pay, and some deals stall or are lost on it.",
+      "expected_behavior": "High exits and low demo-CTA clicks on the pricing page, repeat pricing visits, pricing questions in chat.",
+      "funnel_stage": "Evaluation, from pricing page to demo request",
+      "analytics_signal": "Pricing-page exit rate and CTA rate by source, especially paid search; pricing page revisits per session.",
+      "testable_question": "Does clearer package framing on the pricing page improve qualified demo requests without reducing lead quality?"
+    },
+    {
+      "theme": "feature_fit",
+      "severity": 3,
+      "commercial_relevance": 3,
+      "journey_relevance": 2,
+      "summary": "Requests for integrations, accuracy, and admin features that shape expansion more than acquisition.",
+      "expected_behavior": "Feature-page engagement and expansion conversations.",
+      "funnel_stage": "Retention and expansion",
+      "analytics_signal": "Feature usage and expansion rate for accounts requesting integrations or admin tools.",
+      "testable_question": "Does an admin usage dashboard increase seat expansion without raising support load?"
+    },
+    {
+      "theme": "technical_issue",
+      "severity": 4,
+      "commercial_relevance": 4,
+      "journey_relevance": 4,
+      "summary": "Prospects hit broken or slow experiences, most acutely on the mobile demo form; customers also report integration and search defects.",
+      "expected_behavior": "Mobile form starts without completion, rage clicks, slow load on the demo page.",
+      "funnel_stage": "Evaluation, at demo form submission",
+      "analytics_signal": "Mobile versus desktop demo-form completion, rage clicks, and page load time.",
+      "testable_question": "Does fixing mobile demo-form performance increase completed demo requests without lowering lead quality?"
+    },
+    {
+      "theme": "urgency",
+      "severity": 3,
+      "commercial_relevance": 4,
+      "journey_relevance": 3,
+      "summary": "Many webinar-sourced contacts have no budget, authority, or active project; they are learning, not buying.",
+      "expected_behavior": "Strong lead-to-MQL conversion but weak MQL-to-SQL acceptance for webinar leads.",
+      "funnel_stage": "Consideration, at the MQL to SQL handoff",
+      "analytics_signal": "Sales rejection reasons and MQL-to-SQL rate by source.",
+      "testable_question": "Does adding buying-intent questions to webinar registration improve MQL-to-SQL conversion without cutting qualified attendance?"
+    },
+    {
+      "theme": "trust_proof",
+      "severity": 4,
+      "commercial_relevance": 4,
+      "journey_relevance": 4,
+      "summary": "Larger buyers need security and data-residency proof before they can sign.",
+      "expected_behavior": "Late-stage deals stall; security-page visits from opportunity accounts.",
+      "funnel_stage": "Purchase, during security and legal review",
+      "analytics_signal": "Opportunity-to-win rate and cycle time for mid-market deals that request security documents.",
+      "testable_question": "Does a self-serve trust center shorten mid-market deal cycles without adding sales effort?"
+    },
+    {
+      "theme": "competitive_comparison",
+      "severity": 2,
+      "commercial_relevance": 3,
+      "journey_relevance": 3,
+      "summary": "Buyers compare tools and tend to choose EchoAI on summary and action-item quality.",
+      "expected_behavior": "Compare-page visits before conversion.",
+      "funnel_stage": "Evaluation",
+      "analytics_signal": "Compare-page engagement and its conversion rate.",
+      "testable_question": "Does leading with summary quality on the compare page improve win rate without slowing evaluation?"
+    },
+    {
+      "theme": "complexity",
+      "severity": 1,
+      "commercial_relevance": 1,
+      "journey_relevance": 1,
+      "summary": "Onboarding content is seen as helpful; little evidence of complexity problems.",
+      "expected_behavior": "Healthy activation after onboarding videos.",
+      "funnel_stage": "Onboarding",
+      "analytics_signal": "Activation rate for accounts that watch onboarding videos.",
+      "testable_question": "Does surfacing onboarding videos earlier improve activation without adding friction?"
+    },
+    {
+      "theme": "implementation_risk",
+      "severity": 3,
+      "commercial_relevance": 2,
+      "journey_relevance": 2,
+      "summary": "Setup steps such as SSO are unclear and slow onboarding.",
+      "expected_behavior": "Long time-to-first-meeting for SSO accounts.",
+      "funnel_stage": "Onboarding",
+      "analytics_signal": "Time to first transcribed meeting by SSO status.",
+      "testable_question": "Does a guided SSO setup shorten time-to-value without increasing support tickets?"
+    },
+    {
+      "theme": "switching_cost",
+      "severity": 2,
+      "commercial_relevance": 2,
+      "journey_relevance": 2,
+      "summary": "Some prospects are tied to existing contracts.",
+      "expected_behavior": "Nurture engagement without near-term conversion.",
+      "funnel_stage": "Consideration",
+      "analytics_signal": "Lead age at conversion for contract-locked prospects.",
+      "testable_question": "Does a contract-renewal nurture track raise later conversion without increasing unsubscribes?"
+    }
+  ],
+  "tensions": [
+    "The most frequent request, cosmetic polish such as dark mode, comes from happy customers and does not block buying; the costliest problem, pricing clarity, is less frequent but blocks evaluators.",
+    "Webinars attract curious learners who rate the content highly, but those same contacts rarely have budget or authority to buy.",
+    "Evaluators want to self-serve pricing and demo booking, yet unclear plans and a broken mobile form push them into sales calls or away entirely.",
+    "Mid-market buyers praise product quality but cannot sign until security and data-residency proof is available."
+  ],
+  "research_gaps": [
+    "We do not know which specific plan elements cause pricing confusion; run short pricing-page intercept surveys.",
+    "Evidence is not linked to lead or account records, so we cannot tie themes to pipeline value directly.",
+    "Mobile form complaints come from chat and support only; session recordings would confirm where the form fails.",
+    "Win and loss notes are sparse for mid-market deals, so the weight of trust and proof issues is uncertain."
+  ]
+}

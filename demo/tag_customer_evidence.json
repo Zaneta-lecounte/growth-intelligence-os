@@ -1,0 +1,562 @@
+{
+  "tags": [
+    {
+      "key": "v039f7e8d33",
+      "theme": "pricing_uncertainty",
+      "topic": "plans indistinguishable after ad click",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v08d2df5da6",
+      "theme": "switching_cost",
+      "topic": "locked into existing contract",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "consideration",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "v0b46fdd482",
+      "theme": "pricing_uncertainty",
+      "topic": "add-on versus included features",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v0e29af2781",
+      "theme": "pricing_uncertainty",
+      "topic": "overage billing unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v1022a3ea72",
+      "theme": "pricing_uncertainty",
+      "topic": "add-on versus included features",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v1367eab8fa",
+      "theme": "trust_proof",
+      "topic": "security certification required",
+      "sentiment": "neutral",
+      "segment": "mid_market",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v13699df620",
+      "theme": "feature_fit",
+      "topic": "native Teams support",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "v188662a2a2",
+      "theme": "pricing_uncertainty",
+      "topic": "plan inclusions unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v18d7536448",
+      "theme": "usability_polish",
+      "topic": "export file naming",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "low"
+    },
+    {
+      "key": "v1a13534210",
+      "theme": "pricing_uncertainty",
+      "topic": "tier differences unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v1a4307be02",
+      "theme": "usability_polish",
+      "topic": "dark mode request",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "low"
+    },
+    {
+      "key": "v207e4b315e",
+      "theme": "usability_polish",
+      "topic": "emoji reactions",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "low"
+    },
+    {
+      "key": "v2190837ec6",
+      "theme": "trust_proof",
+      "topic": "EU data residency",
+      "sentiment": "neutral",
+      "segment": "mid_market",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v4202ecc9b9",
+      "theme": "urgency",
+      "topic": "no buying authority",
+      "sentiment": "neutral",
+      "segment": "mid_market",
+      "journey_stage": "consideration",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "v47b9e9d670",
+      "theme": "pricing_uncertainty",
+      "topic": "tier differences unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v47e853309b",
+      "theme": "usability_polish",
+      "topic": "color themes",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "low"
+    },
+    {
+      "key": "v4be587a5b7",
+      "theme": "usability_polish",
+      "topic": "dark mode request",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "low"
+    },
+    {
+      "key": "v4c7538f8b6",
+      "theme": "pricing_uncertainty",
+      "topic": "pricing feels hidden",
+      "sentiment": "negative",
+      "segment": "smb",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v52a0c125d4",
+      "theme": "pricing_uncertainty",
+      "topic": "tier differences unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v532a4035ef",
+      "theme": "urgency",
+      "topic": "student researcher, not a buyer",
+      "sentiment": "positive",
+      "segment": "unknown",
+      "journey_stage": "awareness",
+      "business_relevance": "low"
+    },
+    {
+      "key": "v56ae69e5d2",
+      "theme": "feature_fit",
+      "topic": "admin usage dashboard for expansion",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v61199ab498",
+      "theme": "urgency",
+      "topic": "exploring with no timeline",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "awareness",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "v62d3ef1cd4",
+      "theme": "technical_issue",
+      "topic": "Zoom integration dropped recording",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "v6cb88fc9a4",
+      "theme": "technical_issue",
+      "topic": "unresponsive submit button on mobile",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v6d9bc25987",
+      "theme": "technical_issue",
+      "topic": "mobile demo form freezes on submit",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v6e33a2d496",
+      "theme": "technical_issue",
+      "topic": "mobile demo form freezes on submit",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v6f3dff4fd3",
+      "theme": "technical_issue",
+      "topic": "unresponsive submit button on mobile",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v6fa828e613",
+      "theme": "technical_issue",
+      "topic": "mobile demo form freezes on submit",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v74d802d0c4",
+      "theme": "pricing_uncertainty",
+      "topic": "sales call needed for plan details",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v77c04db4ca",
+      "theme": "pricing_uncertainty",
+      "topic": "usage caps unclear from paid search",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v79dff73b6d",
+      "theme": "technical_issue",
+      "topic": "slow mobile demo page and date picker",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v7b34daa757",
+      "theme": "urgency",
+      "topic": "attended for free template",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "awareness",
+      "business_relevance": "low"
+    },
+    {
+      "key": "v90fe3509bb",
+      "theme": "pricing_uncertainty",
+      "topic": "lost deal on plan confusion",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "v9b50431b0b",
+      "theme": "technical_issue",
+      "topic": "unresponsive submit button on mobile",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "va0bd0d872a",
+      "theme": "complexity",
+      "topic": "helpful onboarding videos",
+      "sentiment": "positive",
+      "segment": "unknown",
+      "journey_stage": "onboarding",
+      "business_relevance": "low"
+    },
+    {
+      "key": "va5795790f9",
+      "theme": "feature_fit",
+      "topic": "accuracy with accents",
+      "sentiment": "positive",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "va70c54f5f4",
+      "theme": "technical_issue",
+      "topic": "abandoned mobile demo form",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vac21f5b0db",
+      "theme": "technical_issue",
+      "topic": "mobile demo form hangs",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vb185f19e77",
+      "theme": "pricing_uncertainty",
+      "topic": "sales call needed for plan details",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vb21318964b",
+      "theme": "pricing_uncertainty",
+      "topic": "lost deal on plan confusion",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vb5b229dd52",
+      "theme": "pricing_uncertainty",
+      "topic": "plan inclusions unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vbbecada1e9",
+      "theme": "urgency",
+      "topic": "no budget, learning only",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "awareness",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "vbd43375eb3",
+      "theme": "pricing_uncertainty",
+      "topic": "lost deal on plan confusion",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vc5c57b9c9c",
+      "theme": "usability_polish",
+      "topic": "transcript font choice",
+      "sentiment": "neutral",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "low"
+    },
+    {
+      "key": "vcd6e498fcf",
+      "theme": "pricing_uncertainty",
+      "topic": "pricing table fine print",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vcdc5eb6e1f",
+      "theme": "pricing_uncertainty",
+      "topic": "sales call needed for plan details",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vce1d6957c7",
+      "theme": "pricing_uncertainty",
+      "topic": "cannot estimate total cost",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vd533aab44c",
+      "theme": "feature_fit",
+      "topic": "speaker labels with crosstalk",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "vd9547c8211",
+      "theme": "pricing_uncertainty",
+      "topic": "pricing table fine print",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vda50a771b0",
+      "theme": "technical_issue",
+      "topic": "unresponsive submit button on mobile",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vdacabb4bf9",
+      "theme": "competitive_comparison",
+      "topic": "best action-item extraction",
+      "sentiment": "positive",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "ve14cbad08b",
+      "theme": "technical_issue",
+      "topic": "mobile form loses input",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "ve1ca703cd4",
+      "theme": "pricing_uncertainty",
+      "topic": "add-on versus included features",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "ve2c60c3613",
+      "theme": "pricing_uncertainty",
+      "topic": "plan inclusions unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "ve7def5ab99",
+      "theme": "feature_fit",
+      "topic": "team too small for sales-led demo",
+      "sentiment": "neutral",
+      "segment": "smb",
+      "journey_stage": "consideration",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "ve9786c6cb7",
+      "theme": "pricing_uncertainty",
+      "topic": "pricing table fine print",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "evaluation",
+      "business_relevance": "high"
+    },
+    {
+      "key": "ved534b36df",
+      "theme": "pricing_uncertainty",
+      "topic": "overage billing unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vf5f8624311",
+      "theme": "usability_polish",
+      "topic": "dark mode request",
+      "sentiment": "positive",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "low"
+    },
+    {
+      "key": "vf7103d33e1",
+      "theme": "technical_issue",
+      "topic": "slow search in large workspaces",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "retention",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "vfaf005f9a0",
+      "theme": "implementation_risk",
+      "topic": "SSO setup unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "onboarding",
+      "business_relevance": "medium"
+    },
+    {
+      "key": "vfdc5d31174",
+      "theme": "pricing_uncertainty",
+      "topic": "overage billing unclear",
+      "sentiment": "negative",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "high"
+    },
+    {
+      "key": "vffc6a0a5ac",
+      "theme": "competitive_comparison",
+      "topic": "better summaries than previous tool",
+      "sentiment": "positive",
+      "segment": "unknown",
+      "journey_stage": "purchase",
+      "business_relevance": "medium"
+    }
+  ]
+}
