@@ -304,6 +304,55 @@ def build_behavioral_friction(live: bool) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# Qualified Demand Leakage Auditor: reference narrative for the default settings
+# ---------------------------------------------------------------------------------------------
+
+LEAKAGE_REFERENCE = dict(
+    leakage_summary=(
+        "Webinars are EchoAI's largest lead source and pass leads to MQL more readily than any other "
+        "channel, but sales accepts very few of those MQLs. The loss happens at the MQL to SQL handoff, and "
+        "sales rejection reasons point to a qualification mismatch: attendees without budget, authority, or "
+        "an active project. Follow-up speed for webinar leads is in line with other sources, so this is not an "
+        "SLA problem. Separately, partner leads wait longer for first contact and a small share of MQLs is "
+        "never routed."),
+    probable_causes=[
+        dict(owner="qualification", explanation=(
+            "The MQL definition rewards webinar attendance and engagement, which inflates scores for learners and "
+            "researchers who lack budget or authority; sales then rejects them.")),
+        dict(owner="acquisition", explanation=(
+            "Webinar topics and promotion attract a broad, educational audience rather than active evaluators, so "
+            "volume rises without buying intent.")),
+    ],
+    recommended_intervention=(
+        "Add buying-intent questions such as role, team size, and project timeline to webinar registration, "
+        "and require an intent signal before a webinar attendee becomes an MQL. Route non-intent attendees to "
+        "nurture instead of sales. Guardrail: qualified webinar pipeline and attendance must not fall."),
+    primary_metric="Webinar MQL to SQL conversion, measured by sales acceptance of webinar-sourced MQLs.",
+    downstream_metrics=[
+        "Webinar SQL to opportunity and opportunity to win conversion, to confirm accepted leads still close.",
+        "Webinar-sourced pipeline and revenue, so tightening qualification does not shrink real demand.",
+        "Sales hours spent per accepted webinar SQL.",
+    ],
+)
+
+
+def build_demand_leakage(live: bool) -> None:
+    from gios.modules.qualified_demand_leakage_auditor import analysis, pipeline
+    from gios.modules.qualified_demand_leakage_auditor.models import LeakageNarrative
+
+    a = analysis.analyze(data.load("funnel_by_source"), data.load("sales_feedback"))
+    if live:
+        narrative, note = pipeline.narrate(a)
+        if narrative is None:
+            raise SystemExit(note)
+    else:
+        narrative = LeakageNarrative(about_leak=pipeline.leak_id(a.top_leak), **LEAKAGE_REFERENCE)
+        if narrative.about_leak != "webinar|MQL→SQL":
+            raise SystemExit(f"reference narrative is about webinar MQL→SQL, data says {narrative.about_leak}")
+    _write(pipeline.NARRATE_PROMPT, narrative)
+
+
+# ---------------------------------------------------------------------------------------------
 
 
 def _write(name: str, obj: BaseModel) -> None:
@@ -317,6 +366,7 @@ def _write(name: str, obj: BaseModel) -> None:
 BUILDERS: dict[str, Callable[[bool], None]] = {
     "customer_signal": build_customer_signal,
     "behavioral_friction": build_behavioral_friction,
+    "demand_leakage": build_demand_leakage,
 }
 
 

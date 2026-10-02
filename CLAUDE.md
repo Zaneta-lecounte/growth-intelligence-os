@@ -15,7 +15,9 @@ priorities, and learnings.
    in `prompts/`, and returns JSON validated against a Pydantic model. Each prompt needs a cached
    output in `demo/` so the app runs without an API key (DEMO MODE).
 5. **Run tests before every commit:** `python -m pytest -q`. Do not commit red.
-6. **Conventional commits:** `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:` (optional scope, e.g. `feat(core): ...`).
+6. **LLM text never carries numbers.** Narrative fields use `gios.core.report.Narrative`, which rejects
+   digits; reports render computed values next to the prose.
+7. **Conventional commits:** `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:` (optional scope, e.g. `feat(core): ...`).
 
 ## Layout
 - `app.py` — home page; `pages/` — one Streamlit page per module
@@ -28,5 +30,6 @@ priorities, and learnings.
 ## Commands
 - `pip install -r requirements.txt`
 - `python scripts/generate_data.py` — regenerate synthetic data
+- `python scripts/build_demo_cache.py [--live] [--only <module>]` — rebuild `demo/` (rerun after changing data or prompts)
 - `streamlit run app.py`
 - `python -m pytest -q`

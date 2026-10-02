@@ -32,9 +32,9 @@ Each module has a spec in [`specs/`](specs/).
 | Module | Layer | Status |
 |---|---|---|
 | Growth Intelligence Diagnostic | Diagnosis | Planned |
-| Customer Signal Synthesizer | Signal | Planned |
-| Behavioral Friction Analyzer | Signal | Planned |
-| Qualified Demand Leakage Auditor | Diagnosis | Planned |
+| Customer Signal Synthesizer | Signal | Ready |
+| Behavioral Friction Analyzer | Signal | Ready |
+| Qualified Demand Leakage Auditor | Diagnosis | Ready |
 | Hypothesis Evidence Validator | Prioritization | Planned |
 | Experiment Opportunity Scorer | Prioritization | Planned |
 | Growth Priority Orchestrator | Prioritization | Planned |
@@ -52,7 +52,9 @@ python -m pytest -q
 ```
 
 If `ANTHROPIC_API_KEY` is not set (see `.env.example`), GIOS runs in **demo mode** and uses
-the cached LLM outputs in `demo/`.
+the cached LLM outputs in `demo/`. Rebuild them with `python scripts/build_demo_cache.py`.
+The shipped cache holds reference annotations authored offline for the synthetic data. Run
+`python scripts/build_demo_cache.py --live` with a key set to regenerate it from the model.
 
 ## Stack
 

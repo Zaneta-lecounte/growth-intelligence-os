@@ -37,19 +37,19 @@ def _run(th: Thresholds, customer_json: tuple[str, ...]):
 result = _run(thresholds, tuple(s.model_dump_json() for s in customer))
 
 if result.findings:
-    rows = [{"Finding": f.title, "Flag": fl.label + (" (trend)" if fl.check == "trend" and "trend" not in fl.label else ""),
-             "Deviation": fl.deviation, "z": fl.z}
+    rows = [{"Flag": f"{f.title} · {fl.label}", "Deviation": fl.deviation, "Size": abs(fl.deviation),
+             "z": "n/a" if fl.z is None else f"{fl.z:+.1f}", "Observed": fl.describe()}
             for f in result.findings for fl in f.flags]
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(rows).iloc[::-1]
     st.subheader(f"{len(result.findings)} findings")
-    fig = px.bar(df, x="Deviation", y="Flag", facet_row="Finding", orientation="h",
-                 color_discrete_sequence=[SERIES_1], text=df.Deviation.map(lambda d: f"{d:+.0%}"),
-                 hover_data={"z": ":.1f", "Deviation": ":+.0%"})
-    fig.update_yaxes(matches=None, title=None)
-    fig.update_xaxes(tickformat="+.0%", title="Deviation from standardized baseline (bad direction)")
-    fig.for_each_annotation(lambda a: a.update(text=a.text.split("=", 1)[-1], textangle=0, x=0, xanchor="left",
-                                               yanchor="bottom"))
-    fig.update_layout(height=150 + 110 * len(result.findings), margin=dict(l=0, r=0, t=30, b=0), showlegend=False)
+    fig = px.bar(df, x="Size", y="Flag", orientation="h", color_discrete_sequence=[SERIES_1],
+                 text=df.Deviation.map(lambda d: f"{d:+.0%}"),
+                 hover_data={"Observed": True, "Size": False})
+    fig.update_traces(textposition="outside", cliponaxis=False, marker_cornerradius=4)
+    fig.update_xaxes(tickformat=".0%", title="Size of deviation from the standardized baseline (all in the bad direction)",
+                     range=[0, df.Size.max() * 1.15])
+    fig.update_yaxes(title=None)
+    fig.update_layout(height=120 + 34 * len(df), margin=dict(l=0, r=20, t=10, b=0), showlegend=False)
     st.plotly_chart(fig, width="stretch")
 
 st.divider()
