@@ -3,25 +3,18 @@ import streamlit as st
 from gios.core import data
 from gios.core.llm import LLMError
 from gios.core.schemas import Learning, Signal
-from gios.core.store import Store
 from gios.modules import MODULES
-from gios.modules.demo_flow import seed_through
 from gios.modules.growth_council_insight_brief import MODULE, gather, slack, write
 from gios.modules.growth_council_insight_brief.report import to_markdown
 from gios.modules.qualified_demand_leakage_auditor.analysis import OWNERS
-from gios.ui import page_header
+from gios.ui import page_header, seed_button
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
-store = Store()
+store = page_header(INFO)
 
 if not store.list(Signal) or not store.list(Learning):
     st.warning("The brief draws on every layer, and the store is missing signals or learnings.")
-    if st.button("Run every module with defaults (signals → … → roadmap → experiments → learnings)",
-                 key="gcb_seed", type="primary"):
-        with st.spinner("Seeding the store…"):
-            seed_through("learnings", store)
-        st.rerun()
+    seed_button("learnings", "Run every module with defaults (signals → … → roadmap → experiments → learnings)", "gcb_seed", store)
     st.stop()
 
 months = sorted(data.load("funnel_by_source").month.unique())

@@ -8,7 +8,7 @@ from typing import Any, Optional
 import pandas as pd
 
 from gios.core import data
-from gios.core.llm import complete_json
+from gios.core.llm import LLMError, complete_json
 from gios.core.schemas import Signal
 from gios.modules.behavioral_friction_analyzer import analysis
 from gios.modules.behavioral_friction_analyzer.analysis import Finding, Thresholds
@@ -88,10 +88,14 @@ def run(web: Optional[pd.DataFrame] = None, funnel: Optional[pd.DataFrame] = Non
     customer_signals = customer_signals or []
     findings = analysis.detect(web, thresholds)
     analysis.size_all(findings, web, funnel)
-    classifications = classify(findings, customer_signals, client)
+    llm_error = ""
+    try:
+        classifications = classify(findings, customer_signals, client)
+    except LLMError as exc:  # measured findings still render, unclassified
+        classifications, llm_error = {}, str(exc)
     evidence = {fid: check_evidence(c, customer_signals) for fid, c in classifications.items()}
     return BehavioralResult(findings, classifications, evidence, customer_signals, thresholds,
-                            meta={"months": f"{web.month.min()} to {web.month.max()}",
+                            meta={"llm_error": llm_error, "months": f"{web.month.min()} to {web.month.max()}",
                                   "period": f"{web.month.min()}..{web.month.max()}",
                                   "sessions": int(web.sessions.sum())})
 

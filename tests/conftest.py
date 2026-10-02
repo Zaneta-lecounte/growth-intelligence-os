@@ -14,6 +14,7 @@ def _no_api_key(monkeypatch, tmp_path):
     the real gios.db."""
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     monkeypatch.setattr("gios.config.DB_PATH", tmp_path / "default.db")
+    monkeypatch.setenv("GIOS_STORE_MODE", "shared")  # pages use Store() so tests can inspect it
 
 
 class FakeClient:

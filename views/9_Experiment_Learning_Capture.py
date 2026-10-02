@@ -2,7 +2,6 @@ import streamlit as st
 
 from gios.core.llm import LLMError
 from gios.core.schemas import Experiment, Learning
-from gios.core.store import Store
 from gios.modules import MODULES
 from gios.modules.customer_signal_synthesizer.models import THEME_LABELS
 from gios.modules.downstream_impact_analyzer import analyze_all
@@ -12,8 +11,7 @@ from gios.modules.experiment_learning_capture.report import DECISION_LABELS, NEX
 from gios.ui import page_header
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
-store = Store()
+store = page_header(INFO)
 
 experiments = {e.id: e for e in store.list(Experiment)}
 if not experiments:

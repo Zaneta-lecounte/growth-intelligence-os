@@ -94,5 +94,6 @@ def slack_summary(period: str, what_changed: str, why: str, hypothesis: str, act
         f"*Decision needed:* {first_sentence(decision)}",
         "Full brief attached (Markdown).",
     ]
-    assert len(lines) <= SLACK_MAX_LINES
+    if len(lines) > SLACK_MAX_LINES:  # guard the contract even under python -O
+        raise ValueError(f"Slack summary must be at most {SLACK_MAX_LINES} lines")
     return "\n".join(lines)

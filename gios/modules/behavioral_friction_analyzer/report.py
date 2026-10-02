@@ -30,6 +30,8 @@ def to_markdown(result: BehavioralResult) -> str:
              f"|z| ≥ {th.z:g}, deviation ≥ {th.min_deviation:.0%}, volume ≥ {num(th.min_volume)} "
              f"(load time: ≥ {th.load_deviation:.0%} slower than the same device's other pages). Baselines are "
              "standardized for device and source mix._", ""]
+    if result.meta.get("llm_error"):
+        lines += [f"> Friction classification unavailable: {result.meta['llm_error']}", ""]
     if not result.findings:
         return "\n".join(lines + ["_No behavioral anomalies cleared the thresholds._"])
     lines += [f"{i}. {f.title}" for i, f in enumerate(result.findings, 1)] + [""]

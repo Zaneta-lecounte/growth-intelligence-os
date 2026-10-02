@@ -3,7 +3,6 @@ import streamlit as st
 from gios.core import data
 from gios.core.llm import LLMError
 from gios.core.schemas import Signal
-from gios.core.store import Store
 from gios.modules import MODULES
 from gios.modules.growth_intelligence_diagnostic import (
     MODULE,
@@ -18,8 +17,7 @@ from gios.modules.signal_layer import run_signal_layer
 from gios.ui import page_header
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
-store = Store()
+store = page_header(INFO)
 funnel = data.load("funnel_by_source")
 months = sorted(funnel.month.unique())
 sources = sorted(funnel.source.unique())

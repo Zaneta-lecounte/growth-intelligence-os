@@ -5,26 +5,19 @@ import pandas as pd
 import streamlit as st
 
 from gios.core.schemas import Dependency, Hypothesis, Opportunity, OpportunityCategory
-from gios.core.store import Store
 from gios.modules import MODULES
-from gios.modules.demo_flow import seed_through
 from gios.modules.experiment_opportunity_scorer.analysis import RECOMMENDATION_LABELS
 from gios.modules.growth_priority_orchestrator import MODULE, build, gather, propose, rebalance, save
 from gios.modules.growth_priority_orchestrator.analysis import BUCKETS, HORIZONS, cluster_overlap
 from gios.modules.growth_priority_orchestrator.report import to_markdown
-from gios.ui import page_header
+from gios.ui import page_header, seed_button
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
-store = Store()
+store = page_header(INFO)
 
 if not store.list(Opportunity) and not store.list(Hypothesis):
     st.warning("Nothing to orchestrate yet: the store has no opportunities or hypotheses.")
-    if st.button("Run every upstream module with defaults (signals → diagnostic → validator → scorer)",
-                 key="gpo_seed", type="primary"):
-        with st.spinner("Seeding the store…"):
-            seed_through("backlog", store)
-        st.rerun()
+    seed_button("backlog", "Run every upstream module with defaults (signals → diagnostic → validator → scorer)", "gpo_seed", store)
     st.stop()
 
 with st.sidebar:

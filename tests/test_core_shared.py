@@ -112,3 +112,48 @@ def test_replace_module_output(store):
     store.replace_module_output([s("c")], module="leakage")
     assert sorted(x.summary for x in store.list(Signal)) == ["c", "keep"]
     assert store.delete_by_module(Signal, "leakage") == 1
+
+
+def test_narrative_allows_digits_inside_names():
+    assert N(text="Track it in GA4 for B2B buyers in Q4.").text
+    for bad in ["Lift was 11%.", "CAC hit $4,286", "We saw 35 more", "a 2x gain", "costs 1.5 times more"]:
+        with pytest.raises(ValidationError):
+            N(text=bad)
+
+
+def test_store_skips_rows_from_an_older_schema(store, caplog):
+    good = Signal(type="funnel", evidence_status="observed", source="x", segment="all",
+                  journey_stage="evaluation", summary="ok", strength=3)
+    store.save(good)
+    with store._connect() as conn:
+        conn.execute("INSERT INTO signals (id, module, created_at, payload) VALUES (?, ?, ?, ?)",
+                     ("old", "", "2020-01-01", '{"id": "old", "kind": "legacy"}'))
+    assert [s.id for s in store.list(Signal)] == [good.id]
+    assert store.get(Signal, "old") is None
+    assert store.unreadable() == {"signals": 1}
+    assert "skipping unreadable Signal" in caplog.text
+
+
+def test_api_errors_become_llm_errors(monkeypatch, tmp_path):
+    import anthropic
+    import httpx
+
+    from gios.core.llm import LLMError, complete_json
+
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-test")
+    (tmp_path / "p.v1.md").write_text("## System\ns\n\n## User\nu")
+
+    class Down:
+        messages = None
+
+        def __init__(self):
+            self.messages = self
+
+        def create(self, **kw):
+            raise anthropic.APIConnectionError(request=httpx.Request("POST", "https://api.anthropic.com"))
+
+    class Model(BaseModel):
+        x: int
+
+    with pytest.raises(LLMError, match="Anthropic API error"):
+        complete_json("p", Model, client=Down(), prompts_dir=tmp_path)

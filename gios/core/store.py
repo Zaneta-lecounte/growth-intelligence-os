@@ -8,7 +8,10 @@ from __future__ import annotations
 import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
+import logging
 from typing import Iterable, Iterator, Optional, TypeVar, Union
+
+from pydantic import ValidationError
 
 from gios import config
 from gios.core.schemas import (
@@ -22,6 +25,7 @@ from gios.core.schemas import (
 )
 
 M = TypeVar("M", bound=GIOSModel)
+log = logging.getLogger(__name__)
 
 TABLES: dict[type[GIOSModel], str] = {
     Signal: "signals",
@@ -86,12 +90,22 @@ class Store:
                 ids.append(obj.id)
         return ids
 
+    @staticmethod
+    def _parse(model_cls: type[M], payload: str) -> Optional[M]:
+        """Validate a stored payload; rows written under an incompatible schema are skipped
+        (and logged) rather than taking every page down."""
+        try:
+            return model_cls.model_validate_json(payload)
+        except ValidationError as exc:
+            log.warning("skipping unreadable %s record: %s", model_cls.__name__, exc.errors()[0]["msg"])
+            return None
+
     def get(self, model_cls: type[M], obj_id: str) -> Optional[M]:
         with self._connect() as conn:
             row = conn.execute(
                 f"SELECT payload FROM {_table(model_cls)} WHERE id = ?", (obj_id,)
             ).fetchone()
-        return model_cls.model_validate_json(row[0]) if row else None
+        return self._parse(model_cls, row[0]) if row else None
 
     def list(self, model_cls: type[M], module: Optional[str] = None) -> list[M]:
         sql = f"SELECT payload FROM {_table(model_cls)}"
@@ -102,7 +116,23 @@ class Store:
         sql += " ORDER BY created_at, rowid"
         with self._connect() as conn:
             rows = conn.execute(sql, params).fetchall()
-        return [model_cls.model_validate_json(r[0]) for r in rows]
+        parsed = (self._parse(model_cls, r[0]) for r in rows)
+        return [p for p in parsed if p is not None]
+
+    def unreadable(self) -> dict[str, int]:
+        """Rows per table that no longer validate against the current schema."""
+        out = {}
+        with self._connect() as conn:
+            for model_cls, table in TABLES.items():
+                bad = 0
+                for (payload,) in conn.execute(f"SELECT payload FROM {table}"):
+                    try:
+                        model_cls.model_validate_json(payload)
+                    except ValidationError:
+                        bad += 1
+                if bad:
+                    out[table] = bad
+        return out
 
     def delete(self, model_cls: type[GIOSModel], obj_id: str) -> bool:
         with self._connect() as conn:

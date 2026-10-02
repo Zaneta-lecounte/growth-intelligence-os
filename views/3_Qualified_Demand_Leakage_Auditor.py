@@ -8,7 +8,7 @@ from gios.modules.qualified_demand_leakage_auditor.report import to_markdown
 from gios.ui import NEUTRAL, SERIES_1, SERIES_2, markdown_report, page_header, save_signals
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
+store = page_header(INFO)
 
 with st.sidebar:
     st.header("Settings")
@@ -81,5 +81,5 @@ with right:
 
 st.divider()
 signals = to_signals(result)
-save_signals(signals, MODULE, key="qdl_save")
+save_signals(signals, MODULE, key="qdl_save", store=store)
 markdown_report(to_markdown(result), "qualified_demand_leakage_auditor.md")

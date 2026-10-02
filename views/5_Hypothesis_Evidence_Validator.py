@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 
 from gios.core.schemas import HYPOTHESIS_PARTS, Hypothesis, Signal
-from gios.core.store import Store
 from gios.modules import MODULES
 from gios.modules.hypothesis_evidence_validator import MODULE, analysis, pipeline
 from gios.modules.hypothesis_evidence_validator.analysis import BAND_LABELS, RECOMMENDATION_LABELS
@@ -12,8 +11,7 @@ from gios.modules.hypothesis_evidence_validator.report import to_markdown
 from gios.ui import page_header
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
-store = Store()
+store = page_header(INFO)
 signals = store.list(Signal)
 stored = store.list(Hypothesis)
 

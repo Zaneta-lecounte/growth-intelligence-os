@@ -1,17 +1,20 @@
 import streamlit as st
 
 from gios.core.schemas import Learning
-from gios.core.store import Store
 from gios.modules.customer_signal_synthesizer.models import THEME_LABELS
 from gios.modules.downstream_impact_analyzer.analysis import INTERPRETATION_LABELS
 from gios.modules.experiment_learning_capture import library
 from gios.modules.experiment_learning_capture.report import DECISION_LABELS, to_markdown
+from gios.ui import get_store, how_it_works
 
 st.set_page_config(page_title="Experiment Library · GIOS", layout="wide")
 st.title("Experiment Library")
 st.caption("Every captured learning, including losses and inconclusive results. Search across all sections.")
+how_it_works("the Experiment Library", "search across every section, facet filters (theme, page, segment, decision) "
+             "and the losses / inconclusive filter.", "none here; learnings are drafted in Experiment Learning Capture.",
+             ["experiment-learning-capture.md"])
 
-learnings = Store().list(Learning)
+learnings = get_store().list(Learning)
 if not learnings:
     st.info("No learnings yet. Capture one in **Experiment Learning Capture**.")
     st.stop()

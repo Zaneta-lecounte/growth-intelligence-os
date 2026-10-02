@@ -2,13 +2,15 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+from gios.core.llm import LLMError
+
 from gios.modules import MODULES
 from gios.modules.customer_signal_synthesizer import MODULE, analysis, run
 from gios.modules.customer_signal_synthesizer.report import to_markdown
 from gios.ui import NEUTRAL, SERIES_1, markdown_report, page_header, save_signals
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
+store = page_header(INFO)
 
 
 @st.cache_data(show_spinner="Tagging customer evidence…")
@@ -16,7 +18,11 @@ def _run():
     return run()
 
 
-result = _run()
+try:
+    result = _run()
+except LLMError as exc:  # frequency is counted from tags, so nothing can be shown without them
+    st.error(f"Could not tag the customer evidence: {exc}", icon=":material/cloud_off:")
+    st.stop()
 st.markdown(
     f"**{result.meta['evidence_rows']}** evidence items · **{result.meta['unique_verbatims']}** distinct "
     f"verbatims tagged in batches · **{len(result.themes)}** themes. Frequency is counted from tags; "
@@ -71,7 +77,7 @@ with right:
 st.divider()
 markdown = to_markdown(themes, result.synthesis, result.untagged, result.disagreements, result.meta)
 signals = analysis.to_signals(themes, period=result.meta["period"])
-save_signals(signals, MODULE, key="css_save")
+save_signals(signals, MODULE, key="css_save", store=store)
 markdown_report(markdown, "customer_signal_synthesizer.md")
 
 with st.expander("Tagged evidence"):

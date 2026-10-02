@@ -101,6 +101,14 @@ def _response_text(response: Any) -> str:
     return "".join(b.text for b in response.content if getattr(b, "type", None) == "text")
 
 
+def _is_api_error(exc: Exception) -> bool:
+    try:
+        import anthropic
+    except ImportError:  # pragma: no cover
+        return False
+    return isinstance(exc, anthropic.APIError)
+
+
 def _default_client():
     import anthropic
 
@@ -130,12 +138,17 @@ def complete_json(
 
     last_error: Optional[Exception] = None
     for attempt in range(2):  # first try + one retry on validation failure
-        response = client.messages.create(
-            model=config.MODEL,
-            max_tokens=config.MAX_TOKENS,
-            system=system,
-            messages=messages,
-        )
+        try:
+            response = client.messages.create(
+                model=config.MODEL,
+                max_tokens=config.MAX_TOKENS,
+                system=system,
+                messages=messages,
+            )
+        except Exception as exc:  # network, auth, rate-limit and server errors
+            if _is_api_error(exc):
+                raise LLMError(f"{prompt_name}: Anthropic API error ({type(exc).__name__}): {exc}") from exc
+            raise
         text = _response_text(response)
         try:
             return parse_json_response(text, output_model)

@@ -8,7 +8,6 @@ from pydantic import ValidationError
 
 from gios.core import data
 from gios.core.schemas import Variant
-from gios.core.store import Store
 from gios.modules import MODULES
 from gios.modules.downstream_impact_analyzer import MODULE, Settings, load, pipeline
 from gios.modules.downstream_impact_analyzer.analysis import INTERPRETATION_LABELS, RECOMMENDATION_LABELS
@@ -17,8 +16,7 @@ from gios.modules.downstream_impact_analyzer.report import to_markdown
 from gios.ui import NEUTRAL, SERIES_1, SERIES_2, page_header
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
-store = Store()
+store = page_header(INFO)
 
 with st.sidebar:
     st.header("Test settings")

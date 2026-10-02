@@ -6,11 +6,13 @@ from typing import Annotated, Any, Iterable, Sequence
 
 from pydantic import AfterValidator
 
-_DIGIT = re.compile(r"\d")
+# A number that is not part of a word: "11%", "$4,286", "35", "2x". Digits inside names such as
+# GA4, B2B or Q4 are allowed.
+_QUANTITY = re.compile(r"(?<![A-Za-z])\d")
 
 
 def _no_digits(value: str) -> str:
-    if _DIGIT.search(value):
+    if _QUANTITY.search(value):
         raise ValueError(
             "narrative text must not contain numbers; refer to metrics by name and let the "
             "app render computed values"

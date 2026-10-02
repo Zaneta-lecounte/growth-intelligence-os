@@ -3,14 +3,13 @@ import plotly.express as px
 import streamlit as st
 
 from gios.core.schemas import Signal
-from gios.core.store import Store
 from gios.modules import MODULES
 from gios.modules.behavioral_friction_analyzer import MODULE, Thresholds, run, to_signals
 from gios.modules.behavioral_friction_analyzer.report import to_markdown
 from gios.ui import SERIES_1, markdown_report, page_header, save_signals
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
+store = page_header(INFO)
 
 with st.sidebar:
     st.header("Thresholds")
@@ -21,7 +20,7 @@ with st.sidebar:
                      format="%.2f")
 thresholds = Thresholds(z=z, min_deviation=dev, min_volume=int(vol), load_deviation=load)
 
-customer = [s for s in Store().list(Signal) if s.type == "customer"]
+customer = [s for s in store.list(Signal) if s.type == "customer"]
 if customer:
     st.success(f"Linking against {len(customer)} customer signals from the GIOS store.")
 else:
@@ -54,5 +53,5 @@ if result.findings:
 
 st.divider()
 signals = to_signals(result)
-save_signals(signals, MODULE, key="bfa_save")
+save_signals(signals, MODULE, key="bfa_save", store=store)
 markdown_report(to_markdown(result), "behavioral_friction_analyzer.md")

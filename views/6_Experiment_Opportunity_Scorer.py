@@ -7,24 +7,18 @@ import streamlit as st
 from pydantic import ValidationError
 
 from gios.core.schemas import Hypothesis, Opportunity, OpportunityCategory
-from gios.core.store import Store
 from gios.modules import MODULES
-from gios.modules.demo_flow import seed_through
 from gios.modules.experiment_opportunity_scorer import MODULE, Settings, analysis, build_backlog, save, score
 from gios.modules.experiment_opportunity_scorer.report import JUDGMENT_NOTE, to_markdown
-from gios.ui import NEUTRAL, SERIES_1, page_header
+from gios.ui import NEUTRAL, SERIES_1, page_header, seed_button
 
 INFO = next(m for m in MODULES if m.slug == MODULE)
-page_header(INFO)
-store = Store()
+store = page_header(INFO)
 
 if not store.list(Hypothesis) and not store.list(Opportunity):
     st.warning("No hypotheses or opportunities in the store yet.")
-    if st.button("Run the upstream modules with defaults (signals → diagnostic → validator)", key="eos_seed",
-                 type="primary"):
-        with st.spinner("Seeding the store…"):
-            seed_through("validations", store)
-        st.rerun()
+    seed_button("validations", "Run the upstream modules with defaults (signals → diagnostic → validator)",
+                "eos_seed", store)
     st.stop()
 
 with st.sidebar:

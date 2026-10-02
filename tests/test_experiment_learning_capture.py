@@ -145,8 +145,9 @@ def test_library_page_filters():
     analyze_all(store)
     draft_all(store)
     at = AppTest.from_file(str(config.ROOT / "views" / "10_Experiment_Library.py")).run(timeout=60)
-    assert not at.exception and len(at.expander) == 6
+    cards = lambda: [e for e in at.expander if not e.label.startswith("How ")]  # noqa: E731
+    assert not at.exception and len(cards()) == 6
     at.toggle(key="lib_losses").set_value(True).run(timeout=60)
-    assert len(at.expander) == 2
+    assert len(cards()) == 2
     at.text_input(key="lib_query").input("pricing").run(timeout=60)
-    assert len(at.expander) == 1
+    assert len(cards()) == 1

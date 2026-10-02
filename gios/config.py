@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 MODEL = os.getenv("GIOS_MODEL", "claude-sonnet-5-5")
 MAX_TOKENS = 16000
 
+REPO_URL = os.getenv("GIOS_REPO_URL", "https://github.com/Zaneta-lecounte/growth-intelligence-os")
+
 PROMPTS_DIR = ROOT / "prompts"
 DEMO_DIR = ROOT / "demo"
 DATA_DIR = ROOT / "data" / "synthetic"

@@ -8,7 +8,7 @@ from typing import Any, Optional
 import pandas as pd
 
 from gios.core import data, stats
-from gios.core.llm import complete_json
+from gios.core.llm import LLMError, complete_json
 from gios.core.schemas import Signal
 from gios.modules.qualified_demand_leakage_auditor import analysis
 from gios.modules.qualified_demand_leakage_auditor.analysis import LeakageAnalysis, Settings
@@ -51,7 +51,10 @@ def narrate(a: LeakageAnalysis, client: Any = None) -> tuple[Optional[LeakageNar
     if a.top_leak is None:
         return None, "No leak cleared the thresholds, so there is nothing to narrate."
     payload = narrative_payload(a)
-    narrative = complete_json(NARRATE_PROMPT, LeakageNarrative, payload, client=client)
+    try:
+        narrative = complete_json(NARRATE_PROMPT, LeakageNarrative, payload, client=client)
+    except LLMError as exc:
+        return None, f"Narrative unavailable ({exc}). All numbers below are computed and current."
     if narrative.about_leak != payload["leak_id"]:
         return None, (f"The narrative on file describes `{narrative.about_leak}`, not the current highest-value "
                       f"leak `{payload['leak_id']}` (in demo mode only the default settings have a cached "
