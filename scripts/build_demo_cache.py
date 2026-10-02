@@ -216,6 +216,94 @@ def build_customer_signal(live: bool) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# Behavioral Friction Analyzer: reference classifications for default-threshold findings
+# ---------------------------------------------------------------------------------------------
+
+FRICTION_REFERENCE = {
+    "demo|device=mobile": dict(
+        friction_type="technical",
+        what_happened=("Mobile visitors start the demo form at least as often as desktop visitors but "
+                       "complete it far less often, rage-click much more, and wait much longer for the page to load."),
+        competing_explanations=[
+            "A technical defect on mobile, such as a slow or blocking script, breaks submission or the date picker.",
+            "Mobile visitors are earlier-stage browsers who start the form casually and intend to finish on a laptop.",
+            "Form completion events fail to fire on mobile, so completions are under-counted rather than lost.",
+        ],
+        validation_needed=[
+            "Session recordings of mobile demo-form attempts to see where users stall.",
+            "Whether mobile starters later complete the form on desktop (cross-device lead matching).",
+            "A server-side count of demo requests by device to rule out a tracking gap.",
+            "Customer chat and support verbatims mentioning the mobile demo form.",
+        ],
+        supporting_customer_signal_ids=["css-technical_issue"],
+        recommended_action="technical_fix",
+        recommended_detail=("Profile and fix mobile demo-page performance and the submit and date-picker "
+                            "interactions, verify completion tracking, then confirm the recovery with a "
+                            "before and after comparison of mobile completion."),
+    ),
+    "pricing|source=paid_search": dict(
+        friction_type="comprehension",
+        what_happened=("Paid search visitors leave the pricing page far more often than other traffic and "
+                       "click through to a demo less often, and the gap has widened every month."),
+        competing_explanations=[
+            "Plans and inclusions are hard to compare, so evaluators cannot judge fit or cost.",
+            "Expectation mismatch: ad copy or keywords promise something the pricing page does not show.",
+            "Traffic quality shifted as bids rose, bringing in more price-shoppers with lower intent.",
+        ],
+        validation_needed=[
+            "Customer verbatims about pricing clarity, especially from paid search visitors.",
+            "Search query and ad copy review for the keywords landing on pricing.",
+            "A pricing-page intercept survey asking what is missing or unclear.",
+        ],
+        supporting_customer_signal_ids=["css-pricing_uncertainty"],
+        recommended_action="ux_experiment",
+        recommended_detail=("Test a clearer plan comparison with explicit inclusions and usage limits for "
+                            "paid search traffic, measured on demo requests and downstream SQL rate."),
+    ),
+    "compare|device=desktop": dict(
+        friction_type="navigation",
+        what_happened=("Desktop visitors on the compare page rage-click slightly more than mobile visitors; "
+                       "the absolute difference is small."),
+        competing_explanations=[
+            "Chance variation: rage clicks are rare, and mobile is unusually low here rather than desktop being high.",
+            "A desktop-only interactive element on the compare page, such as a table toggle, that looks clickable but is not.",
+        ],
+        validation_needed=[
+            "Whether the gap persists in the next month of data.",
+            "Click maps of the compare page on desktop.",
+        ],
+        supporting_customer_signal_ids=[],
+        recommended_action="instrumentation_improvement",
+        recommended_detail="Monitor rather than act: add element-level click tracking on the compare table and re-check next month.",
+    ),
+}
+
+
+def build_behavioral_friction(live: bool) -> None:
+    from gios.core.schemas import Signal
+    from gios.modules.behavioral_friction_analyzer import analysis, pipeline
+    from gios.modules.behavioral_friction_analyzer.models import FrictionBatch, FrictionClassification
+
+    web, funnel = data.load("web_behavior"), data.load("funnel_by_source")
+    findings = analysis.detect(web)
+    analysis.size_all(findings, web, funnel)
+    if live:
+        from gios.modules.customer_signal_synthesizer import analysis as css_analysis
+        from gios.modules.customer_signal_synthesizer import run as css_run
+
+        customer: list[Signal] = css_analysis.to_signals(css_run().themes)
+        classifications = pipeline.classify(findings, customer)
+        batch = FrictionBatch(classifications=list(classifications.values()))
+    else:
+        missing = {f.id for f in findings} - set(FRICTION_REFERENCE)
+        if missing:
+            raise SystemExit(f"no reference classification for findings: {sorted(missing)}")
+        batch = FrictionBatch(classifications=[
+            FrictionClassification(finding_id=f.id, **FRICTION_REFERENCE[f.id]) for f in findings])
+    _write(pipeline.CLASSIFY_PROMPT, batch)
+
+
+# ---------------------------------------------------------------------------------------------
 
 
 def _write(name: str, obj: BaseModel) -> None:
@@ -228,6 +316,7 @@ def _write(name: str, obj: BaseModel) -> None:
 
 BUILDERS: dict[str, Callable[[bool], None]] = {
     "customer_signal": build_customer_signal,
+    "behavioral_friction": build_behavioral_friction,
 }
 
 
