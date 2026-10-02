@@ -34,9 +34,12 @@ WEB_COLUMNS = ["date", "page", "source", "device", "sessions", "exits", "scroll_
                "form_starts", "form_completes", "rage_clicks", "avg_load_ms"]
 EVIDENCE_COLUMNS = ["date", "source", "segment", "journey_stage", "verbatim"]
 SALES_COLUMNS = ["lead_id", "source", "rejection_reason", "hours_to_first_follow_up", "routed_to"]
-EXPERIMENT_COLUMNS = ["experiment_id", "experiment_name", "hypothesis", "primary_metric",
-                      "start_date", "end_date", "variant", "visitors", "conversions", "mqls",
-                      "sqls", "opps", "wins"]
+EXPERIMENT_COLUMNS = ["experiment_id", "experiment_name", "page", "hypothesis", "primary_metric",
+                      "start_date", "end_date", "observed_through", "variant", "visitors", "conversions", "mqls",
+                      "sqls", "opps", "wins", "revenue", "spend"]
+EXPERIMENT_SEGMENT_COLUMNS = ["experiment_id", "variant", "source", "device", "segment", "visitors",
+                              "conversions", "mqls", "sqls", "opps", "wins", "revenue", "spend"]
+VELOCITY_COLUMNS = ["source", "segment", "won_deals", "median_days_lead_to_win", "p25_days", "p75_days"]
 
 # --- Funnel / acquisition assumptions ----------------------------------------------------
 
@@ -146,37 +149,57 @@ EVIDENCE_PLAN = {
                   stages={"evaluation": 0.25, "onboarding": 0.25, "retention": 0.3, "purchase": 0.2}),
 }
 
+# Past experiments. Each variant: (visitors, cvr, lead→MQL, MQL→SQL, SQL→Opp, Opp→Win),
+# optionally with per-device conversion overrides. Traffic is split across source × device ×
+# segment cells; revenue and traffic spend follow the cell. Outcomes observed through 2026-08-31.
 EXPERIMENTS = [
-    # id, name, hypothesis, metric, start, end, {variant: (visitors, cvr, mql, sql, opp, win)}
-    ("EXP-01", "Homepage hero: outcome headline",
-     "If we lead with 'never take meeting notes again' instead of feature copy, more evaluators "
-     "will request a demo because the value is clearer.",
-     "demo_request_rate", "2026-03-02", "2026-03-29",
-     {"control": (21000, 0.031, 0.48, 0.40, 0.55, 0.24), "outcome_headline": (21000, 0.036, 0.48, 0.40, 0.55, 0.24)}),
-    ("EXP-02", "Webinar registration: 3 fields instead of 7",
-     "If we shorten webinar registration, more attendees will register because the form feels lighter.",
-     "registration_rate", "2026-04-06", "2026-05-03",
-     {"control": (9000, 0.110, 0.72, 0.13, 0.45, 0.22), "short_form": (9000, 0.150, 0.70, 0.08, 0.45, 0.22)}),
-    ("EXP-03", "Pricing page FAQ accordion",
-     "If we add an FAQ under the pricing table, paid-search visitors will exit less because "
-     "common plan questions are answered.",
-     "pricing_cta_click_rate", "2026-06-01", "2026-06-14",
-     {"control": (2600, 0.080, 0.45, 0.40, 0.55, 0.25), "faq_accordion": (2600, 0.085, 0.45, 0.40, 0.55, 0.25)}),
-    ("EXP-04", "Demo page customer logos",
-     "If we show customer logos on the demo page, more visitors will start the form because of social proof.",
-     "form_start_rate", "2026-05-11", "2026-06-07",
-     {"control": (16000, 0.300, 0.45, 0.40, 0.55, 0.24), "logos": (16000, 0.330, 0.42, 0.37, 0.55, 0.24)}),
-    ("EXP-05", "Paid social long-form landing page",
-     "If paid social lands on a long-form page, visitors will convert better because they arrive cold.",
-     "lead_rate", "2026-07-06", "2026-08-02",
-     {"control": (15000, 0.016, 0.35, 0.30, 0.50, 0.22), "long_form": (15000, 0.012, 0.35, 0.30, 0.50, 0.22)}),
-    ("EXP-06", "Nurture email CTA: 2-minute tour vs book demo",
-     "If nurture emails offer a 2-minute product tour instead of a demo, more leads will engage and "
-     "later qualify because the ask is smaller.",
-     "click_to_lead_rate", "2026-07-13", "2026-08-16",
-     {"control": (12000, 0.040, 0.42, 0.36, 0.52, 0.24), "product_tour": (12000, 0.052, 0.46, 0.40, 0.52, 0.24)}),
+    dict(id="EXP-01", name="Homepage hero: outcome headline", page="home",
+         hypothesis="If we lead with 'never take meeting notes again' instead of feature copy, more evaluators "
+                    "will request a demo because the value is clearer.",
+         metric="demo_request_rate", start="2026-03-02", end="2026-03-29",
+         sources={"organic": 0.5, "paid_search": 0.3, "paid_social": 0.2},
+         variants={"control": (40000, 0.031, 0.48, 0.40, 0.55, 0.24),
+                   "outcome_headline": (40000, 0.039, 0.48, 0.40, 0.55, 0.24)}),
+    dict(id="EXP-02", name="Webinar registration: 3 fields instead of 7", page="webinar registration",
+         hypothesis="If we shorten webinar registration, more attendees will register because the form feels lighter.",
+         metric="registration_rate", start="2026-04-06", end="2026-05-03",
+         sources={"webinar": 1.0},
+         variants={"control": (9000, 0.110, 0.72, 0.13, 0.45, 0.22),
+                   "short_form": (9000, 0.150, 0.70, 0.08, 0.45, 0.22)}),
+    dict(id="EXP-03", name="Pricing page FAQ accordion", page="pricing",
+         hypothesis="If we add an FAQ under the pricing table, paid-search visitors will exit less because "
+                    "common plan questions are answered.",
+         metric="pricing_cta_click_rate", start="2026-06-01", end="2026-06-14",
+         sources={"paid_search": 1.0},
+         variants={"control": (2600, 0.080, 0.45, 0.40, 0.55, 0.25),
+                   "faq_accordion": (2600, 0.085, 0.45, 0.40, 0.55, 0.25)}),
+    dict(id="EXP-04", name="Demo page customer logos", page="demo",
+         hypothesis="If we show customer logos on the demo page, more visitors will start the form because of social proof.",
+         metric="form_start_rate", start="2026-05-11", end="2026-06-07",
+         sources={"organic": 0.35, "paid_search": 0.35, "paid_social": 0.15, "email": 0.15},
+         variants={"control": (16000, 0.300, 0.45, 0.40, 0.55, 0.24),
+                   "logos": (16000, 0.340, 0.45, 0.40, 0.55, 0.24, {"mobile": 0.300})}),
+    dict(id="EXP-05", name="Paid social long-form landing page", page="paid social landing page",
+         hypothesis="If paid social lands on a long-form page, visitors will convert better because they arrive cold.",
+         metric="lead_rate", start="2026-07-06", end="2026-08-02",
+         sources={"paid_social": 1.0},
+         variants={"control": (15000, 0.016, 0.35, 0.30, 0.50, 0.22),
+                   "long_form": (15000, 0.012, 0.35, 0.30, 0.50, 0.22)}),
+    dict(id="EXP-06", name="Nurture email CTA: 2-minute tour vs book demo", page="nurture email",
+         hypothesis="If nurture emails offer a 2-minute product tour instead of a demo, more leads will engage and "
+                    "later qualify because the ask is smaller.",
+         metric="click_to_lead_rate", start="2026-07-13", end="2026-08-16",
+         sources={"email": 1.0},
+         variants={"control": (12000, 0.040, 0.42, 0.36, 0.52, 0.24),
+                   "product_tour": (12000, 0.052, 0.46, 0.40, 0.52, 0.24)}),
 ]
-
+OBSERVED_THROUGH = "2026-08-31"
+COST_PER_VISIT = {"paid_search": 2.20, "paid_social": 1.40, "organic": 0.08, "webinar": 1.10, "partner": 1.60,
+                  "email": 0.15}
+MOBILE_SHARE = {"paid_social": 0.60, "email": 0.45}
+# Median days from lead to closed-won (story-neutral): mid-market cycles are about twice as long.
+VELOCITY_BASE = {"smb": 42, "mid_market": 88}
+VELOCITY_SOURCE_ADJ = {"paid_search": 0, "paid_social": 6, "organic": 4, "webinar": 18, "partner": -6, "email": 10}
 
 def _noise(rng: np.random.Generator, size=None, sd: float = 0.05):
     return np.clip(rng.normal(1.0, sd, size), 0.7, 1.3)
@@ -313,31 +336,75 @@ def generate_sales_feedback(rng: np.random.Generator, funnel: pd.DataFrame) -> p
     return df
 
 
-def generate_experiments(rng: np.random.Generator) -> pd.DataFrame:
+def generate_experiment_cells(rng: np.random.Generator) -> pd.DataFrame:
+    """Per-cell (source × device × segment) outcomes for every experiment variant."""
     rows = []
-    for exp_id, name, hyp, metric, start, end, variants in EXPERIMENTS:
-        for variant, (visitors, cvr, mql, sql, opp, win) in variants.items():
-            conversions = rng.binomial(visitors, cvr)
-            mqls = rng.binomial(conversions, mql)
-            sqls = rng.binomial(mqls, sql)
-            opps = rng.binomial(sqls, opp)
-            wins = rng.binomial(opps, win)
-            rows.append([exp_id, name, hyp, metric, start, end, variant, visitors, conversions,
-                         mqls, sqls, opps, wins])
+    for exp in EXPERIMENTS:
+        cells = []
+        for source, share in exp["sources"].items():
+            mobile = MOBILE_SHARE.get(source, 0.35)
+            mid = MID_MARKET_SHARE[source]
+            for device, d_share in (("desktop", 1 - mobile), ("mobile", mobile)):
+                for segment, s_share in (("smb", 1 - mid), ("mid_market", mid)):
+                    cells.append((source, device, segment, share * d_share * s_share))
+        weights = np.array([c[3] for c in cells])
+        for variant, params in exp["variants"].items():
+            visitors, cvr, mql, sql, opp, win = params[:6]
+            overrides = params[6] if len(params) > 6 else {}
+            split = rng.multinomial(visitors, weights / weights.sum())
+            for (source, device, segment, _), n in zip(cells, split):
+                conversions = rng.binomial(n, overrides.get(device, cvr))
+                mqls = rng.binomial(conversions, mql)
+                sqls = rng.binomial(mqls, sql)
+                opps = rng.binomial(sqls, opp)
+                wins = rng.binomial(opps, win)
+                revenue = int(round(sum(ACV[segment] * _noise(rng, wins, sd=0.12))))
+                spend = int(round(n * COST_PER_VISIT[source]))
+                rows.append([exp["id"], variant, source, device, segment, int(n), conversions, mqls, sqls, opps,
+                             wins, revenue, spend])
+    return pd.DataFrame(rows, columns=EXPERIMENT_SEGMENT_COLUMNS)
+
+
+def generate_experiments(cells: pd.DataFrame) -> pd.DataFrame:
+    """Variant totals with experiment metadata (sums of the cells)."""
+    meta = {e["id"]: e for e in EXPERIMENTS}
+    totals = cells.groupby(["experiment_id", "variant"], sort=False)[
+        ["visitors", "conversions", "mqls", "sqls", "opps", "wins", "revenue", "spend"]].sum().reset_index()
+    rows = []
+    for r in totals.itertuples(index=False):
+        e = meta[r.experiment_id]
+        rows.append([e["id"], e["name"], e["page"], e["hypothesis"], e["metric"], e["start"], e["end"],
+                     OBSERVED_THROUGH, r.variant, r.visitors, r.conversions, r.mqls, r.sqls, r.opps, r.wins,
+                     r.revenue, r.spend])
     return pd.DataFrame(rows, columns=EXPERIMENT_COLUMNS)
+
+
+def generate_velocity(rng: np.random.Generator, funnel: pd.DataFrame) -> pd.DataFrame:
+    """Lead→win velocity (days) by source × segment for won deals."""
+    rows = []
+    wins = funnel.groupby(["source", "segment"]).wins.sum()
+    for (source, segment), n in wins.items():
+        median = VELOCITY_BASE[segment] + VELOCITY_SOURCE_ADJ[source] + int(rng.integers(-3, 4))
+        rows.append([source, segment, int(n), median, int(round(median * 0.65)), int(round(median * 1.45))])
+    return pd.DataFrame(rows, columns=VELOCITY_COLUMNS)
 
 
 def generate_all(seed: int = SEED) -> dict[str, pd.DataFrame]:
     """All datasets keyed by file stem. customer_evidence keeps its hidden `_theme` column."""
     rng = np.random.default_rng(seed)
     funnel = generate_funnel(rng)
-    return {
+    out = {
         "funnel_by_source": funnel,
         "web_behavior": generate_web_behavior(rng),
         "customer_evidence": generate_customer_evidence(rng),
         "sales_feedback": generate_sales_feedback(rng, funnel),
-        "experiments": generate_experiments(rng),
     }
+    # Generated last so the datasets above keep their random streams.
+    cells = generate_experiment_cells(rng)
+    out["experiments"] = generate_experiments(cells)
+    out["experiment_segments"] = cells
+    out["lead_velocity"] = generate_velocity(rng, funnel)
+    return out
 
 
 def write_all(out_dir: Path, seed: int = SEED) -> dict[str, Path]:

@@ -23,6 +23,10 @@ PAGES = {
         st.Page("views/7_Growth_Priority_Orchestrator.py", title="Growth Priority Orchestrator",
                 icon=":material/view_kanban:"),
     ],
+    "Learning": [
+        st.Page("views/8_Downstream_Impact_Analyzer.py", title="Downstream Impact Analyzer",
+                icon=":material/query_stats:"),
+    ],
 }
 
 st.navigation(PAGES).run()

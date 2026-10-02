@@ -10,7 +10,8 @@ import pandas as pd
 
 from gios import config
 
-DATASETS = ("funnel_by_source", "web_behavior", "customer_evidence", "sales_feedback", "experiments")
+DATASETS = ("funnel_by_source", "web_behavior", "customer_evidence", "sales_feedback", "experiments",
+            "experiment_segments", "lead_velocity")
 
 
 def text_key(text: str) -> str:

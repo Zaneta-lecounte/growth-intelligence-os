@@ -54,7 +54,8 @@ def test_different_seed_differs():
 
 def test_committed_csvs_match_generator(tmp_path):
     gen.write_all(tmp_path)
-    for name in ["funnel_by_source", "web_behavior", "customer_evidence", "sales_feedback", "experiments"]:
+    for name in ["funnel_by_source", "web_behavior", "customer_evidence", "sales_feedback", "experiments",
+                 "experiment_segments", "lead_velocity"]:
         committed = config.DATA_DIR / f"{name}.csv"
         assert committed.exists(), f"run scripts/generate_data.py ({name}.csv missing)"
         pd.testing.assert_frame_equal(pd.read_csv(committed), pd.read_csv(tmp_path / f"{name}.csv"))
@@ -71,6 +72,8 @@ def test_columns_match_spec(tmp_path):
         "customer_evidence": gen.EVIDENCE_COLUMNS,  # untagged: no theme column
         "sales_feedback": gen.SALES_COLUMNS,
         "experiments": gen.EXPERIMENT_COLUMNS,
+        "experiment_segments": gen.EXPERIMENT_SEGMENT_COLUMNS,
+        "lead_velocity": gen.VELOCITY_COLUMNS,
     }
     for name, cols in expected.items():
         assert list(pd.read_csv(paths[name], nrows=1).columns) == cols
@@ -130,7 +133,7 @@ def test_experiments_valid_against_schema(data):
             status="completed",
             variants=[
                 Variant(name=r.variant, visitors=r.visitors, conversions=r.conversions,
-                        mqls=r.mqls, sqls=r.sqls, opps=r.opps, wins=r.wins)
+                        mqls=r.mqls, sqls=r.sqls, opps=r.opps, wins=r.wins, revenue=r.revenue, spend=r.spend)
                 for r in g.itertuples()
             ],
         )
@@ -263,3 +266,35 @@ def test_stories_hold_across_seeds(seed):
     test_story3_mobile_demo_form(w)
     test_story3_mobile_demo_page_slow(w)
     test_red_herring_is_most_frequent_but_post_purchase(e)
+
+
+# --- Experiments: cells, totals, velocity -------------------------------------------------------
+
+
+def test_experiment_cells_sum_to_variant_totals(data):
+    cells, totals = data["experiment_segments"], data["experiments"]
+    cols = ["visitors", "conversions", "mqls", "sqls", "opps", "wins", "revenue", "spend"]
+    summed = cells.groupby(["experiment_id", "variant"])[cols].sum().reset_index()
+    merged = totals.merge(summed, on=["experiment_id", "variant"], suffixes=("", "_cells"))
+    for c in cols:
+        assert (merged[c] == merged[f"{c}_cells"]).all(), c
+    assert set(cells.device) == {"desktop", "mobile"} and set(cells.segment) == {"smb", "mid_market"}
+    assert (totals.observed_through >= totals.end_date).all()
+
+
+def test_lead_velocity(data, funnel):
+    v = data["lead_velocity"]
+    assert len(v) == 12
+    assert (v.p25_days < v.median_days_lead_to_win).all() and (v.median_days_lead_to_win < v.p75_days).all()
+    mid, smb = v[v.segment == "mid_market"].median_days_lead_to_win, v[v.segment == "smb"].median_days_lead_to_win
+    assert mid.min() > smb.max()
+    assert v.won_deals.sum() == funnel.wins.sum()
+
+
+def test_experiment_generation_keeps_other_streams():
+    """Experiments are generated last, so editing them never shifts the stories above."""
+    import numpy as np
+
+    rng = np.random.default_rng(gen.SEED)
+    funnel = gen.generate_funnel(rng)
+    pd.testing.assert_frame_equal(funnel, gen.generate_all(gen.SEED)["funnel_by_source"])

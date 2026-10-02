@@ -93,3 +93,25 @@ def weeks_to_sample(n_per_arm: int, weekly_volume: float, arms: int = 2) -> floa
     if weekly_volume <= 0:
         return math.inf
     return arms * n_per_arm / weekly_volume
+
+
+def two_proportion_test(x1: int, n1: int, x2: int, n2: int, alpha: float = 0.05) -> dict:
+    """Compare treatment (x2/n2) with control (x1/n1): difference p2 - p1 with an unpooled Wald
+    CI, relative lift, pooled z and two-sided p-value."""
+    p1, p2 = safe_rate(x1, n1), safe_rate(x2, n2)
+    diff = p2 - p1
+    z_crit = norm.ppf(1 - alpha / 2)
+    se = math.sqrt(p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2) if n1 and n2 else 0.0
+    z = two_proportion_z(x2, n2, x1, n1)
+    p_value = float(2 * norm.sf(abs(z))) if n1 and n2 else 1.0
+    return {"p_control": p1, "p_treatment": p2, "diff": diff, "ci_low": diff - z_crit * se,
+            "ci_high": diff + z_crit * se, "lift": diff / p1 if p1 else 0.0, "z": z, "p_value": p_value,
+            "significant": p_value < alpha}
+
+
+def mde_relative(baseline: float, n_per_arm: int, alpha: float = 0.05, power: float = 0.80) -> float:
+    """Approximate relative minimum detectable effect for a two-arm test of a proportion."""
+    if not 0 < baseline < 1 or n_per_arm <= 0:
+        return math.inf
+    z = norm.ppf(1 - alpha / 2) + norm.ppf(power)
+    return z * math.sqrt(2 * baseline * (1 - baseline) / n_per_arm) / baseline

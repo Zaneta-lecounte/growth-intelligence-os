@@ -47,6 +47,10 @@ ActionType = Literal[
     "journey_redesign", "targeting_change", "process_change",
 ]
 Horizon = Literal["now", "next", "later"]
+# downstream-impact-analyzer.md, Step 4
+Interpretation = Literal["clear_positive", "top_funnel_positive_downstream_neutral", "volume_quality_tradeoff",
+                         "inconclusive", "negative", "needs_longer_observation"]
+ImpactRecommendation = Literal["scale", "iterate", "retest", "stop", "observe_longer"]
 # growth-priority-orchestrator.md, Step 3
 Dependency = Literal["data", "engineering", "design", "content", "sales", "product", "operations"]
 # growth-priority-orchestrator.md, Step 5
@@ -264,6 +268,8 @@ class Variant(BaseModel):
     sqls: int = Field(default=0, ge=0)
     opps: int = Field(default=0, ge=0)
     wins: int = Field(default=0, ge=0)
+    revenue: float = Field(default=0, ge=0)
+    spend: float = Field(default=0, ge=0)
 
     @model_validator(mode="after")
     def _funnel_is_monotonic(self) -> "Variant":
@@ -287,6 +293,13 @@ class Experiment(GIOSModel):
     start_date: Optional[date] = None
     end_date: Optional[date] = None
     status: ExperimentStatus = "planned"
+    page: str = ""
+    observed_through: Optional[date] = None
+    # Downstream Impact Analyzer result (computed in code)
+    interpretation: Optional[Interpretation] = None
+    impact_recommendation: Optional[ImpactRecommendation] = None
+    statistical_result: str = ""
+    segment_findings: list[str] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def _dates_ordered(self) -> "Experiment":
@@ -297,6 +310,17 @@ class Experiment(GIOSModel):
 
 class Learning(GIOSModel):
     experiment_id: Optional[str] = None
+    experiment_name: str = ""
+    hypothesis_text: str = ""
+    statistical_result: str = ""
+    segment_findings: str = ""
+    interpretation: Optional[Interpretation] = None
+    # Library facets
+    theme: str = ""
+    page: str = ""
+    segment: str = ""
+    next_hypothesis_parts: dict[str, str] = Field(default_factory=dict)
+    next_hypothesis_id: Optional[str] = None
     original_problem: str = ""
     what_happened: str = Field(min_length=1)
     learned_about_customer: str = ""
