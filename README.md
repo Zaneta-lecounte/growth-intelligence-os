@@ -7,6 +7,10 @@ narrative.
 It runs on synthetic data for **EchoAI**, a fictional B2B SaaS company that sells AI meeting
 transcription.
 
+**[▶ Live demo](https://growth-intelligence-os-odqqexv8swh9jzjqvyz2ef.streamlit.app/)** · **[Try the Leakage Auditor](https://growth-intelligence-os-odqqexv8swh9jzjqvyz2ef.streamlit.app/Qualified_Demand_Leakage_Auditor)** · **[View code](https://github.com/Zaneta-lecounte/growth-intelligence-os)**
+
+![GIOS Qualified Demand Leakage Auditor: webinar MQL→SQL is the highest-value leak](https://github.com/Zaneta-lecounte/growth-intelligence-os/raw/main/docs/images/gios-diagnostic.png)
+
 ## The problem
 
 Growth teams rarely lack data. They lack a shared way to connect it. Customer interviews sit in
@@ -134,13 +138,16 @@ Realistic noise keeps the modules honest:
 
 ## Screenshots
 
-<!-- Replace these placeholders with real captures before publishing. -->
-| | |
-|---|---|
-| ![Run Full Diagnostic](docs/screenshots/full-diagnostic.png) | ![Growth Intelligence Diagnostic](docs/screenshots/diagnostic.png) |
-| _Run Full Diagnostic: story checks and Executive Growth Priorities_ | _Diagnostic: evidence badges and ranked root causes_ |
-| ![Experiment Opportunity Scorer](docs/screenshots/scorer.png) | ![Downstream Impact Analyzer](docs/screenshots/downstream-impact.png) |
-| _Scorer: GROWTH scores on a log scale_ | _Downstream impact: lift with 95% CIs at every stage_ |
+The capture above is the Qualified Demand Leakage Auditor in the live app: webinar MQL→SQL is the
+highest-value leak, with 95% CIs against peer benchmarks and the value of closing the gap.
+Other pages worth opening in the demo:
+
+- [Run Full Diagnostic](https://growth-intelligence-os-odqqexv8swh9jzjqvyz2ef.streamlit.app/Run_Full_Diagnostic): one click through every layer, with the
+  story checks and Executive Growth Priorities
+- [Growth Intelligence Diagnostic](https://growth-intelligence-os-odqqexv8swh9jzjqvyz2ef.streamlit.app/Growth_Intelligence_Diagnostic): evidence badges and
+  ranked root causes
+- [Experiment Opportunity Scorer](https://growth-intelligence-os-odqqexv8swh9jzjqvyz2ef.streamlit.app/Experiment_Opportunity_Scorer): GROWTH scores on a log scale
+- [Downstream Impact Analyzer](https://growth-intelligence-os-odqqexv8swh9jzjqvyz2ef.streamlit.app/Downstream_Impact_Analyzer): lift with 95% CIs at every stage
 
 ## How to run
 
