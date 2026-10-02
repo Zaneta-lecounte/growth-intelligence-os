@@ -47,6 +47,11 @@ ActionType = Literal[
     "journey_redesign", "targeting_change", "process_change",
 ]
 Horizon = Literal["now", "next", "later"]
+# growth-priority-orchestrator.md, Step 3
+Dependency = Literal["data", "engineering", "design", "content", "sales", "product", "operations"]
+# growth-priority-orchestrator.md, Step 5
+PortfolioBucket = Literal["foundational_fix", "high_confidence_optimization", "strategic_experiment", "research_bet"]
+TestUnit = Literal["web", "funnel"]
 
 
 
@@ -113,7 +118,42 @@ class Opportunity(GIOSModel):
 
     risk_flags: list[RiskFlag] = Field(default_factory=list)
     key_risk: str = ""
-    recommendation: Optional[OpportunityRecommendation] = None
+    recommendation: Optional[OpportunityRecommendation] = None   # computed by rules
+    recommendation_override: Optional[OpportunityRecommendation] = None
+    override_reason: str = ""
+
+    # Provenance
+    hypothesis_id: Optional[str] = None
+    validator_total: Optional[int] = Field(default=None, ge=0, le=12)
+    is_fix: bool = False  # fixes something broken (e.g. technical friction)
+
+    # Test population for the sample-size check
+    test_unit: Optional[TestUnit] = None
+    page: Optional[str] = None
+    channel: Optional[str] = None
+    device: Optional[str] = None
+    funnel_stage: Optional[str] = None
+    mde: float = Field(default=0.20, gt=0, le=5, description="Minimum detectable effect, relative")
+
+    # Orchestrator
+    dependencies: list[Dependency] = Field(default_factory=list)
+    portfolio_bucket: Optional[PortfolioBucket] = None
+    horizon: Optional[Horizon] = None
+    horizon_order: Optional[int] = None
+    merged_into: Optional[str] = None
+    merged_ids: list[str] = Field(default_factory=list)
+    expected_learning: str = ""
+    primary_metric: str = ""
+
+    @model_validator(mode="after")
+    def _override_needs_reason(self) -> "Opportunity":
+        if self.recommendation_override and len(self.override_reason.strip()) < 5:
+            raise ValueError("overriding the recommendation requires a reason")
+        return self
+
+    @property
+    def final_recommendation(self) -> Optional[OpportunityRecommendation]:
+        return self.recommendation_override or self.recommendation
 
     @property
     def is_scored(self) -> bool:

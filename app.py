@@ -17,6 +17,10 @@ PAGES = {
         st.Page("views/5_Hypothesis_Evidence_Validator.py", title="Hypothesis Evidence Validator",
                 icon=":material/fact_check:"),
     ],
+    "Prioritization": [
+        st.Page("views/6_Experiment_Opportunity_Scorer.py", title="Experiment Opportunity Scorer",
+                icon=":material/leaderboard:"),
+    ],
 }
 
 st.navigation(PAGES).run()

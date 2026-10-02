@@ -506,22 +506,7 @@ DIAGNOSTIC_REFERENCE = {
     ),
 }
 
-DIAGNOSTIC_SCOPES = {
-    # scope: (channel, metric for the Step 1 draft)
-    "all": (None, "MQL→SQL"),
-    "paid_search": ("paid_search", "CAC"),
-}
-
-
-def diagnostic_inputs(scope: str):
-    from gios.modules.growth_intelligence_diagnostic import BusinessSignal, Filters
-    from gios.modules.growth_intelligence_diagnostic import analysis as gid
-
-    channel, metric = DIAGNOSTIC_SCOPES[scope]
-    filters = Filters(channel=channel)
-    draft = gid.suggest_business_signal(data.load("funnel_by_source"), metric, channel, None,
-                                        filters.start, filters.end)
-    return BusinessSignal(goal="Grow qualified pipeline efficiently", **draft), filters
+from gios.modules.demo_flow import DIAGNOSTIC_SCOPES, diagnostic_inputs  # noqa: E402
 
 
 def _phase1_signals():

@@ -72,3 +72,24 @@ def frequency_score(count: int, total: int, bins: Sequence[float] = FREQUENCY_BI
 def score_to_strength(value: float, edges: Sequence[float]) -> int:
     """Map a value onto a 1-5 strength using four ascending edges."""
     return 1 + sum(value >= e for e in edges)
+
+
+def sample_size_per_arm(baseline: float, mde_relative: float, alpha: float = 0.05, power: float = 0.80) -> int:
+    """Visitors per arm for a two-sided two-proportion test (normal approximation, pooled
+    variance under H0). Returns 0 when the inputs cannot define a test."""
+    p1 = baseline
+    p2 = baseline * (1 + mde_relative)
+    if not (0 < p1 < 1) or not (0 < p2 < 1) or p1 == p2:
+        return 0
+    z_a = norm.ppf(1 - alpha / 2)
+    z_b = norm.ppf(power)
+    p_bar = (p1 + p2) / 2
+    num = (z_a * math.sqrt(2 * p_bar * (1 - p_bar)) + z_b * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2
+    return int(math.ceil(num / (p2 - p1) ** 2))
+
+
+def weeks_to_sample(n_per_arm: int, weekly_volume: float, arms: int = 2) -> float:
+    """Weeks of eligible volume needed to fill every arm (inf when there is no volume)."""
+    if weekly_volume <= 0:
+        return math.inf
+    return arms * n_per_arm / weekly_volume
