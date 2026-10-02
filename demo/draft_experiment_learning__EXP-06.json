@@ -1,0 +1,19 @@
+{
+  "theme": "complexity",
+  "original_problem": "Nurture emails asked for a demo, a big commitment for leads still learning.",
+  "what_happened": "The two-minute tour lifted clicks to leads, but too little time has passed for these leads to reach a decision.",
+  "learned_about_customer": "Leads in nurture prefer a small, low-commitment next step.",
+  "learned_about_journey": "A lighter step widens the funnel; whether it fills pipeline is not yet known.",
+  "learned_about_business": "Email changes are cheap, so waiting for downstream results costs little.",
+  "should_not_conclude": "That the tour improves revenue or win rates. Downstream outcomes have not matured, and early volume gains can hide later quality losses.",
+  "reusable_principle": "Judge funnel changes over the full sales cycle, not the first weeks.",
+  "next_hypothesis": {
+    "title": "Tour CTA quality check after a full sales cycle",
+    "observed_problem": "The tour CTA lifts early engagement.",
+    "affected_audience": "Nurture email leads",
+    "causal_explanation": "A smaller ask brings forward leads at every intent level.",
+    "intervention": "Keep the test running and compare qualification after a full cycle.",
+    "expected_behavior_change": "Sales acceptance of tour leads matches demo-CTA leads.",
+    "expected_business_outcome": "More qualified pipeline from nurture."
+  }
+}

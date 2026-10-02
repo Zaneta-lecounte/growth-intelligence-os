@@ -1,0 +1,19 @@
+{
+  "theme": "unclear_value",
+  "original_problem": "Paid social traffic arrives cold, so we tried a long-form landing page to educate it.",
+  "what_happened": "The long-form page lowered lead conversion clearly, with no offsetting gain in quality.",
+  "learned_about_customer": "Cold social visitors will not read a long page before deciding.",
+  "learned_about_journey": "For cold traffic the first step must be small; education belongs after the first conversion.",
+  "learned_about_business": "Paid social spend is wasted when the landing page asks for too much attention.",
+  "should_not_conclude": "That paid social cannot work for EchoAI, or that all long pages fail. This was one page for cold traffic.",
+  "reusable_principle": "Match the ask to the visitor's temperature.",
+  "next_hypothesis": {
+    "title": "Lighter first step for paid social",
+    "observed_problem": "Cold paid social visitors rarely convert.",
+    "affected_audience": "Paid social visitors",
+    "causal_explanation": "A demo request is too large a first ask for cold traffic.",
+    "intervention": "Offer a short product tour as the first step.",
+    "expected_behavior_change": "More paid social visitors engage.",
+    "expected_business_outcome": "More nurtured leads from paid social at the same spend."
+  }
+}

@@ -322,7 +322,7 @@ class Learning(GIOSModel):
     next_hypothesis_parts: dict[str, str] = Field(default_factory=dict)
     next_hypothesis_id: Optional[str] = None
     original_problem: str = ""
-    what_happened: str = Field(min_length=1)
+    what_happened: str = ""  # required at save time by Experiment Learning Capture
     learned_about_customer: str = ""
     learned_about_journey: str = ""
     learned_about_business: str = ""

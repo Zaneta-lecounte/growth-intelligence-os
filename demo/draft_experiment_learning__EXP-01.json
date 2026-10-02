@@ -1,0 +1,19 @@
+{
+  "theme": "unclear_value",
+  "original_problem": "Homepage visitors were not requesting demos; feature-led copy did not explain the outcome.",
+  "what_happened": "The outcome headline lifted demo requests, and the extra requests carried through to more qualified pipeline rather than fading after the form.",
+  "learned_about_customer": "Evaluators respond to the job the product does for them, not to a feature list.",
+  "learned_about_journey": "Clarity on the first screen shapes intent all the way to qualification.",
+  "learned_about_business": "Homepage messaging is a cheap lever on qualified pipeline, not only on lead volume.",
+  "should_not_conclude": "That any shorter or punchier headline will work; this tested one specific outcome message. Nor that win rates rose: wins were too few to test.",
+  "reusable_principle": "Lead with the customer outcome, then prove it with features.",
+  "next_hypothesis": {
+    "title": "Carry the outcome message into paid search landing pages",
+    "observed_problem": "Paid search visitors land on feature-led pages and convert below benchmark.",
+    "affected_audience": "Paid search evaluators",
+    "causal_explanation": "The outcome message that worked on the homepage is missing where paid traffic lands.",
+    "intervention": "Use the outcome headline on paid search landing pages.",
+    "expected_behavior_change": "More paid search visitors request a demo.",
+    "expected_business_outcome": "Lower paid search acquisition cost."
+  }
+}

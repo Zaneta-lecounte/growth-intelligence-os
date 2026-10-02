@@ -1,0 +1,19 @@
+{
+  "theme": "trust_proof",
+  "original_problem": "Demo-page visitors hesitate to start the form; we tested social proof.",
+  "what_happened": "Customer logos lifted form starts on desktop but not on mobile, and the extra starts did not turn into more qualified pipeline.",
+  "learned_about_customer": "Desktop evaluators notice and value logos; mobile visitors do not see them in the same way.",
+  "learned_about_journey": "On mobile the demo page has a bigger problem than trust: the form itself.",
+  "learned_about_business": "Top-funnel lifts that stop at the form start do not pay back on their own.",
+  "should_not_conclude": "That social proof does not work on mobile; the mobile form is broken, which masks any trust effect there.",
+  "reusable_principle": "Fix broken steps before testing persuasion on the same step.",
+  "next_hypothesis": {
+    "title": "Retest logos after the mobile form fix",
+    "observed_problem": "Logos lifted desktop starts only.",
+    "affected_audience": "Mobile demo-page visitors",
+    "causal_explanation": "The broken mobile form hides any effect of social proof.",
+    "intervention": "Rerun the logo test once mobile form completion is repaired.",
+    "expected_behavior_change": "Mobile starts and completions both rise.",
+    "expected_business_outcome": "More demo requests from mobile traffic."
+  }
+}

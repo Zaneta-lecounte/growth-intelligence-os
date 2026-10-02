@@ -687,6 +687,143 @@ def build_orchestrator(live: bool) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# Experiment Learning Capture: reference drafts per past experiment
+# ---------------------------------------------------------------------------------------------
+
+
+def _nh(title, problem, audience, cause, intervention, behavior, outcome):
+    return dict(title=title, observed_problem=problem, affected_audience=audience, causal_explanation=cause,
+                intervention=intervention, expected_behavior_change=behavior, expected_business_outcome=outcome)
+
+
+LEARNING_REFERENCE = {
+    "EXP-01": dict(
+        theme="unclear_value",
+        original_problem="Homepage visitors were not requesting demos; feature-led copy did not explain the outcome.",
+        what_happened=("The outcome headline lifted demo requests, and the extra requests carried through to more "
+                       "qualified pipeline rather than fading after the form."),
+        learned_about_customer="Evaluators respond to the job the product does for them, not to a feature list.",
+        learned_about_journey="Clarity on the first screen shapes intent all the way to qualification.",
+        learned_about_business="Homepage messaging is a cheap lever on qualified pipeline, not only on lead volume.",
+        should_not_conclude=("That any shorter or punchier headline will work; this tested one specific outcome "
+                             "message. Nor that win rates rose: wins were too few to test."),
+        reusable_principle="Lead with the customer outcome, then prove it with features.",
+        next_hypothesis=_nh("Carry the outcome message into paid search landing pages",
+                            "Paid search visitors land on feature-led pages and convert below benchmark.",
+                            "Paid search evaluators", "The outcome message that worked on the homepage is missing "
+                            "where paid traffic lands.", "Use the outcome headline on paid search landing pages.",
+                            "More paid search visitors request a demo.", "Lower paid search acquisition cost."),
+    ),
+    "EXP-02": dict(
+        theme="urgency",
+        original_problem="Webinar registration felt heavy, so we tried a shorter form to grow attendance.",
+        what_happened=("The short form brought in many more registrations and MQLs, but sales accepted a much "
+                       "smaller share of them, so qualified pipeline did not grow."),
+        learned_about_customer=("Removing qualifying questions lets in curious learners who have no budget or "
+                                "active project."),
+        learned_about_journey="Friction at registration was doing useful qualification work before the sales handoff.",
+        learned_about_business="Optimizing registrations alone shifts cost to sales without adding pipeline.",
+        should_not_conclude=("That shorter forms are bad in general, or that webinars do not work. The loss came "
+                             "from removing intent questions, not from form length itself."),
+        reusable_principle="Measure a form change at the stage where quality is decided, not where volume is counted.",
+        next_hypothesis=_nh("Short form plus one intent question",
+                            "Short registration forms raise volume but lower sales acceptance.",
+                            "Webinar registrants", "Without any intent signal, learners and buyers look the same.",
+                            "Keep the short form but add a single buying-timeline question that routes non-buyers to "
+                            "nurture.", "Registrations stay high while sales acceptance recovers.",
+                            "More qualified webinar pipeline per sales hour."),
+    ),
+    "EXP-03": dict(
+        theme="pricing_uncertainty",
+        original_problem="Paid search visitors exit the pricing page; we guessed unanswered plan questions were the cause.",
+        what_happened=("The FAQ accordion moved click-through slightly, but the test was too small and too short "
+                       "to tell a real effect from noise."),
+        learned_about_customer="We still do not know which plan details confuse evaluators.",
+        learned_about_journey="Pricing questions are not resolved by content hidden below the pricing table.",
+        learned_about_business="Small pricing tests on paid search traffic need several weeks to reach a verdict.",
+        should_not_conclude=("That pricing clarity does not matter. This test could only detect a large effect, "
+                             "and an FAQ is a weak version of the fix."),
+        reusable_principle="Size the test before running it; an underpowered test teaches nothing.",
+        next_hypothesis=_nh("Plan comparison table for paid search",
+                            "Paid search evaluators exit the pricing page at a rising rate.",
+                            "Paid search evaluators", "Plan inclusions and limits are hard to compare.",
+                            "Replace the plan cards with a comparison table of inclusions and limits.",
+                            "Fewer exits and more demo clicks from the pricing page.",
+                            "Lower paid search acquisition cost."),
+    ),
+    "EXP-04": dict(
+        theme="trust_proof",
+        original_problem="Demo-page visitors hesitate to start the form; we tested social proof.",
+        what_happened=("Customer logos lifted form starts on desktop but not on mobile, and the extra starts did "
+                       "not turn into more qualified pipeline."),
+        learned_about_customer="Desktop evaluators notice and value logos; mobile visitors do not see them in the same way.",
+        learned_about_journey="On mobile the demo page has a bigger problem than trust: the form itself.",
+        learned_about_business="Top-funnel lifts that stop at the form start do not pay back on their own.",
+        should_not_conclude=("That social proof does not work on mobile; the mobile form is broken, which masks "
+                             "any trust effect there."),
+        reusable_principle="Fix broken steps before testing persuasion on the same step.",
+        next_hypothesis=_nh("Retest logos after the mobile form fix",
+                            "Logos lifted desktop starts only.", "Mobile demo-page visitors",
+                            "The broken mobile form hides any effect of social proof.",
+                            "Rerun the logo test once mobile form completion is repaired.",
+                            "Mobile starts and completions both rise.", "More demo requests from mobile traffic."),
+    ),
+    "EXP-05": dict(
+        theme="unclear_value",
+        original_problem="Paid social traffic arrives cold, so we tried a long-form landing page to educate it.",
+        what_happened="The long-form page lowered lead conversion clearly, with no offsetting gain in quality.",
+        learned_about_customer="Cold social visitors will not read a long page before deciding.",
+        learned_about_journey="For cold traffic the first step must be small; education belongs after the first conversion.",
+        learned_about_business="Paid social spend is wasted when the landing page asks for too much attention.",
+        should_not_conclude=("That paid social cannot work for EchoAI, or that all long pages fail. This was one "
+                             "page for cold traffic."),
+        reusable_principle="Match the ask to the visitor's temperature.",
+        next_hypothesis=_nh("Lighter first step for paid social",
+                            "Cold paid social visitors rarely convert.", "Paid social visitors",
+                            "A demo request is too large a first ask for cold traffic.",
+                            "Offer a short product tour as the first step.", "More paid social visitors engage.",
+                            "More nurtured leads from paid social at the same spend."),
+    ),
+    "EXP-06": dict(
+        theme="complexity",
+        original_problem="Nurture emails asked for a demo, a big commitment for leads still learning.",
+        what_happened=("The two-minute tour lifted clicks to leads, but too little time has passed for these "
+                       "leads to reach a decision."),
+        learned_about_customer="Leads in nurture prefer a small, low-commitment next step.",
+        learned_about_journey="A lighter step widens the funnel; whether it fills pipeline is not yet known.",
+        learned_about_business="Email changes are cheap, so waiting for downstream results costs little.",
+        should_not_conclude=("That the tour improves revenue or win rates. Downstream outcomes have not matured, "
+                             "and early volume gains can hide later quality losses."),
+        reusable_principle="Judge funnel changes over the full sales cycle, not the first weeks.",
+        next_hypothesis=_nh("Tour CTA quality check after a full sales cycle",
+                            "The tour CTA lifts early engagement.", "Nurture email leads",
+                            "A smaller ask brings forward leads at every intent level.",
+                            "Keep the test running and compare qualification after a full cycle.",
+                            "Sales acceptance of tour leads matches demo-CTA leads.",
+                            "More qualified pipeline from nurture."),
+    ),
+}
+
+
+def build_learning_capture(live: bool) -> None:
+    import tempfile
+
+    from gios.core.schemas import Experiment
+    from gios.core.store import Store
+    from gios.modules.downstream_impact_analyzer import analyze_all
+    from gios.modules.experiment_learning_capture import pipeline
+    from gios.modules.experiment_learning_capture.models import LearningDraft
+
+    with tempfile.TemporaryDirectory() as tmp:
+        store = Store(Path(tmp) / "seed.db")
+        analyze_all(store)
+        experiments = store.list(Experiment)
+    for e in experiments:
+        d = pipeline.draft(e) if live else LearningDraft(**LEARNING_REFERENCE[e.id])
+        _write(f"{pipeline.PROMPT}__{e.id}", d)
+
+
+# ---------------------------------------------------------------------------------------------
 
 
 def _write(name: str, obj: BaseModel) -> None:
@@ -704,6 +841,7 @@ BUILDERS: dict[str, Callable[[bool], None]] = {
     "growth_diagnostic": build_growth_diagnostic,
     "hypothesis_validator": build_hypothesis_validator,
     "orchestrator": build_orchestrator,
+    "learning_capture": build_learning_capture,
 }
 
 

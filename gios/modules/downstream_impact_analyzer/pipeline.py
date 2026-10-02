@@ -68,7 +68,7 @@ def to_experiment(result: ImpactResult, variants: pd.DataFrame) -> Experiment:
                                           for k in VALUE_COLUMNS}) for v, r in variants.iterrows()],
         interpretation=result.interpretation, impact_recommendation=result.recommendation,
         statistical_result=statistical_summary(result),
-        segment_findings=result.segment_notes or [f.describe() for f in result.segments[:3]],
+        segment_findings=list(result.segment_notes),
     )
 
 

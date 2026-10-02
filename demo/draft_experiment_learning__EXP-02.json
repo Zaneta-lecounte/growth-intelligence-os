@@ -1,0 +1,19 @@
+{
+  "theme": "urgency",
+  "original_problem": "Webinar registration felt heavy, so we tried a shorter form to grow attendance.",
+  "what_happened": "The short form brought in many more registrations and MQLs, but sales accepted a much smaller share of them, so qualified pipeline did not grow.",
+  "learned_about_customer": "Removing qualifying questions lets in curious learners who have no budget or active project.",
+  "learned_about_journey": "Friction at registration was doing useful qualification work before the sales handoff.",
+  "learned_about_business": "Optimizing registrations alone shifts cost to sales without adding pipeline.",
+  "should_not_conclude": "That shorter forms are bad in general, or that webinars do not work. The loss came from removing intent questions, not from form length itself.",
+  "reusable_principle": "Measure a form change at the stage where quality is decided, not where volume is counted.",
+  "next_hypothesis": {
+    "title": "Short form plus one intent question",
+    "observed_problem": "Short registration forms raise volume but lower sales acceptance.",
+    "affected_audience": "Webinar registrants",
+    "causal_explanation": "Without any intent signal, learners and buyers look the same.",
+    "intervention": "Keep the short form but add a single buying-timeline question that routes non-buyers to nurture.",
+    "expected_behavior_change": "Registrations stay high while sales acceptance recovers.",
+    "expected_business_outcome": "More qualified webinar pipeline per sales hour."
+  }
+}

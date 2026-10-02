@@ -26,6 +26,9 @@ PAGES = {
     "Learning": [
         st.Page("views/8_Downstream_Impact_Analyzer.py", title="Downstream Impact Analyzer",
                 icon=":material/query_stats:"),
+        st.Page("views/9_Experiment_Learning_Capture.py", title="Experiment Learning Capture",
+                icon=":material/school:"),
+        st.Page("views/10_Experiment_Library.py", title="Experiment Library", icon=":material/library_books:"),
     ],
 }
 

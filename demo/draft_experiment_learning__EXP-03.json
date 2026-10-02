@@ -1,0 +1,19 @@
+{
+  "theme": "pricing_uncertainty",
+  "original_problem": "Paid search visitors exit the pricing page; we guessed unanswered plan questions were the cause.",
+  "what_happened": "The FAQ accordion moved click-through slightly, but the test was too small and too short to tell a real effect from noise.",
+  "learned_about_customer": "We still do not know which plan details confuse evaluators.",
+  "learned_about_journey": "Pricing questions are not resolved by content hidden below the pricing table.",
+  "learned_about_business": "Small pricing tests on paid search traffic need several weeks to reach a verdict.",
+  "should_not_conclude": "That pricing clarity does not matter. This test could only detect a large effect, and an FAQ is a weak version of the fix.",
+  "reusable_principle": "Size the test before running it; an underpowered test teaches nothing.",
+  "next_hypothesis": {
+    "title": "Plan comparison table for paid search",
+    "observed_problem": "Paid search evaluators exit the pricing page at a rising rate.",
+    "affected_audience": "Paid search evaluators",
+    "causal_explanation": "Plan inclusions and limits are hard to compare.",
+    "intervention": "Replace the plan cards with a comparison table of inclusions and limits.",
+    "expected_behavior_change": "Fewer exits and more demo clicks from the pricing page.",
+    "expected_business_outcome": "Lower paid search acquisition cost."
+  }
+}
