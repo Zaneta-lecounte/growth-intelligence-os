@@ -17,10 +17,15 @@ priorities, and learnings.
 5. **Run tests before every commit:** `python -m pytest -q`. Do not commit red.
 6. **LLM text never carries numbers.** Narrative fields use `gios.core.report.Narrative`, which rejects
    digits; reports render computed values next to the prose.
-7. **Conventional commits:** `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:` (optional scope, e.g. `feat(core): ...`).
+7. **Link modules through structured data.** Downstream modules read `Signal.attributes` (page, device,
+   source, stage, owner, kind, theme), never parse ids or summary text.
+8. **Every LLM claim cites a stored id** and is validated against the records in scope.
+9. **Conventional commits:** `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:` (optional scope, e.g. `feat(core): ...`).
 
 ## Layout
-- `app.py` — `st.navigation` router; `home.py` — home page; `views/` — one Streamlit page per module (registered in `app.py`)
+- `app.py` — `st.navigation` router; `home.py` — home page; `views/` — one Streamlit page per module (registered in `app.py`), plus `0_Run_Full_Diagnostic.py`
+- `gios/ui.py` — shared page scaffolding: per-session store (`GIOS_STORE_MODE=shared` for one gios.db), "How this module works", badges, seeding
+- `gios/modules/demo_flow.py` — seeds the store end to end; `gios/modules/full_diagnostic.py` — one-click run + story checks
 - `gios/config.py` — model name, paths, demo-mode detection
 - `gios/core/` — `schemas.py` (shared Pydantic models), `llm.py` (LLM wrapper), `store.py` (SQLite)
 - `gios/modules/` — one package per module (deterministic logic + LLM narrative)
@@ -28,7 +33,7 @@ priorities, and learnings.
 - `data/synthetic/` — generated CSVs; `tests/` — pytest
 
 ## Commands
-- `pip install -r requirements.txt`
+- `pip install -r requirements-dev.txt` (runtime deps are pinned in `requirements.txt`)
 - `python scripts/generate_data.py` — regenerate synthetic data
 - `python scripts/build_demo_cache.py [--live] [--only <module>]` — rebuild `demo/` (rerun after changing data or prompts)
 - `streamlit run app.py`
