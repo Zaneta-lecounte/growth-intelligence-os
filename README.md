@@ -11,6 +11,12 @@ meeting transcription.
 
 GIOS has four layers. The learning layer feeds back into the signal layer:
 
+```mermaid
+flowchart LR
+    S["1. Signal"] --> D["2. Diagnosis"] --> P["3. Prioritization"] --> L["4. Learning"]
+    L -. learning loop .-> S
+```
+
 1. **Signal**: collect and classify evidence (observed / inferred / unknown)
 2. **Diagnosis**: find where value leaks and why
 3. **Prioritization**: score opportunities with GROWTH and validate hypotheses
