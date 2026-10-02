@@ -1,0 +1,14 @@
+from gios.core.schemas import Signal
+from gios.modules.signal_layer import run_signal_layer
+
+
+def test_run_signal_layer_seeds_store(store):
+    counts = run_signal_layer(store)
+    assert counts == {"customer_signal_synthesizer": 10, "behavioral_friction_analyzer": 3,
+                      "qualified_demand_leakage_auditor": 15}
+    signals = {s.id: s for s in store.list(Signal)}
+    assert {"css-pricing_uncertainty", "bfa-pricing-source-paid_search", "qdl-flag-rising_cac-paid_search"} <= set(signals)
+    assert signals["bfa-pricing-source-paid_search"].channel == "paid_search"
+    assert "supported by customer evidence" in signals["bfa-pricing-source-paid_search"].summary
+    run_signal_layer(store)  # idempotent
+    assert len(store.list(Signal)) == 28

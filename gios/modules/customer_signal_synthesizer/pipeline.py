@@ -82,5 +82,6 @@ def run(evidence: Optional[pd.DataFrame] = None, client: Any = None) -> Customer
         untagged=int((~tagged.tagged).sum()),
         disagreements=analysis.disagreements(tagged),
         meta={"evidence_rows": len(evidence), "unique_verbatims": int(evidence.text_key.nunique()),
-              "months": f"{evidence.month.min()} to {evidence.month.max()}"},
+              "months": f"{evidence.month.min()} to {evidence.month.max()}",
+              "period": analysis.period_of(evidence.month)},
     )

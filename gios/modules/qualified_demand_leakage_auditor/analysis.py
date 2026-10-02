@@ -44,11 +44,12 @@ class Settings:
     sla_hours: float = 24.0
     sla_share_threshold: float = 0.20  # share of MQLs followed up after the SLA
     qualification_share_threshold: float = 0.50  # share of rejections with qualification reasons
+    cac_rise_threshold: float = 0.25  # CAC in the later half vs the earlier half of the period
 
 
 @dataclass
 class Flag:
-    kind: str           # high_volume_low_quality | strong_top_weak_downstream | sla_loss | routing_loss | qualification_mismatch
+    kind: str           # high_volume_low_quality | strong_top_weak_downstream | sla_loss | routing_loss | qualification_mismatch | rising_cac
     source: str
     owner: str
     evidence: str
@@ -62,6 +63,7 @@ class Flag:
             "sla_loss": "Follow-up SLA loss",
             "routing_loss": "Routing loss",
             "qualification_mismatch": "Qualification mismatch",
+            "rising_cac": "Rising CAC",
         }[self.kind]
 
 
@@ -114,6 +116,25 @@ def economics(funnel: pd.DataFrame) -> pd.DataFrame:
     })
 
 
+def cac_trend(funnel: pd.DataFrame) -> pd.DataFrame:
+    """Per source: CAC (spend / wins) in the earlier vs later half of the period."""
+    months = sorted(funnel.month.unique())
+    half = len(months) // 2
+    early, late = months[:half], months[len(months) - half:]
+    rows = []
+    for source, g in funnel.groupby("source"):
+        e, l = g[g.month.isin(early)], g[g.month.isin(late)]
+        cac_e = stats.safe_rate(e.spend.sum(), e.wins.sum())
+        cac_l = stats.safe_rate(l.spend.sum(), l.wins.sum())
+        rows.append({"source": source, "early_months": f"{early[0]}..{early[-1]}" if early else "",
+                     "late_months": f"{late[0]}..{late[-1]}" if late else "",
+                     "early_wins": int(e.wins.sum()), "late_wins": int(l.wins.sum()),
+                     "early_cac": cac_e, "late_cac": cac_l,
+                     "change": stats.pct_deviation(cac_l, cac_e) if cac_e else 0.0,
+                     "early_spend": float(e.spend.sum()), "late_spend": float(l.spend.sum())})
+    return pd.DataFrame(rows).set_index("source")
+
+
 def follow_up(sales: pd.DataFrame, settings: Settings) -> pd.DataFrame:
     """Per source: follow-up timing vs SLA and acceptance within vs beyond SLA."""
     s = sales.assign(late=sales.hours_to_first_follow_up > settings.sla_hours,
@@ -151,7 +172,7 @@ def _get(sm: pd.DataFrame, source: str, stage: str) -> pd.Series:
 
 
 def detect_flags(sm: pd.DataFrame, econ: pd.DataFrame, fu: pd.DataFrame, rej: pd.DataFrame,
-                 settings: Settings) -> list[Flag]:
+                 settings: Settings, cac: Optional[pd.DataFrame] = None) -> list[Flag]:
     flags: list[Flag] = []
     n_sources = sm.source.nunique()
     for source in sorted(sm.source.unique()):
@@ -194,6 +215,16 @@ def detect_flags(sm: pd.DataFrame, econ: pd.DataFrame, fu: pd.DataFrame, rej: pd
                                   f"{r.qualification_share:.0%} of {int(r.rejections):,} sales rejections cite "
                                   f"qualification reasons ({reasons}); MQL→SQL {m2s.rate:.1%} vs {m2s.benchmark:.1%}",
                                   {"qualification_share": r.qualification_share, "rejections": int(r.rejections)}))
+        if cac is not None and source in cac.index:
+            c = cac.loc[source]
+            if (min(c.early_wins, c.late_wins) >= settings.min_volume
+                    and c.change >= settings.cac_rise_threshold):
+                spend_change = stats.pct_deviation(c.late_spend, c.early_spend)
+                wins_change = stats.pct_deviation(c.late_wins, c.early_wins)
+                flags.append(Flag("rising_cac", source, "acquisition",
+                                  f"CAC ${c.late_cac:,.0f} in {c.late_months} vs ${c.early_cac:,.0f} in "
+                                  f"{c.early_months} ({c.change:+.0%}); spend {spend_change:+.0%}, wins {wins_change:+.0%}",
+                                  {"early_cac": c.early_cac, "late_cac": c.late_cac, "change": c.change}))
     unassigned = int(fu.unassigned.sum()) if len(fu) else 0
     if unassigned >= settings.min_volume:
         flags.append(Flag("routing_loss", "all", "operations_routing",
@@ -266,6 +297,8 @@ class LeakageAnalysis:
     flags: list[Flag]
     leaks: pd.DataFrame
     months: int
+    cac: Optional[pd.DataFrame] = None
+    period: str = ""
 
     @property
     def top_leak(self) -> Optional[pd.Series]:
@@ -287,7 +320,9 @@ def analyze(funnel: pd.DataFrame, sales: pd.DataFrame, settings: Settings = Sett
     econ = economics(funnel)
     fu = follow_up(sales, settings)
     rej = rejection_mix(sales)
-    flags = detect_flags(sm, econ, fu, rej, settings)
+    cac = cac_trend(funnel)
+    flags = detect_flags(sm, econ, fu, rej, settings, cac)
     months = max(funnel.month.nunique(), 1)
     leaks = size_leaks(sm, econ, flags, settings, months)
-    return LeakageAnalysis(settings, sm, seg, econ, fu, rej, flags, leaks, months)
+    period = f"{funnel.month.min()}..{funnel.month.max()}"
+    return LeakageAnalysis(settings, sm, seg, econ, fu, rej, flags, leaks, months, cac, period)

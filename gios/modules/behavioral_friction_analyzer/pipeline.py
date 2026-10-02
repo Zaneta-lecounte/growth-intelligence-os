@@ -92,6 +92,7 @@ def run(web: Optional[pd.DataFrame] = None, funnel: Optional[pd.DataFrame] = Non
     evidence = {fid: check_evidence(c, customer_signals) for fid, c in classifications.items()}
     return BehavioralResult(findings, classifications, evidence, customer_signals, thresholds,
                             meta={"months": f"{web.month.min()} to {web.month.max()}",
+                                  "period": f"{web.month.min()}..{web.month.max()}",
                                   "sessions": int(web.sessions.sum())})
 
 
@@ -120,5 +121,7 @@ def to_signals(result: BehavioralResult) -> list[Signal]:
             summary=(f"{f.title}: " + "; ".join(fl.describe() for fl in f.flags)
                      + f". Friction: {friction} ({ev.status if ev else 'not classified'})."),
             strength=strength,
+            channel=f.value if f.dimension == "source" else None,
+            period=result.meta.get("period"),
         ))
     return signals

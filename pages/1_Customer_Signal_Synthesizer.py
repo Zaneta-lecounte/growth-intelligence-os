@@ -70,7 +70,7 @@ with right:
 
 st.divider()
 markdown = to_markdown(themes, result.synthesis, result.untagged, result.disagreements, result.meta)
-signals = analysis.to_signals(themes)
+signals = analysis.to_signals(themes, period=result.meta["period"])
 save_signals(signals, MODULE, key="css_save")
 markdown_report(markdown, "customer_signal_synthesizer.md")
 

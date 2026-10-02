@@ -176,7 +176,8 @@ def test_acceptance_holds_for_any_gap_closure(gap):
 def test_acceptance_flags(demo):
     kinds = {(f.kind, f.source) for f in demo.analysis.flags}
     assert {("qualification_mismatch", "webinar"), ("strong_top_weak_downstream", "webinar"),
-            ("high_volume_low_quality", "webinar"), ("sla_loss", "partner"), ("routing_loss", "all")} == kinds
+            ("high_volume_low_quality", "webinar"), ("sla_loss", "partner"), ("routing_loss", "all"),
+            ("rising_cac", "paid_search")} == kinds
     # webinar follow-up speed is fine: not an SLA problem
     assert demo.analysis.follow_up.loc["webinar", "late_share"] < 0.05
 
@@ -209,3 +210,27 @@ def test_page_renders_and_saves():
     assert any("webinar · MQL→SQL" in m.value for m in at.markdown)
     at.button(key="qdl_save").click().run(timeout=60)
     assert len(Store().list(Signal, module="qualified_demand_leakage_auditor")) == len(to_signals(run()))
+
+
+def test_cac_trend_and_rising_cac_flag():
+    rows = []
+    for i, m in enumerate(["2026-01", "2026-02", "2026-03", "2026-04"]):
+        rows.append([m, "a", "smb", 1000, 100, 50, 40, 40, 40 if i < 2 else 20, 1, 4000])
+        rows.append([m, "b", "smb", 1000, 100, 50, 40, 40, 40, 1, 4000])
+    f = pd.DataFrame(rows, columns=["month", "source", "segment", "visits", "leads", "mqls", "sqls", "opps",
+                                    "wins", "revenue", "spend"])
+    cac = analysis.cac_trend(f)
+    assert cac.loc["a", "early_cac"] == pytest.approx(100) and cac.loc["a", "late_cac"] == pytest.approx(200)
+    assert cac.loc["a", "change"] == pytest.approx(1.0) and cac.loc["b", "change"] == 0
+    a = analysis.analyze(f, sales([]).astype({"hours_to_first_follow_up": float}), Settings(min_volume=30))
+    assert [(x.kind, x.source) for x in a.flags if x.kind == "rising_cac"] == [("rising_cac", "a")]
+    few = analysis.analyze(f, sales([]).astype({"hours_to_first_follow_up": float}), Settings(min_volume=50))
+    assert not [x for x in few.flags if x.kind == "rising_cac"]
+
+
+def test_signals_carry_channel_and_period(demo):
+    by_id = {s.id: s for s in to_signals(demo)}
+    assert by_id["qdl-flag-rising_cac-paid_search"].channel == "paid_search"
+    assert by_id["qdl-flag-rising_cac-paid_search"].type == "acquisition"
+    assert by_id["qdl-flag-routing_loss-all"].channel is None
+    assert all(s.period == "2026-03..2026-08" for s in by_id.values())

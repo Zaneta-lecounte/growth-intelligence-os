@@ -176,7 +176,11 @@ def rank(themes: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def to_signals(themes: pd.DataFrame) -> list[Signal]:
+def period_of(months: pd.Series) -> str:
+    return f"{months.min()}..{months.max()}"
+
+
+def to_signals(themes: pd.DataFrame, period: Optional[str] = None) -> list[Signal]:
     signals = []
     for r in themes.itertuples():
         signals.append(Signal(
@@ -192,5 +196,6 @@ def to_signals(themes: pd.DataFrame) -> list[Signal]:
                 f"= {r.overall} (rank {r.overall_rank}). e.g. \"{r.quote}\""
             ),
             strength=stats.score_to_strength(r.overall, STRENGTH_EDGES),
+            period=period,
         ))
     return signals

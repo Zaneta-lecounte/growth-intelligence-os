@@ -19,8 +19,23 @@ def test_every_module_has_a_package():
         importlib.import_module(f"gios.modules.{m.slug}")
 
 
-def test_home_page_renders_in_demo_mode():
+def test_navigation_lists_every_page():
+    import re
+
+    app = (config.ROOT / "app.py").read_text()
+    pages = sorted(p.name for p in (config.ROOT / "pages").glob("*.py"))
+    assert pages and all(f"pages/{p}" in app for p in pages)
+    assert "home.py" in app
+
+
+def test_app_entrypoint_runs_home():
     at = AppTest.from_file(str(config.ROOT / "app.py")).run(timeout=30)
+    assert not at.exception
+    assert "GIOS" in at.title[0].value
+
+
+def test_home_page_renders_in_demo_mode():
+    at = AppTest.from_file(str(config.ROOT / "home.py")).run(timeout=30)
     assert not at.exception
     assert any("Demo mode" in i.value for i in at.info)
     assert "GIOS" in at.title[0].value
@@ -28,6 +43,6 @@ def test_home_page_renders_in_demo_mode():
 
 def test_home_page_hides_banner_with_key(monkeypatch):
     monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-test")
-    at = AppTest.from_file(str(config.ROOT / "app.py")).run(timeout=30)
+    at = AppTest.from_file(str(config.ROOT / "home.py")).run(timeout=30)
     assert not at.exception
     assert not any("Demo mode" in i.value for i in at.info)

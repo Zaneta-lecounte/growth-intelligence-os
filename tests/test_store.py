@@ -104,3 +104,16 @@ def test_rejects_unknown_model(store):
 
     with pytest.raises(TypeError):
         store.list(Variant)
+
+
+def test_save_without_module_keeps_existing_module(store):
+    s = sig()
+    store.save(s, module="customer_signal")
+    s.strength = 1
+    store.save(s)
+    assert store.module_of(Signal, s.id) == "customer_signal"
+    assert store.list(Signal, module="customer_signal")[0].strength == 1
+    new = sig("new")
+    store.save(new)
+    assert store.module_of(Signal, new.id) == ""
+    assert store.module_of(Signal, "missing") is None

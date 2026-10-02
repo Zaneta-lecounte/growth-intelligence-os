@@ -64,18 +64,24 @@ class Store:
         finally:
             conn.close()
 
-    def save(self, obj: GIOSModel, module: str = "") -> str:
-        """Insert or replace an entity; returns its id."""
+    def save(self, obj: GIOSModel, module: Optional[str] = None) -> str:
+        """Insert or replace an entity; returns its id. module=None keeps the module an
+        existing record was saved under ("" for new records)."""
         return self.save_many([obj], module=module)[0]
 
-    def save_many(self, objs: Iterable[GIOSModel], module: str = "") -> list[str]:
+    def save_many(self, objs: Iterable[GIOSModel], module: Optional[str] = None) -> list[str]:
         ids = []
         with self._connect() as conn:
             for obj in objs:
+                mod = module
+                if mod is None:
+                    row = conn.execute(f"SELECT module FROM {_table(type(obj))} WHERE id = ?",
+                                       (obj.id,)).fetchone()
+                    mod = row[0] if row else ""
                 conn.execute(
                     f"INSERT OR REPLACE INTO {_table(type(obj))} (id, module, created_at, payload) "
                     "VALUES (?, ?, ?, ?)",
-                    (obj.id, module, obj.created_at.isoformat(), obj.model_dump_json()),
+                    (obj.id, mod, obj.created_at.isoformat(), obj.model_dump_json()),
                 )
                 ids.append(obj.id)
         return ids
@@ -107,6 +113,11 @@ class Store:
         with self._connect() as conn:
             cur = conn.execute(f"DELETE FROM {_table(model_cls)} WHERE module = ?", (module,))
         return cur.rowcount
+
+    def module_of(self, model_cls: type[GIOSModel], obj_id: str) -> Optional[str]:
+        with self._connect() as conn:
+            row = conn.execute(f"SELECT module FROM {_table(model_cls)} WHERE id = ?", (obj_id,)).fetchone()
+        return row[0] if row else None
 
     def replace_module_output(self, objs: Iterable[GIOSModel], module: str) -> list[str]:
         """Replace everything `module` previously saved for these entity types."""

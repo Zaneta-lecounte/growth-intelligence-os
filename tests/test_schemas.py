@@ -199,3 +199,19 @@ def test_recommendation_defaults_and_vocab():
     assert r.horizon == "now" and r.confidence == "medium"
     with pytest.raises(ValidationError):
         Recommendation(title="x", action_type="vibes", rationale="y")
+
+
+def test_signal_channel_period_and_overlap():
+    s = make_signal(channel="paid_search", period="2026-03..2026-08")
+    assert s.covers_month_range("2026-08", "2026-12")
+    assert not s.covers_month_range("2026-09", "2026-12")
+    assert not s.covers_month_range("2025-01", "2026-02")
+    assert make_signal().covers_month_range("2020-01", "2020-02")  # unknown period: keep
+
+
+def test_hypothesis_missing_parts_and_label():
+    h = Hypothesis(observed_problem="Exits are high", intervention="  ")
+    assert h.missing_parts == ["affected_audience", "causal_explanation", "intervention",
+                               "expected_behavior_change", "expected_business_outcome"]
+    assert h.label == "Exits are high"
+    assert Hypothesis(title="T").label == "T"

@@ -80,6 +80,17 @@ class Signal(GIOSModel):
     journey_stage: JourneyStage
     summary: str = Field(min_length=1)
     strength: int = _score(1, 5, optional=False)
+    # Acquisition channel the signal is about (e.g. "paid_search"); None = channel-agnostic.
+    channel: Optional[str] = None
+    # Period covered, "YYYY-MM..YYYY-MM"; None = unknown.
+    period: Optional[str] = None
+
+    def covers_month_range(self, start: str, end: str) -> bool:
+        """True when the signal's period overlaps [start, end] (or the period is unknown)."""
+        if not self.period:
+            return True
+        lo, _, hi = self.period.partition("..")
+        return lo <= end and (hi or lo) >= start
 
 
 # --- Diagnosis / prioritization layer ------------------------------------------------------
@@ -123,16 +134,28 @@ class Opportunity(GIOSModel):
         return round(numerator / self.technical_effort, 2)
 
 
+HYPOTHESIS_PARTS = (
+    "observed_problem", "affected_audience", "causal_explanation", "intervention",
+    "expected_behavior_change", "expected_business_outcome",
+)
+ValidatorRecommendation = Literal["test", "research_first", "instrument_first", "reject"]
+
+
 class Hypothesis(GIOSModel):
     opportunity_id: Optional[str] = None
-    # Hypothesis standard (hypothesis-evidence-validator.md)
-    observed_problem: str = Field(min_length=1)
-    affected_audience: str = Field(min_length=1)
-    causal_explanation: str = Field(min_length=1)
-    intervention: str = Field(min_length=1)
-    expected_behavior_change: str = Field(min_length=1)
-    expected_business_outcome: str = Field(min_length=1)
+    title: str = ""
+    # Hypothesis standard (hypothesis-evidence-validator.md). Parts may be empty so the
+    # validator can flag what is missing.
+    observed_problem: str = ""
+    affected_audience: str = ""
+    causal_explanation: str = ""
+    intervention: str = ""
+    expected_behavior_change: str = ""
+    expected_business_outcome: str = ""
     signal_ids: list[str] = Field(default_factory=list)
+    contradicting_signal_ids: list[str] = Field(default_factory=list)
+    missing_evidence: list[str] = Field(default_factory=list)
+    confidence: Optional[Confidence] = None
 
     # Validation dimensions, 0–2 each
     evidence_diversity: Optional[int] = _score(0, 2)
@@ -141,6 +164,16 @@ class Hypothesis(GIOSModel):
     business_relevance: Optional[int] = _score(0, 2)
     testability: Optional[int] = _score(0, 2)
     measurement_readiness: Optional[int] = _score(0, 2)
+    score_justifications: dict[str, str] = Field(default_factory=dict)
+    validator_recommendation: Optional[ValidatorRecommendation] = None
+
+    @property
+    def missing_parts(self) -> list[str]:
+        return [p for p in HYPOTHESIS_PARTS if not getattr(self, p).strip()]
+
+    @property
+    def label(self) -> str:
+        return self.title or self.observed_problem or self.id
 
     def _dimension_scores(self) -> list[Optional[int]]:
         return [

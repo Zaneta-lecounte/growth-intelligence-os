@@ -69,7 +69,8 @@ def run(funnel: Optional[pd.DataFrame] = None, sales: Optional[pd.DataFrame] = N
 
 
 FLAG_SIGNAL_TYPE = {"high_volume_low_quality": "acquisition", "strong_top_weak_downstream": "funnel",
-                    "sla_loss": "operational", "routing_loss": "operational", "qualification_mismatch": "funnel"}
+                    "sla_loss": "operational", "routing_loss": "operational", "qualification_mismatch": "funnel",
+                    "rising_cac": "acquisition"}
 
 
 def to_signals(result: LeakageResult) -> list[Signal]:
@@ -89,6 +90,8 @@ def to_signals(result: LeakageResult) -> list[Signal]:
                      f"benchmark; closing {a.settings.gap_closure:.0%} of the gap ≈ +{r.extra_wins_per_month:.1f} "
                      f"wins (${r.extra_revenue_per_month:,.0f}) per month. Owner: {analysis.OWNERS[r.owner]}."),
             strength=stats.score_to_strength(r.extra_revenue_per_month, edges),
+            channel=r.source,
+            period=a.period,
         ))
     for f in a.flags:
         signals.append(Signal(
@@ -100,6 +103,9 @@ def to_signals(result: LeakageResult) -> list[Signal]:
             segment="all",
             journey_stage="evaluation",
             summary=f"{f.label} ({f.source}): {f.evidence}. Owner: {analysis.OWNERS[f.owner]}.",
-            strength=4 if f.source == (a.top_leak.source if a.top_leak is not None else None) else 3,
+            strength=4 if f.source == (a.top_leak.source if a.top_leak is not None else None)
+            or f.kind == "rising_cac" else 3,
+            channel=None if f.source == "all" else f.source,
+            period=a.period,
         ))
     return signals
